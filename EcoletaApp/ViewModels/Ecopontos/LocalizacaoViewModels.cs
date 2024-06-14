@@ -64,7 +64,7 @@ namespace EcoletaApp.ViewModels.Ecopontos
         {
             try
             { 
-                ObservableCollection<Utilizador> ocUtilizador = await uService.GetUsuariosAsync();
+                ObservableCollection<Utilizador> ocUtilizador = await uService.GetUtilizadoresAsync();
                 List<Utilizador> listUtilizador = new List<Utilizador>(ocUtilizador);
                 Map map = new Map();
 

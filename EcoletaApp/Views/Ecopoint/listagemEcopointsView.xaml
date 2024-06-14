@@ -23,7 +23,7 @@
                                     <Label Text="{Binding Idmaterial}" FontSize="14" FontAttributes="Bold"/>
                                     <Label Text="{Binding OrdemGrandeza}" FontSize="14"/>
                                     <Label Text="{Binding Quantidade}" FontSize="14"/>
-                                    <Label Text="{Binding TotalEcoPoints}" FontSize="14"/>  
+                                    <Label Text="{Binding TotalEcoPoints}" FontSize="14"/>
                                 </StackLayout>
                         </ViewCell>
                     </DataTemplate>

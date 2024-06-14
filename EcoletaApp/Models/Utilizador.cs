@@ -20,7 +20,10 @@ namespace EcoletaApp.Models
 
         [ForeignKey("TotalEcoPoints")]
         public Ecopoints EcoPoints { get; set; } = new Ecopoints();
+
+        [NotMapped]
         public double Latitude { get; set; }
+        [NotMapped]
         public double Longitude { get; set; }
 
         public string Username { get; set; } = string.Empty;

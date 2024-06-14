@@ -11,7 +11,7 @@ namespace EcoletaApp.Services.Brindes
     public class BrindesServices : Request
     {
         private readonly Request _request;
-        private const string apiUrlBase = "http://SustenTechDS.somee.com/Ecoleta/api/Brinde";
+        private const string apiUrlBase = "http://SustenTechDS.somee.com/Ecoleta/api/Brinde/";
 
         public BrindesServices()
         {
@@ -20,28 +20,29 @@ namespace EcoletaApp.Services.Brindes
 
         public async Task<int> PostBrindeAsync(Brinde b)
         {
-            string urlComplementar = "/";
+            string urlComplementar = "Post";
             return await _request.PostReturnIntAsync(apiUrlBase + urlComplementar, b);
         }
 
         public async Task<ObservableCollection<Brinde>> GetAllBrindeAsync()
         {
-            ObservableCollection<Models.Brinde> lista = await _request.GetSemTokenAsync<ObservableCollection<Models.Brinde>>(apiUrlBase);
+            string urlComplementar = "GetAll";
+            ObservableCollection<Models.Brinde> lista = await _request
+                .GetSemTokenAsync<ObservableCollection<Models.Brinde>>(apiUrlBase+urlComplementar);
 
             return lista;
         }
 
         public async Task<Brinde> GetBrindeIdAsync(int id)
         {
-            string urlComplementar = string.Format("/{0}", id);
-            var brinde = await _request.GetSemTokenAsync<Models.Brinde>(apiUrlBase + urlComplementar);
-           
+            string urlComplementar = string.Format("GetId/{0}", id);
+            var brinde = await _request.GetSemTokenAsync<Models.Brinde>(apiUrlBase + urlComplementar);           
             return brinde;
         }
 
         public async Task<int> PutBrindeAsync(Brinde b)
         {
-            string urlComplementar = string.Format("/{0}", b.IdBrinde);
+            string urlComplementar = string.Format("Put/{0}", b.IdBrinde);
             var result = await _request.PutSemTokenAsync(apiUrlBase + urlComplementar, b);
 
             return result;  
@@ -49,7 +50,7 @@ namespace EcoletaApp.Services.Brindes
 
         public async Task<int> DeleteBrindeAsync(int id)
         {
-            string urlComplementar = string.Format("/{0}", id);
+            string urlComplementar = string.Format("Delete/{0}", id);
             var retult = await _request.DeleteSemTokenAsync(apiUrlBase + urlComplementar);
             
             return retult;

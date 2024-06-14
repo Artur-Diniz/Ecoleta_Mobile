@@ -52,7 +52,7 @@ namespace EcoletaApp.ViewModels.Ecopontos
         {
             try
             { 
-                Ecopontos = await _service.GetEcopontosAsync();
+                Ecopontos = await _service.GetAllEcopontosAsync();
                 OnPropertyChanged(nameof(Ecopontos));
             }
             catch (Exception ex) 

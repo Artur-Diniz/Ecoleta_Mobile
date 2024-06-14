@@ -8,19 +8,45 @@ using EcoletaApp.Models;
 
 namespace EcoletaApp.Services.UtilizadorService
 {
-    public  class utilizadorService : Request
+    public class utilizadorService : Request
     {
         private readonly Request _request;
-        private const string ApiUrlBase = "http://SustenTechDS.somee.com/Ecoleta/api/Ecoponto";
+        private const string ApiUrlBase = "http://SustenTechDS.somee.com/Ecoleta/api/Utilizador/";
 
         public utilizadorService()
-        { 
+        {
             _request = new Request();
         }
 
+        #region métodos Get
+        public async Task<ObservableCollection<Utilizador>> GetUtilizadoresAsync()
+        {
+            string urlComplementar = "GetAll";
+            ObservableCollection<Models.Utilizador> listaUsuarios = await
+            _request.GetSemTokenAsync<ObservableCollection<Models.Utilizador>>(ApiUrlBase + urlComplementar);
+            return listaUsuarios;
+        }
+
+        public async Task<Utilizador> GetUtilizadorAsync(int uId)
+        {
+            string urlComplementar = string.Format("GetbyId/{0}", uId);
+            Utilizador u = await _request.GetSemTokenAsync<Models.Utilizador>(ApiUrlBase + urlComplementar);
+
+            return u;
+        }
+        #endregion
+
+        #region métodos Post
+        public async Task<Utilizador> PostUtilizadorAsync(Utilizador u)
+        {
+            string urlComplementar = "Post";
+            u.IdUtilizador = await _request.PostReturnIntAsync(ApiUrlBase + urlComplementar, u);
+
+            return u;
+        }
         public async Task<Utilizador> PostRegistrarUtilizadorAsync(Utilizador u)
         {
-            string urlComplementar = "/Registrar";
+            string urlComplementar = "Registrar";
             u.IdUtilizador = await _request.PostReturnIntAsync(ApiUrlBase + urlComplementar, u);
 
             return u;
@@ -28,11 +54,33 @@ namespace EcoletaApp.Services.UtilizadorService
 
         public async Task<Utilizador> PostAutenticarUtilizadorAsync(Utilizador u)
         {
-            string urlComplementar = "/Autenticar";
+            string urlComplementar = "Autenticar";
             u = await _request.PostSemTokenAsync(ApiUrlBase + urlComplementar, u);
 
-
             return u;
+        }
+        #endregion
+
+        #region Métodos Put
+        public async Task<int> PutUtilizadorAsync(Utilizador u)
+        {
+            int id = u.IdUtilizador;
+            string urlComplementar = string.Format("Put/{0}", id);
+            var result = await _request.PutSemTokenAsync(ApiUrlBase + urlComplementar, u);
+            return result;
+        }
+
+        public async Task<int> PutAlterarSenhaAsync(Utilizador u)
+        {
+            string urlComplementar = "/AlterarSenha";
+            var result = await _request.PutSemTokenAsync(ApiUrlBase + urlComplementar, u);
+            return result;
+        }
+        public async Task<int> PutAlterarEmailAsync(Utilizador u)
+        {
+            string urlComplementar = "/AtualizarEmail";
+            var result = await _request.PutSemTokenAsync(ApiUrlBase + urlComplementar, u);
+            return result;
         }
 
         public async Task<int> PutAtualizarLocalizacaoAsync(Utilizador u)
@@ -41,21 +89,16 @@ namespace EcoletaApp.Services.UtilizadorService
             var result = await _request.PutSemTokenAsync(ApiUrlBase + urlComplementar, u);
             return result;
         }
-        //using System.Collections.ObjectModel
-        public async Task<ObservableCollection<Utilizador>> GetUsuariosAsync()
-        {
-            string urlComplementar = "/GetAll";
-            ObservableCollection<Models.Utilizador> listaUsuarios = await
-            _request.GetSemTokenAsync<ObservableCollection<Models.Utilizador>>(ApiUrlBase + urlComplementar);
-            return listaUsuarios;
-        }
 
-        public async Task<Utilizador> GetutilizadorAsync(int uId)
-        {
-            string urlComplementar = string.Format("{0}", "uId");
-            Utilizador u = await _request.GetSemTokenAsync<Models.Utilizador>(ApiUrlBase + urlComplementar);
+        #endregion
 
-            return u;
+
+        public async Task<int> DeleteUtilizadorAsync(int id)
+        {
+            string urlComplementar = string.Format("Delete/{0}", id);
+            var result = await _request.DeleteSemTokenAsync(ApiUrlBase + urlComplementar);
+
+            return id;
         }
 
 

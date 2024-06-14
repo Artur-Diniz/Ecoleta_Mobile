@@ -11,7 +11,7 @@ namespace EcoletaApp.Services.Coletas
     public class ColetaService
     {
         private readonly Request _request;
-        private const string apiURLBase = "http://SustenTechDS.somee.com/Ecoleta/api/Coleta";
+        private const string apiURLBase = "http://SustenTechDS.somee.com/Ecoleta/api/Coleta/";
 
         public ColetaService() 
         {
@@ -20,14 +20,14 @@ namespace EcoletaApp.Services.Coletas
       
         public async Task<Coleta> PostColetaAsync(Coleta c)
         {
-            string urlComplementar = "/";
+            string urlComplementar = "Post";
             return await _request.PostSemTokenAsync(apiURLBase + urlComplementar, c);
          
         }
 
         public async Task<int> PostColetaIndIdAsync(Coleta c)
         {
-            string urlComplementar = "/";
+            string urlComplementar = "Post";
             Coleta result = await _request.PostSemTokenAsync(apiURLBase + urlComplementar, c);
             return result.IdColeta;
         }
@@ -35,7 +35,7 @@ namespace EcoletaApp.Services.Coletas
 
         public async Task<ObservableCollection<Coleta>> GetColetaAllAsync()
         {
-            string urlComplementar = string.Format("/");
+            string urlComplementar = string.Format("GetAll");
 
             ObservableCollection<Models.Coleta> lista = await _request.GetSemTokenAsync<ObservableCollection<Models.Coleta>>(apiURLBase + urlComplementar);
 
@@ -44,7 +44,7 @@ namespace EcoletaApp.Services.Coletas
 
         public async Task<Coleta> GetColetaAsync(int Id)
         {
-            string urlComplementar = string.Format("/{0}", Id);
+            string urlComplementar = string.Format("GetId/{0}", Id);
             var coleta = await _request.GetSemTokenAsync<Models.Coleta>(apiURLBase + urlComplementar);
 
             return coleta;
@@ -53,7 +53,7 @@ namespace EcoletaApp.Services.Coletas
 
         public async Task<int> putColeta(Coleta c)
         {
-            string urlComplementar = string.Format("/{0}", c.IdColeta);
+            string urlComplementar = string.Format("Put/{0}", c.IdColeta);
             var result = await _request.PutSemTokenAsync(apiURLBase + urlComplementar, c);
 
             return result;
@@ -62,7 +62,7 @@ namespace EcoletaApp.Services.Coletas
 
         public async Task<int> DeleteColetaAsync(int c)
         {
-            string urlComplementar = string.Format("/{0}", c);
+            string urlComplementar = string.Format("Delete/{0}", c);
 
             return await _request.DeleteSemTokenAsync(apiURLBase+urlComplementar);
         }
