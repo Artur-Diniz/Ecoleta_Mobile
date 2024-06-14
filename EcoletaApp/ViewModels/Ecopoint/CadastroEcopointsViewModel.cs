@@ -133,13 +133,13 @@ namespace Ecoleta.ViewModels.Ecopoint
         {
             try
             {
-                Ecopoints e = await eService.GetEcopointsAsync(int.Parse(EcopointSelecionadoId));
+                Ecopoints e = await eService.GetEcopointsForIdMaterialAsync(int.Parse(EcopointSelecionadoId));
 
                 this.IdMaterial = e.IdMaterial;
                 this.OrdemGrandeza = e.OrdemGrandeza;
                 this.Quantidade = e.Quantidade;
                 this.TotalEcopoints = e.TotalEcoPoints;
-                this.UtilizadorId = e.UtilizadorId;
+                this.UtilizadorId = e.IdUtilizador;
 
                 SelecionarMaterial = this.TipoMaterial.FirstOrDefault(m => m.IdMaterial == (int)e.Material);
             }

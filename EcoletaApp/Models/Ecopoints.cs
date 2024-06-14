@@ -13,12 +13,13 @@ namespace EcoletaApp.Models
     {
         [Key]
         public int IdMaterial { get; set; }
+        [NotMapped]
         public MateriaisEnuns? Material{  get; set; }  = new MateriaisEnuns();
         public char OrdemGrandeza { get; set; }
         public int Quantidade { get; set; }
         public int TotalEcoPoints { get; set; }
 
-        public int UtilizadorId { get; set; }
+        public int IdUtilizador { get; set; }
 
         [ForeignKey("UtilizadorId")]
         public Utilizador Utilizador { get; set; } = new Utilizador();

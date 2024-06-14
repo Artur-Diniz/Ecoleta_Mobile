@@ -89,11 +89,7 @@ namespace EcoletaApp.ViewModels.Utililizador
                     .DisplayAlert("Informação", ex.Message + "Detalhes:" + ex.InnerException, "OK");
             }
         }
-
-
         
-
-
         public async Task AutenticarUtilizador() 
         {
             try
@@ -156,6 +152,9 @@ namespace EcoletaApp.ViewModels.Utililizador
                     .DisplayAlert("Informação", ex.Message + "Detalhes:" + ex.InnerException, "OK");
             }
         }
+
+     
+
 
     }
 }

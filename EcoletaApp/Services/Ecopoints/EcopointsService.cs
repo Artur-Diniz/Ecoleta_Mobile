@@ -18,11 +18,10 @@ namespace EcoletaApp.Services.EcopointsService
             _request = new Request();
         }
 
-        public async Task<int> PostRegistrarEcopointsAsync(Ecopoints e)
-        {
-            string urlComplementar = "Post";
-            return await _request.PostReturnIntAsync(apiURLBase + urlComplementar, e);
-        }
+   
+
+
+        #region Métodos Get
 
         public async Task<ObservableCollection<Ecopoints>> GetEcopointsAllAsync()
         {
@@ -46,6 +45,14 @@ namespace EcoletaApp.Services.EcopointsService
             var result = await _request.GetSemTokenAsync<Models.Ecopoints>(apiURLBase + urlComplementar);
 
             return result;
+        }
+
+        #endregion
+
+        public async Task<int> PostRegistrarEcopointsAsync(Ecopoints e)
+        {
+            string urlComplementar = "Post";
+            return await _request.PostReturnIntAsync(apiURLBase + urlComplementar, e);
         }
 
         public async Task<int> PutEcopointsAsync(Ecopoints e)

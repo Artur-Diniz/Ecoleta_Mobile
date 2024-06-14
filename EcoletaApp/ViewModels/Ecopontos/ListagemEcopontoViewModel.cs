@@ -78,7 +78,6 @@ namespace EcoletaApp.ViewModels.Ecopontos
 
         public async Task RemoverEcoponto(Ecoponto e)
         {
-
             try
             {
                 if (await Application.Current.MainPage.DisplayAlert("Confirmação", $"Confirma a remoção do ecoponto {e.Nome}?", "Sim", "Não")) ;
@@ -96,6 +95,37 @@ namespace EcoletaApp.ViewModels.Ecopontos
                     .DisplayAlert("Ops", ex.Message + "Detalhes" + ex.InnerException, "OK");
             }
         }
-    }
-    
+
+        public async void ProcessarOpcaoAsync(Ecoponto ecoponto, string result)
+        {
+
+            if (result.Equals("Editar Ecoponto"))
+            {
+                await Shell.Current
+                    .GoToAsync($"cadEcopontoView?eId={ecopontoSelecionado.IdEcoponto}");
+            }
+            else if (result.Equals("Remover Ecoponto"))
+            {
+                if (await Application.Current.MainPage.DisplayAlert("Confirmação",
+                $"Deseja realmente remover o Ecoponto {ecoponto.Nome.ToUpper()}?",
+               "Yes", "No"))
+                {
+                    await RemoverEcoponto(ecoponto);
+                    await Application.Current.MainPage.DisplayAlert("Informação",
+                     "Ecoponto removido com sucesso!", "Ok");
+                    await ObterEcopontos();
+                }
+            }
+            //aqui Vai ter uma opção para ao selecionar o ecoponto e fazer ele ir até o maps
+            //else if (result.Equals("Encontrar Ecoponto no Mapa"))
+            //{
+
+            //    await RemoverEcoponto(ecoponto);
+            //    await Application.Current.MainPage.DisplayAlert("Informação",
+            //     "Ecoponto removido com sucesso!", "Ok");
+            //    await ObterEcopontos();
+            //}
+                
+        }
+    }  
 }
