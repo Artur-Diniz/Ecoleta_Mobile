@@ -11,5 +11,6 @@ public partial class LoginEcopontoView : ContentPage
 
 		viewModel = new LoginEcopontoViewModel();
 		BindingContext = viewModel;
+		Title = "Entrar como Ecoponto";
 	}
 }

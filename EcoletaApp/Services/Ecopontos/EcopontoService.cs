@@ -20,7 +20,6 @@ namespace EcoletaApp.Services.Ecopontos
         }
 
 
-
         #region Métodos Get
 
         public async Task<ObservableCollection<Ecoponto>> GetAllEcopontosAsync()

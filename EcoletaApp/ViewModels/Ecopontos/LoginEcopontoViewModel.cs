@@ -1,4 +1,5 @@
-﻿using EcoletaApp.Models;
+﻿using EcoletaApp;
+using EcoletaApp.Models;
 using EcoletaApp.Services.Ecopontos;
 using EcoletaApp.ViewModels;
 using System;
@@ -14,6 +15,7 @@ namespace Ecoleta.ViewModels.Ecopontos
     {
         private EcopontoService eService;
         public ICommand AutenticarCommand { get;  set; }
+        public ICommand RegistarCommand { get; set; }
 
 
         public LoginEcopontoViewModel()
@@ -25,6 +27,7 @@ namespace Ecoleta.ViewModels.Ecopontos
         public void InicializarCommannds()
         {
             AutenticarCommand = new Command(async()=> await AutenticarEcopontoUtilizador());
+            RegistarCommand = new Command(async () => await RedirecionarCadastroEcoponto());
         }
 
         #region Atributos
@@ -41,6 +44,18 @@ namespace Ecoleta.ViewModels.Ecopontos
         public string Email { get { return email; } set { email = value; } }
    
         #endregion
+
+        public async Task RedirecionarCadastroEcoponto()
+        {
+            try
+            {
+                await Shell.Current.GoToAsync("cadEcopontoView");
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("Informação:", ex.Message + " Detalhes: " + ex.InnerException, "OK");
+            }
+        }
 
         public async Task AutenticarEcopontoUtilizador()
         {
@@ -67,7 +82,7 @@ namespace Ecoleta.ViewModels.Ecopontos
 
                     await Application.Current.MainPage.DisplayAlert("Informação", mensagem, "Ok");
 
-                    await Application.Current.MainPage.Navigation.PopAsync();
+                     Application.Current.MainPage = new AppShell();
                 }
 
             }
