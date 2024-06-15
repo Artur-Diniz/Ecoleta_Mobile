@@ -81,7 +81,7 @@
             <Entry Text="{Binding Username}" FontSize="14" Keyboard="Chat" Grid.Column="1" Grid.Row="13" Placeholder="Nome"/>
 
             <Label Text="Email:" FontSize="Medium" Grid.Column="0" Grid.Row="14" HorizontalOptions="Start"  VerticalOptions="End"/>
-            <Entry Text="{Binding Email}" FontSize="14" Keyboard="Chat" Grid.Column="1" Grid.Row="14" Placeholder="username@gmail.com" />
+            <Entry Text="{Binding Email}" FontSize="14" Keyboard="Email" Grid.Column="1" Grid.Row="14" Placeholder="username@gmail.com" />
 
             <Label Text="Senha:" FontSize="Medium" Grid.Column="0" Grid.Row="15" HorizontalOptions="Start"  VerticalOptions="End"/>
             <Entry Text="{Binding PasswordString}" FontSize="14" Keyboard="Chat" Grid.Column="1" Grid.Row="15"  IsPassword="True"/>

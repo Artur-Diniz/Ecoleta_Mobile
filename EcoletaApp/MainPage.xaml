@@ -19,8 +19,8 @@
      
                 <Frame
                 BackgroundColor="{StaticResource Secondary}"
-                HeightRequest="{OnPlatform Android=190, iOS=220}"
-                Padding="0" HasShadow="false" CornerRadius="10">
+                HeightRequest="{OnPlatform Android=170, iOS=180}"
+                Padding="10,0,10,0" HasShadow="false" CornerRadius="10">
                    <Grid>
                     <Image Source="logocoloecoletaextenso.png"/>
                                <FlexLayout Direction="Row" Margin="20" AlignItems="Stretch">
