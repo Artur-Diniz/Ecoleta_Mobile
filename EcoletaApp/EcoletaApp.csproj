@@ -108,6 +108,9 @@
 	  <MauiXaml Update="Views\Ecoponto\LocalizacaoEcopontosView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Ecoponto\LoginEcopontoView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Utilizador\CadastroView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

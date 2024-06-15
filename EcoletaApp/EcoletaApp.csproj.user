@@ -41,6 +41,9 @@
     <MauiXaml Update="Views\Ecoponto\LocalizacaoEcopontosView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\Ecoponto\LoginEcopontoView.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\Utilizador\CadastroView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

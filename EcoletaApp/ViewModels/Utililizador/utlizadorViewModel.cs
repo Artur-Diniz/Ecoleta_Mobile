@@ -38,7 +38,7 @@ namespace EcoletaApp.ViewModels.Utililizador
             DirecionarCadastroCommand = new Command(async () => await DirencionarParaCadastro());
         }
 
-        #region AtributosUtilizador
+        #region Atributos Utilizador
         private int idUtilizador = 0;
         private string nome = string.Empty;
         private string email = string.Empty;
@@ -100,24 +100,24 @@ namespace EcoletaApp.ViewModels.Utililizador
 
                 Utilizador uAutenticado = await uService.PostAutenticarUtilizadorAsync(u);
 
-                _isCheckingLocation = true;
-                _cancellationToken = new CancellationToken();
-                GeolocationRequest request = new GeolocationRequest( GeolocationAccuracy.Medium, TimeSpan.FromSeconds(10));
-
-                Location location = await Geolocation.Default.GetLocationAsync(request);
-
-                Utilizador uLoc = new Utilizador();
-                uLoc.Username= uAutenticado.Username;
-                uLoc.Longitude = location.Longitude;
-                uLoc.Latitude = location.Latitude;
-
-                utilizadorService utilizadorService = new utilizadorService();
-                await uService.PutAtualizarLocalizacaoAsync(uLoc);
-
-
-                // Uma verificação melhor seria a utilização de token,mas não estamos utilizando nessa Aplicação
-                if (uAutenticado.PasswordSalt != null && uAutenticado.PasswordHash != null)
+                if (uAutenticado != null)
                 {
+                    _isCheckingLocation = true;
+                    _cancellationToken = new CancellationToken();
+                    GeolocationRequest request = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(10));
+
+                    Location location = await Geolocation.Default.GetLocationAsync(request);
+
+                    Utilizador uLoc = new Utilizador();
+                    uLoc.Username = uAutenticado.Username;
+                    uLoc.Longitude = location.Longitude;
+                    uLoc.Latitude = location.Latitude;
+
+                    utilizadorService utilizadorService = new utilizadorService();
+                    await uService.PutAtualizarLocalizacaoAsync(uLoc);
+
+
+
 
                     string mensagem = $"Bem-vindo(a) {uAutenticado.Username}.";
 
@@ -128,9 +128,9 @@ namespace EcoletaApp.ViewModels.Utililizador
                     await Application.Current.MainPage.DisplayAlert("Informação", mensagem, "OK");
 
                     Application.Current.MainPage = new MainPage();
-
                 }
-                
+                else
+                    throw new Exception("nome de usuário ou Senha Incorreta");
 
             }
             catch (Exception ex)
