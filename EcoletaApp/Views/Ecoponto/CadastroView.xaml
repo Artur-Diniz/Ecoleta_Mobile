@@ -5,66 +5,97 @@
              Shell.PresentationMode="Animated"
              Title="CadastroView">
     <ScrollView>
-        <VerticalStackLayout Spacing="3" Padding="15">
-
-            <Label Text="Nome" FontSize="Medium" />
-            <Entry Text="{Binding IdEcoponto}" IsEnabled="False" FontSize="Medium" />
-            
-            <Label Text="Nome" FontSize="Medium" />
-            <Entry Text="{Binding Nome}" FontSize="Medium" />
-
-            <Label Text="Cnpj" FontSize="Medium"/>
-            <Entry Text="{Binding CNPJ}" FontSize="Medium" Keyboard="Numeric"/>
-
-
-            <Label Text="Qual é a Razão Social" FontSize="Medium"/>
-            <Entry Text="{Binding RazaoSocial}" FontSize="Medium" Keyboard="Chat" />
-
-
-            <Label Text="Logradouro" FontSize="Medium"/>
-            <Entry Text="{Binding Logradouro}" FontSize="Medium" Keyboard="Chat"  />
-
-
-            <Label Text="Endereço" FontSize="Medium"/>
-            <Entry Text="{Binding Endereco}" FontSize="Medium" Keyboard="Chat"  />
-
-
-            <Label Text="Complemento" FontSize="Medium"/>
-            <Entry Text="{Binding Complemento}" FontSize="Medium" Keyboard="Chat" />
-
-            <Label Text="Bairro" FontSize="Medium"/>
-            <Entry Text="{Binding Bairro}" FontSize="Medium" Keyboard="Chat"  />
-
-            <Label Text="Cidade" FontSize="Medium"/>
-            <Entry Text="{Binding Cidade}" FontSize="Medium" Keyboard="Chat" />
-
-            <Label Text="UF" FontSize="Medium"/>
-            <Entry Text="{Binding UF}" FontSize="Medium" Keyboard="Chat"  />
-
-            <Label Text="Cep" FontSize="Medium"/>
-            <Entry Text="{Binding CEP}" FontSize="Medium" Keyboard="Numeric"/>
-
-            <Label Text="Latitude" FontSize="Medium"/>
-            <Entry Text="{Binding Latitude}" FontSize="Medium" Keyboard="Numeric"  />
-
-            <Label Text="Longitude" FontSize="Medium"/>
-            <Entry Text="{Binding Longitude}" FontSize="Medium" Keyboard="Numeric"   />
-
-            <Label Text="Nome do Usuário" FontSize="Medium"/>
-            <Entry Text="{Binding Username}" FontSize="Medium" Keyboard="Chat" />
-
-            <Label Text="Email" FontSize="Medium"/>
-            <Entry Text="{Binding Email}" FontSize="Medium" Keyboard="Chat" />
-
-            <Label Text="Senha" FontSize="Medium"/>
-            <Entry Text="{Binding PasswordString}" FontSize="Medium" Keyboard="Chat" />
 
 
 
-            <HorizontalStackLayout Spacing="20">
-                <Button Text="Cancel" Command="{Binding CancelarCommand}"></Button>
-                <Button Text="Salvar" Command="{Binding SalvarCommand}"></Button>
+            <Grid RowSpacing="25" ColumnSpacing="10" Margin="30,30,20,20">
+
+            <Grid.RowDefinitions  >
+                    <RowDefinition Height="45" />
+                    <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
+                    <RowDefinition Height="25" />
+                <RowDefinition Height="20" />
+                    <RowDefinition Height="30" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="20" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" /> 
+                </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="110"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+
+
+            <Label Text="IdEcoponto:" FontSize="Medium"  Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" VerticalOptions="End"/>
+            <Entry Text="{Binding IdEcoponto}"  FontSize="14"  Grid.Column="1" Grid.Row="0" IsEnabled="False"  Placeholder=" " VerticalOptions="End"/>
+
+            <Label Text="Nome:" FontSize="Medium" Grid.Column="0" Grid.Row="1" HorizontalOptions="EndAndExpand"  VerticalOptions="Center"/>
+            <Entry Text="{Binding Nome}" FontSize="14" Grid.Column="1" Grid.Row="1"  Placeholder="Nome do Ecoponto " />
+
+            <Label Text="Cnpj:" FontSize="Medium" Grid.Column="0" Grid.Row="2" HorizontalOptions="EndAndExpand"  VerticalOptions="Center"/>
+            <Entry Text="{Binding CNPJ}" FontSize="14" Keyboard="Numeric" Grid.Column="1" Grid.Row="2"  Placeholder=""  />
+
+
+            <Label Text="Qual é a Razão Social:" HorizontalTextAlignment="End" FontSize="18" Grid.Column="0" Grid.Row="3" HorizontalOptions="EndAndExpand"  VerticalOptions="End"/>
+            <Entry Text="{Binding RazaoSocial}" FontSize="14" Keyboard="Chat" Grid.Column="1" Grid.Row="3"  Placeholder="Por um mundo mais limpo"/>
+
+
+            <Label Text="Logradouro:" FontSize="Medium" Grid.Column="0" Grid.Row="4"  VerticalOptions="Center"/>
+            <Label Text="Endereco:" FontSize="Medium" Grid.Column="1" Grid.Row="4"  VerticalOptions="Center"/>
+
+            <Entry Text="{Binding Logradouro}" FontSize="14" Keyboard="Chat" Grid.Column="0" Grid.Row="5" />
+            <Entry Text="{Binding Endereco}" FontSize="14" Keyboard="Chat"   Grid.Column="1" Grid.Row="5"/>
+
+
+            <Label Text="Complemento:" FontSize="15" Grid.Column="0" Grid.Row="6" HorizontalOptions="EndAndExpand"  VerticalOptions="End"/>
+            <Entry Text="{Binding Complemento}" FontSize="10" Keyboard="Chat"  Grid.Column="1" Grid.Row="6" VerticalOptions="Center"/>
+
+            <Label Text="Bairro:" FontSize="Medium" Grid.Column="0" Grid.Row="7" HorizontalOptions="Center"/>
+            <Entry Text="{Binding Bairro}" FontSize="14" Keyboard="Chat" Grid.Column="0" Grid.Row="8" />
+
+            <Label Text="Cidade:" FontSize="Medium" Grid.Column="1" Grid.Row="7" HorizontalOptions="Center"/>
+            <Entry Text="{Binding Cidade}" FontSize="14" Keyboard="Chat" Grid.Column="1" Grid.Row="8" />
+
+                      <!--  aqui vou mehorar dps -->
+            <Label Text="UF:" FontSize="Medium" Grid.Column="0" Grid.Row="9" HorizontalOptions="Center"/>
+            <Label Text="Cep:" FontSize="Medium" Grid.Column="1" Grid.Row="9" HorizontalOptions="Center"/>
+
+            <Entry Text="{Binding UF}" FontSize="14" Keyboard="Chat" Grid.Column="0" Grid.Row="10"/>
+            <Entry Text="{Binding CEP}" FontSize="14" Keyboard="Numeric" Grid.Column="1" Grid.Row="10"/>
+
+            <Label Text="Latitude:" FontSize="Medium" Grid.Column="0" Grid.Row="11" HorizontalOptions="EndAndExpand"  VerticalOptions="End"/>
+            <Entry Text="{Binding Latitude}" FontSize="14" Keyboard="Numeric" Grid.Column="2" Grid.Row="11" Placeholder="" />
+
+            <Label Text="Longitude:" FontSize="Medium" Grid.Column="0" Grid.Row="12" HorizontalOptions="EndAndExpand"  VerticalOptions="End"/>
+            <Entry Text="{Binding Longitude}" FontSize="14" Keyboard="Numeric" Grid.Column="1" Grid.Row="12" Placeholder="" />
+
+            <Label Text="Nome do Usuário:" FontSize="Medium" Grid.Column="0" Grid.Row="13" HorizontalOptions="EndAndExpand"  HorizontalTextAlignment="End" VerticalOptions="End"/>
+            <Entry Text="{Binding Username}" FontSize="14" Keyboard="Chat" Grid.Column="1" Grid.Row="13" Placeholder="Nome"/>
+
+            <Label Text="Email:" FontSize="Medium" Grid.Column="0" Grid.Row="14" HorizontalOptions="EndAndExpand"  VerticalOptions="End"/>
+            <Entry Text="{Binding Email}" FontSize="14" Keyboard="Chat" Grid.Column="1" Grid.Row="14" Placeholder="username@gmail.com" />
+
+            <Label Text="Senha:" FontSize="Medium" Grid.Column="0" Grid.Row="15" HorizontalOptions="EndAndExpand"  VerticalOptions="End"/>
+            <Entry Text="{Binding PasswordString}" FontSize="14" Keyboard="Chat" Grid.Column="1" Grid.Row="15"  IsPassword="True"/>
+
+
+            <HorizontalStackLayout Grid.Row="16" Grid.ColumnSpan="2" Spacing="20" HorizontalOptions="Center" Margin="0, 25,0,15">
+                <Button Text="Cancelar" Command="{Binding CancelarCommand}" HeightRequest="45" WidthRequest="90" />
+                <Button Text="Salvar" Command="{Binding SalvarCommand}" HeightRequest="45" WidthRequest="90" />
             </HorizontalStackLayout>
-        </VerticalStackLayout>
+        </Grid>
+
+
     </ScrollView>
 </ContentPage>
