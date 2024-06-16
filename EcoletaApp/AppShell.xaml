@@ -36,8 +36,9 @@
 
   
         <!-- aqui é o Hamburgue-->
+    <Shell.HeightRequest set="100" />
 
-    <ShellContent Title="Home" Icon="home.png"  ContentTemplate="{DataTemplate local:MainPage}"  Route="MainPage" />
+    <ShellContent Title="Home" Icon="home.png"   ContentTemplate="{DataTemplate local:MainPage}"  Route="MainPage" />
     <ShellContent Title="Sobre" Icon="informacoes.png" Route="sobre" ContentTemplate="{DataTemplate local:AboutView}"/>
     <ShellContent Title="Descrição" Icon="folha3.png" Route="desc" ContentTemplate="{DataTemplate local:DescriptionView}" />
     <ShellContent Title="Ecopontos"  Icon="ecoponto.png" ContentTemplate="{DataTemplate viewEcopontos:ListagemView}" />

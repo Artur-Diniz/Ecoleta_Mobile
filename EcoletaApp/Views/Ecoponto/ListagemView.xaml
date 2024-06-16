@@ -4,7 +4,7 @@
              x:Class="EcoletaApp.Views.Ecoponto.ListagemView"
              Title="ListagemView">
 
-    <Shell.TitleView>
+    <Shell.TitleView set="Ecopontos" >
         <Button Command="{Binding NovoEcoponto}" Text="Novo Ecoponto" HorizontalOptions="End"></Button>
         </Shell.TitleView>
         
