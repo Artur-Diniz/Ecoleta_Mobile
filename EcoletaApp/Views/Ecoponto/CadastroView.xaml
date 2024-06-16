@@ -55,8 +55,8 @@
             <Entry Text="{Binding Endereco}" FontSize="14" Keyboard="Chat"   Grid.Column="1" Grid.Row="5"/>
 
 
-            <Label Text="Complemento:" FontSize="15" Grid.Column="0" Grid.Row="6" HorizontalOptions="Start"  VerticalOptions="End" />
-            <Entry Text="{Binding Complemento}" FontSize="10" Keyboard="Chat"  Grid.Column="1" Grid.Row="6" VerticalOptions="Center"/>
+            <Label Text="Complemento:" FontSize="Medium" Grid.Column="0" Grid.Row="6" HorizontalOptions="Start"  VerticalOptions="End" />
+            <Entry Text="{Binding Complemento}" FontSize="15" Keyboard="Chat"  Grid.Column="1" Grid.Row="6" VerticalOptions="Center"/>
 
             <Label Text="Bairro:" FontSize="Medium" Grid.Column="0" Grid.Row="7" HorizontalOptions="Center"/>
             <Entry Text="{Binding Bairro}" FontSize="14" Keyboard="Chat" Grid.Column="0" Grid.Row="8" />

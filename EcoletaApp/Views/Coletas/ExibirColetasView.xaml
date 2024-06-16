@@ -10,9 +10,14 @@
     </Shell.TitleView>
     <ScrollView>
 
-      
-            <VerticalStackLayout Padding="10, 0, 0, 0" VerticalOptions="FillAndExpand">
-            <ListView x:Name="listView" HasUnevenRows="True" ItemsSource="{Binding Coletas}"  SelectedItem="{Binding ColetaSelecionada}">
+
+        <VerticalStackLayout Padding="0, 10, 0, 0" VerticalOptions="FillAndExpand">
+          
+                
+                <ListView x:Name="listView" HasUnevenRows="True" ItemsSource="{Binding Coletas}"  SelectedItem="{Binding ColetaSelecionada}">
+
+                
+                    
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -21,36 +26,92 @@
                                               Command="{Binding Path=BindingContext.RemoverColetaCommand, Source={x:Reference listView}}"
                                               CommandParameter="{Binding .}"></MenuItem>
                                  </ViewCell.ContextActions>
-                                    <StackLayout Padding="10">
 
-                                    <Label Text="IdColeta : "  FontAttributes="Bold"/>
-                                    <Label Text="{Binding IdColeta}" FontSize="18" />
+                            <Grid  ColumnSpacing="10" Margin="10,5" Padding="20,10,20,0">
+                              
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="90"/>
 
-                                    <Label Text="IdEcoponto : "  FontAttributes="Bold"/>
-                                    <Label Text="{Binding IdEcoponto}" FontSize="18" />
+                                </Grid.RowDefinitions>
 
-                                    <Label Text="IdUtilizador : "  FontAttributes="Bold"/>
-                                    <Label Text="{Binding IdUtilizador}" FontSize="18" />
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="120"/>
+                                    </Grid.ColumnDefinitions>
 
-                                    <Label Text="Peso :"  FontAttributes="Bold"/>
-                                    <Label Text="{Binding Peso}" FontSize="14"/>
+                                    <Label Text="IdColeta :  " FontSize="24"  HorizontalTextAlignment="Center" HorizontalOptions="End" FontAttributes="Bold"  Grid.Column="0" Grid.Row="0"/>
+                                <Label Text="{Binding IdColeta}" FontSize="26" HorizontalTextAlignment="Center" HorizontalOptions="Start" Grid.Column="1" Grid.Row="0"/>
+                                </Grid>
+                                
+                                
+                                <Grid Grid.Row="1" RowSpacing="15" ColumnSpacing="5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="0"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
 
-                                    <Label Text="TotalEcopoints :"  FontAttributes="Bold"/>
-                                    <Label Text="{Binding TotalEcopoints}" FontSize="14"/>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="60"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="60"/>
 
-                                    <Label Text="SituacaoColeta :"  FontAttributes="Bold"/>
-                                    <Label Text="{Binding SituacaoColeta}" FontSize="14"/>
+                                    </Grid.ColumnDefinitions>
 
-                                    <Label Text="CodigoUtilizador :"  FontAttributes="Bold"/>
-                                    <Label Text="{Binding CodigoUtilizador}" FontSize="14"/>
-                                </StackLayout>
-                            </ViewCell>
+
+                                    <Label Text=" Id do Ecoponto:"  FontSize="Medium" HorizontalTextAlignment="Center" Grid.Column="0" Grid.Row="1" VerticalOptions="End"/>
+                                    <Label Text="{Binding IdEcoponto}" FontSize="Medium"  Grid.Column="1" Grid.Row="1" VerticalOptions="End"/>
+
+                                    <Label Text=" Id do Utilizador:" FontSize="Medium"  HorizontalTextAlignment="Center"  Grid.Column="2" Grid.Row="1" VerticalOptions="End"/>
+                                    <Label Text="{Binding IdUtilizador}" FontSize="Medium"   Grid.Column="3" Grid.Row="1" VerticalOptions="End"/>
+
+                                    <Label Text="Peso:" FontSize="Medium"  Grid.Column="0"  HorizontalTextAlignment="Center" Grid.Row="2" VerticalOptions="End"/>
+                                    
+                                    <Grid Grid.Column="1" Grid.Row="2" HorizontalOptions="Start" >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="2"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Text="{Binding Peso}"  FontSize="Medium" HorizontalTextAlignment="End" VerticalOptions="End" Grid.Column="0"/>
+                                        <Label Text="kg"  FontSize="Medium"  VerticalOptions="End"  HorizontalTextAlignment="Start" Grid.Column="2"/>
+
+                                    </Grid>
+                                    <Label Text=" Total de Ecopoints:"  FontSize="Medium"  HorizontalTextAlignment="Center" Grid.Column="2" Grid.Row="2" VerticalOptions="End"/>
+                                    <Label Text="{Binding TotalEcopoints}" FontSize="Medium" Grid.Column="3" Grid.Row="2" VerticalOptions="End"/>
+
+                                </Grid>
+                                <Grid  Grid.Row="2"  RowSpacing="15" Padding="0,0,0,15">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="120"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    
+                                    <Label Text="Codigo do Utilizador:"   FontSize="Medium"  Grid.Column="0" Grid.Row="0" VerticalOptions="End"/>
+                                    <Label  Text="{Binding CodigoUtilizador}"  FontSize="Medium" Grid.Column="1" Grid.Row="0"  VerticalOptions="End"  HorizontalTextAlignment="Center" />
+
+                                    <Label Text="Situacao da Coleta:"      FontSize="Medium"  Grid.Column="0" Grid.Row="1"  VerticalOptions="End"/>
+                                    <Label Text="{Binding SituacaoColeta}"   FontSize="Medium" Grid.Column="1" Grid.Row="1"  VerticalOptions="End" HorizontalTextAlignment="Start"/>
+                                </Grid>
+                            </Grid>
+
+                        </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
+
                 </ListView>
-            </VerticalStackLayout>
+
+        </VerticalStackLayout>
 
 
-   
     </ScrollView>
 </ContentPage>

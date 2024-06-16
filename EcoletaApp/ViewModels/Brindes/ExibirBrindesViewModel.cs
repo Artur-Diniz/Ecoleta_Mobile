@@ -41,6 +41,7 @@ namespace EcoletaApp.ViewModels.Brindes
             try
             { 
                 Brindes = await bService.GetAllBrindeAsync();
+                
                 OnPropertyChanged(nameof(Brindes));
             }
             catch (Exception ex)
