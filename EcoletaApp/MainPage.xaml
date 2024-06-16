@@ -15,63 +15,105 @@
 
     <ContentPage.Content>
         <ScrollView Orientation="Vertical">
-            <VerticalStackLayout Padding="25" Spacing="30">
-     
-                <Frame
-                BackgroundColor="{StaticResource Secondary}"
-                HeightRequest="{OnPlatform Android=170, iOS=180}"
-                Padding="10,0,10,0" HasShadow="false" CornerRadius="10">
-                   <Grid>
-                    <Image Source="logocoloecoletaextenso.png"/>
-                               <FlexLayout Direction="Row" Margin="20" AlignItems="Stretch">
-                                   <Label Text="" FlexLayout.Grow="1" FontAttributes="Bold"
-                     FontSize="20" VerticalTextAlignment="Center"/>
-                                   <FlexLayout FlexLayout.Grow="2" Direction="Column"
-                      AlignItems="End" JustifyContent="Center">
-                                     
-                                  
-                           </FlexLayout>
-                       </FlexLayout>
-                   </Grid>
-            </Frame>
-                    <Label Text="O App Ecoleta oferece recursos para" FontAttributes="Bold" FontSize="Medium"/>
+
+            <Grid>
             <ScrollView Orientation="Horizontal">
-                <HorizontalStackLayout>
-                    <Frame Style="{StaticResource FrameOptions}" Padding="0"
-                                 HeightRequest="{OnPlatform Android=150, iOS=140}" 
-                                  WidthRequest="{OnPlatform Android=120, iOS=140}">
-                        <VerticalStackLayout Spacing="10" VerticalOptions="Center">
-                                <Image Source="coleta.png" MaximumWidthRequest="64" MaximumHeightRequest="64"/>
-                            <Label Text="Minhas Coletas" FontSize="Small"
-                                    HorizontalTextAlignment="Center" Margin="10,0"/>
-                        </VerticalStackLayout>
-                    </Frame>
-                    <Frame Style="{StaticResource FrameOptions}" Padding="0"
-                                    HeightRequest="{OnPlatform Android=150, iOS=140}" 
-                                   WidthRequest="{OnPlatform Android=120, iOS=140}">
-                        <VerticalStackLayout Spacing="10" VerticalOptions="Center">
-                                <Image Source="ecoponto.png" MaximumWidthRequest="96" MaximumHeightRequest="96"/>
-                            <Label Text="Ecopontos" FontSize="Small" HorizontalTextAlignment="Center"
-                                                         Margin="10,0"/>
-                        </VerticalStackLayout>
-                    </Frame>
-                    <Frame Style="{StaticResource FrameOptions}" Padding="0"
-                                    HeightRequest="{OnPlatform Android=150, iOS=140}"
-                                     WidthRequest="{OnPlatform Android=120, iOS=140}">
-                        <VerticalStackLayout Spacing="10" VerticalOptions="Center">
-                                <Image Source="brinde.png" MaximumWidthRequest="96" MaximumHeightRequest="96"/>
-                            <Label Text="Brindes" FontSize="Small"
-                                    HorizontalTextAlignment="Center" Margin="10,0"/>
-                        </VerticalStackLayout>
-                    </Frame>
-                    
-                </HorizontalStackLayout>           
-    
+                    <HorizontalStackLayout  BackgroundColor="#04AD9B"  Padding="20,0,20,0" >
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                   
+                                <Frame Style="{StaticResource FrameOptions}" Padding="0"
+                                     HeightRequest="{OnPlatform Android=64, iOS=64}" 
+                                      WidthRequest="{OnPlatform Android=64, iOS=64}"
+                                       HorizontalOptions="Center"
+                                         Grid.Column="0">
+                                    <VerticalStackLayout Spacing="10" VerticalOptions="Center" Padding="10">
+                                        <Image Source="coleta.png"  WidthRequest="48"  HeightRequest="48"/>
+                                        <Label Text="Minhas Coletas" FontSize="Small"
+                                        HorizontalTextAlignment="Center" Margin="10,0"/>
+                                    </VerticalStackLayout>
+                                </Frame>
+                                <Frame Style="{StaticResource FrameOptions}" Padding="0"
+                                        HeightRequest="{OnPlatform Android=64, iOS=64}" 
+                                       WidthRequest="{OnPlatform Android=64, iOS=64}"
+                                       HorizontalOptions="Center"
+                                       Grid.Column="1">
+                                    <VerticalStackLayout Spacing="10" VerticalOptions="Center" Padding="10">
+                                        <Image Source="ecoponto.png"  WidthRequest="48"  HeightRequest="48"/>
+                                        <Label Text="Ecopontos" FontSize="Small" HorizontalTextAlignment="Center"
+                                                             Margin="10,0"/>
+                                    </VerticalStackLayout>
+                                </Frame>
+                                <Frame Style="{StaticResource FrameOptions}" Padding="0"
+                                        HeightRequest="{OnPlatform Android=64, iOS=64}"
+                                         WidthRequest="{OnPlatform Android=64, iOS=64}"
+                                       HorizontalOptions="Center"
+                                       Grid.Column="2">
+                                    <VerticalStackLayout Spacing="5" VerticalOptions="End"  Margin="0,0,10,0">
+                                        <Image Source="brinde.png"  WidthRequest="48"  HeightRequest="48" />
+                                        <Label Text="Brindes" FontSize="Small"
+                                        HorizontalTextAlignment="Center" Margin="10,10,10,0"/>
+                                    </VerticalStackLayout>
+                                </Frame>
+                            <Frame Style="{StaticResource FrameOptions}" Padding="0"
+                                         HeightRequest="{OnPlatform Android=64, iOS=64}"
+                                          WidthRequest="{OnPlatform Android=64, iOS=64}"
+                                        HorizontalOptions="Center"
+                                        Grid.Column="3">
+                                <VerticalStackLayout Spacing="5" VerticalOptions="End"  Margin="4,6,5,0">
+                                    <Image Source="utilizador.png"  WidthRequest="48"  HeightRequest="48" />
+                                     <Label Text="Perfil" FontSize="Small"
+                                          HorizontalTextAlignment="Center" Margin="10,10,10,0"/>
+                                </VerticalStackLayout>
+                            </Frame>
+                            <Frame Style="{StaticResource FrameOptions}" Padding="0"
+                                     HeightRequest="{OnPlatform Android=64, iOS=64}"
+                                      WidthRequest="{OnPlatform Android=64, iOS=64}"
+                                    HorizontalOptions="Center"
+                                    Grid.Column="4">
+                                <VerticalStackLayout Spacing="5" VerticalOptions="End"  Margin="4,6,5,0">
+                                    <Image Source="localizacao.png"  WidthRequest="48"  HeightRequest="48" />
+                                    <Label Text="Perfil" FontSize="Small"
+                                    HorizontalTextAlignment="Center" Margin="10,10,10,0"/>
+                                </VerticalStackLayout>
+                            </Frame>
+                        </Grid>
+                </HorizontalStackLayout>
+
             </ScrollView>
+            
+                    <VerticalStackLayout Padding="25,87,25,0" Spacing="30" >
+            
+                        <Frame
+                        BackgroundColor="{StaticResource Secondary}"
+                        HeightRequest="{OnPlatform Android=170, iOS=180}"
+                        Padding="10,0,10,0" HasShadow="false" CornerRadius="10">
+                           <Grid>
+                            <Image Source="logocoloecoletaextenso.png"/>
+                                       <FlexLayout Direction="Row" Margin="20" AlignItems="Stretch">
+                                           <Label Text="" FlexLayout.Grow="1" FontAttributes="Bold"
+                             FontSize="20" VerticalTextAlignment="Center"/>
+                                           <FlexLayout FlexLayout.Grow="2" Direction="Column"
+                              AlignItems="End" JustifyContent="Center">
+                                             
+                                          
+                                   </FlexLayout>
+                               </FlexLayout>
+                           </Grid>
+                    </Frame>
+                       
+            
+                    <Image Source="recyclehome.png" />
+            
+                </VerticalStackLayout>
 
-            <Image Source="recyclehome.png" />
-
-        </VerticalStackLayout>
+        </Grid>
         </ScrollView>
     </ContentPage.Content>
 

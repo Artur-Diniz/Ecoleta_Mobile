@@ -14,39 +14,85 @@
                 <ListView x:Name="listView" HasUnevenRows="True" ItemsSource="{Binding Brindes}" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <ViewCell>
+                           
+                                <ViewCell>
                                 <ViewCell.ContextActions>
                                     <MenuItem Text="Remover" IsDestructive="True" 
                                               Command="{Binding Path=BindingContext.RemoverBrindeCommand, Source={x:Reference listView}}"
                                               CommandParameter="{Binding .}"></MenuItem>
                                 </ViewCell.ContextActions>
-                                    <StackLayout Padding="10">
+                                <Grid Margin="20,50" >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    
+                                    <Grid Grid.Row="0" BackgroundColor="ForestGreen">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        
+                                        <Label Text="IdBrinde : " TextColor="AliceBlue"  FontAttributes="Bold" FontSize="Large" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End"/>
+                                        <Label Text="{Binding IdBrinde}" TextColor="AliceBlue" FontAttributes="Bold" FontSize="Large"  IsEnabled="False" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Start" />
 
-                                    <Label Text="IdBrinde : "  FontAttributes="Bold" FontSize="16"/>
-                                    <Label Text="{Binding IdBrinde}" FontSize="14"  IsEnabled="False"/>
+                                    </Grid>
 
-                                    <Label Text="NomeBrinde : "  FontAttributes="Bold" FontSize="16"/>
-                                    <Label Text="{Binding NomeBrinde}" FontSize="14" />
+                                    <Grid Grid.Row="1" ColumnSpacing="10">
 
-                                    <Label Text="DescricaoBrinde : "  FontAttributes="Bold" FontSize="16"/>
-                                    <Label Text="{Binding DescricaoBrinde}" FontSize="14" />
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="110"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
 
-                                    <Label Text="Cadastro :"  FontAttributes="Bold" FontSize="16"/>
-                                    <Label Text="{Binding Cadastro}" FontSize="14"/>
+                                        <Grid Grid.Row="0" Grid.Column="0" RowSpacing="10">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
 
-                                    <Label Text="Validade :"  FontAttributes="Bold" FontSize="16"/>
-                                    <Label Text="{Binding Validade}" FontSize="14"/>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="70"/>
+                                            </Grid.ColumnDefinitions>
+                                            
+                                            
+                                            <Label Text="NomeBrinde : "  FontAttributes="Bold" FontSize="Medium" Grid.Row="0" Grid.Column="0" />
+                                            <Label Text="{Binding NomeBrinde}" FontSize="Medium"  Grid.Row="0" Grid.Column="1"/>
 
-                                    <Label Text="Quantidade :"  FontAttributes="Bold" FontSize="16"/>
-                                    <Label Text="{Binding Quantidade}" FontSize="14"/>
+                                            <Label Text="DescricaoBrinde : "  FontAttributes="Bold" FontSize="Medium" Grid.Row="1" Grid.Column="0"/>
+                                            <Label Text="{Binding DescricaoBrinde}" FontSize="Medium"  Grid.Row="1" Grid.Column="1"/>
 
-                                    <Label Text="Saldo :"  FontAttributes="Bold" FontSize="16"/>
-                                    <Label Text="{Binding Saldo}" FontSize="14"/>
+                                            <Label Text="Cadastro :"  FontAttributes="Bold" FontSize="Medium" Grid.Row="2" Grid.Column="0"/>
+                                            <Label Text="{Binding Cadastro}" FontSize="Medium" Grid.Row="2" Grid.Column="1"/>
 
-                                    <Label Text="ValorEcopoints :"  FontAttributes="Bold"/>
-                                    <Label Text="{Binding ValorEcopoints}" FontSize="14"/>
-                                </StackLayout>
+                                            <Label Text="Validade :"  FontAttributes="Bold" FontSize="Medium" Grid.Row="3" Grid.Column="0"/>
+                                            <Label Text="{Binding Validade}" FontSize="Medium" Grid.Row="3" Grid.Column="1"/>
+
+                                            <Label Text="Quantidade :"  FontAttributes="Bold" FontSize="Medium" Grid.Row="4" Grid.Column="0"/>
+                                            <Label Text="{Binding Quantidade}" FontSize="Medium" Grid.Row="4" Grid.Column="1"/>
+
+                                            <Label Text="ValorEcopoints :" FontSize="Medium" FontAttributes="Bold" Grid.Row="5" Grid.Column="0"/>
+                                            <Label Text="{Binding ValorEcopoints}" FontSize="Medium" Grid.Row="5" Grid.Column="1"/>
+                                        </Grid>
+
+                                        <Grid Grid.Column="1" Grid.Row="0" >
+                                            <!--Essa Parte vai Ser Utilizada em para A Imagem do Brinde-->
+                                        </Grid>
+
+                                    </Grid>
+
+
+                                </Grid>
                             </ViewCell>
+                     
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
