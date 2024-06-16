@@ -64,26 +64,26 @@
                                     </Grid.ColumnDefinitions>
 
 
-                                    <Label Text=" Id do Ecoponto:"  FontSize="Medium" HorizontalTextAlignment="Center" Grid.Column="0" Grid.Row="1" VerticalOptions="End"/>
-                                    <Label Text="{Binding IdEcoponto}" FontSize="Medium"  Grid.Column="1" Grid.Row="1" VerticalOptions="End"/>
+                                    <Label Text=" Id do Ecoponto:" FontAttributes="Bold"  FontSize="Medium" HorizontalTextAlignment="Center" Grid.Column="0" Grid.Row="1" VerticalOptions="End"/>
+                                    <Label Text="{Binding IdEcoponto}" FontSize="Medium"  Grid.Column="1" Grid.Row="1" VerticalOptions="End" HorizontalOptions="Center"/>
 
-                                    <Label Text=" Id do Utilizador:" FontSize="Medium"  HorizontalTextAlignment="Center"  Grid.Column="2" Grid.Row="1" VerticalOptions="End"/>
-                                    <Label Text="{Binding IdUtilizador}" FontSize="Medium"   Grid.Column="3" Grid.Row="1" VerticalOptions="End"/>
+                                    <Label Text=" Id do Utilizador:" FontAttributes="Bold"  FontSize="Medium"  HorizontalTextAlignment="Center"  Grid.Column="2" Grid.Row="1" VerticalOptions="End"/>
+                                    <Label Text="{Binding IdUtilizador}" FontSize="Medium"   Grid.Column="3" Grid.Row="1" VerticalOptions="End"  HorizontalOptions="Center"/>
 
-                                    <Label Text="Peso:" FontSize="Medium"  Grid.Column="0"  HorizontalTextAlignment="Center" Grid.Row="2" VerticalOptions="End"/>
+                                    <Label Text="Peso:" FontSize="Medium" FontAttributes="Bold"  Grid.Column="0"  HorizontalTextAlignment="Center" Grid.Row="2" VerticalOptions="End"/>
                                     
                                     <Grid Grid.Column="1" Grid.Row="2" HorizontalOptions="Start" >
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="2"/>
+                                            <ColumnDefinition Width="2.5"/>
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
                                         <Label Text="{Binding Peso}"  FontSize="Medium" HorizontalTextAlignment="End" VerticalOptions="End" Grid.Column="0"/>
                                         <Label Text="kg"  FontSize="Medium"  VerticalOptions="End"  HorizontalTextAlignment="Start" Grid.Column="2"/>
 
                                     </Grid>
-                                    <Label Text=" Total de Ecopoints:"  FontSize="Medium"  HorizontalTextAlignment="Center" Grid.Column="2" Grid.Row="2" VerticalOptions="End"/>
-                                    <Label Text="{Binding TotalEcopoints}" FontSize="Medium" Grid.Column="3" Grid.Row="2" VerticalOptions="End"/>
+                                    <Label Text=" Total de Ecopoints:" FontAttributes="Bold"  FontSize="Medium"  HorizontalTextAlignment="Center" Grid.Column="2" Grid.Row="2" VerticalOptions="End"/>
+                                    <Label Text="{Binding TotalEcopoints}" FontSize="Medium" Grid.Column="3" Grid.Row="2" VerticalOptions="End" HorizontalOptions="Center"/>
 
                                 </Grid>
                                 <Grid  Grid.Row="2"  RowSpacing="15" Padding="0,0,0,15">
@@ -96,10 +96,10 @@
                                         <RowDefinition Height="*" />
                                     </Grid.RowDefinitions>
                                     
-                                    <Label Text="Codigo do Utilizador:"   FontSize="Medium"  Grid.Column="0" Grid.Row="0" VerticalOptions="End"/>
-                                    <Label  Text="{Binding CodigoUtilizador}"  FontSize="Medium" Grid.Column="1" Grid.Row="0"  VerticalOptions="End"  HorizontalTextAlignment="Center" />
+                                    <Label Text="Codigo do Utilizador:" FontAttributes="Bold"  FontSize="Medium"  Grid.Column="0" Grid.Row="0" VerticalOptions="End"/>
+                                    <Label  Text="{Binding CodigoUtilizador}"  FontSize="Medium" Grid.Column="1" Grid.Row="0"  VerticalOptions="End"  HorizontalTextAlignment="Start" />
 
-                                    <Label Text="Situacao da Coleta:"      FontSize="Medium"  Grid.Column="0" Grid.Row="1"  VerticalOptions="End"/>
+                                    <Label Text="Situacao da Coleta:" FontAttributes="Bold"      FontSize="Medium"  Grid.Column="0" Grid.Row="1"  VerticalOptions="End"/>
                                     <Label Text="{Binding SituacaoColeta}"   FontSize="Medium" Grid.Column="1" Grid.Row="1"  VerticalOptions="End" HorizontalTextAlignment="Start"/>
                                 </Grid>
                             </Grid>

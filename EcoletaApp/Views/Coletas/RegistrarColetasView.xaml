@@ -4,38 +4,56 @@
              x:Class="EcoletaApp.Views.Coletas.RegistrarColetasView"
              Shell.PresentationMode="Animated"
              Title="RegistrarColetasView">
-    <VerticalStackLayout>
-        <ScrollView>
-            <VerticalStackLayout Padding="10, 0, 0, 0" VerticalOptions="FillAndExpand">
-             
-                                       
-                    <StackLayout Padding="10">
 
-                        <Label Text="IdColeta" FontSize="14"/>
-                        <Entry Text="{Binding IdColeta}" IsEnabled="False"  FontSize="14" />
+    <ScrollView>
+        <VerticalStackLayout>
+
+            <Grid Padding="10" RowSpacing="35"  Margin="15,50,15,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="IdColeta :" FontSize="Large" Grid.Column="0" Grid.Row="0" VerticalOptions="Center"/>
+                <Entry Text="{Binding IdColeta}" FontSize="Large" Grid.Column="1" Grid.Row="0" IsEnabled="False" VerticalOptions="End" />
 
 
-                        <Label Text="IdEcoponto" FontSize="14"/>
-                        <Entry Text="{Binding IdEcoponto}"   FontSize="14" />
+                        <Label Text="IdEcoponto :" FontSize="Large" Grid.Column="0" Grid.Row="1" VerticalOptions="End"/>
+                        <Entry Text="{Binding IdEcoponto}"   FontSize="Large" Grid.Column="01" Grid.Row="1" Placeholder="12" Keyboard="Numeric"/>
 
-                          <Label Text="IdUtilizador" FontSize="14"/>
-                         <Entry Text="{Binding IdUtilizador}"   FontSize="14" />
+                        <Label Text="IdUtilizador :" FontSize="Large" Grid.Column="0" Grid.Row="2" VerticalOptions="End"/>
+                        <Entry Text="{Binding IdUtilizador}"   FontSize="Large"  Grid.Column="1" Grid.Row="2" Keyboard="Numeric"/>
 
-                        <Label Text="Peso" FontSize="14"/>
-                        <Entry Text="{Binding Peso}" FontSize="14"/>
+                        <Label Text="Peso :" FontSize="Large" Grid.Column="0" Grid.Row="3" VerticalOptions="End"/>
+                        <Entry Text="{Binding Peso}" FontSize="Large" Grid.Column="1" Grid.Row="3"  Keyboard="Numeric"/>
 
-                        <Label Text="TotalEcopoints" FontSize="14"/>
-                        <Entry Text="{Binding TotalEcopoints}" FontSize="14"/> 
+                        <Label Text="TotalEcopoints :" FontSize="Large" Grid.Column="0" Grid.Row="4" VerticalOptions="End"/>
+                        <Entry Text="{Binding TotalEcopoints}" FontSize="Large" Grid.Column="1" Grid.Row="4" Keyboard="Numeric"/> 
+                        
+                </Grid>
+            <HorizontalStackLayout HorizontalOptions="Center" Padding="10" Spacing="15"  Margin="15,50,15,0">
+                <Button Text="Cancelar" Command="{Binding CancelarCommand}" FontSize="Large" Grid.Column="0" HeightRequest="70" WidthRequest="120" VerticalOptions="EndAndExpand" HorizontalOptions="End"></Button>
+                <Button Text="Registrar" Command="{Binding RegistrarCommand}" FontSize="Large" Grid.Column="1"  HeightRequest="70" WidthRequest="180" VerticalOptions="EndAndExpand" HorizontalOptions="Start"></Button>
 
-        
+            </HorizontalStackLayout >
 
-                        <Button Text="Registrar" Command="{Binding RegistrarCommand}"></Button>
-                    <Button Text="Cancelar" Command="{Binding cancelarCommand}"></Button>
-                </StackLayout>
-                    
-                               
-            </VerticalStackLayout>
-        </ScrollView>
+                <Grid  ColumnSpacing="15" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
 
-    </VerticalStackLayout>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
 </ContentPage>
