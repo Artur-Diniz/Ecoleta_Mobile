@@ -88,7 +88,7 @@
 
             </ScrollView>
             
-                    <VerticalStackLayout Padding="25,87,25,0" Spacing="30" >
+                    <VerticalStackLayout Padding="25,100,25,0" Spacing="30" >
             
                         <Frame
                         BackgroundColor="{StaticResource Secondary}"
