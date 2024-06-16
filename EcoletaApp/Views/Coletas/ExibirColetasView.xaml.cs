@@ -9,7 +9,7 @@ public partial class ExibirColetasView : ContentPage
 	{
         viewModel = new ExibirColetasViewModel();
         BindingContext = viewModel;
-        Title = "Coleta - Ecoleta";
+        Title = "Coletas";
 
 
         InitializeComponent();
