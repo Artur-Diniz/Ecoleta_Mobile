@@ -67,27 +67,27 @@ namespace EcoletaApp.Services.UtilizadorService
             int id = u.IdUtilizador;
             string urlComplementar = string.Format("Put/{0}", id);
             var result = await _request.PutSemTokenAsync(ApiUrlBase + urlComplementar, u);
-            return result;
+            return result.IdUtilizador;
         }
 
         public async Task<int> PutAlterarSenhaAsync(Utilizador u)
         {
             string urlComplementar = "/AlterarSenha";
             var result = await _request.PutSemTokenAsync(ApiUrlBase + urlComplementar, u);
-            return result;
+            return result.IdUtilizador;
         }
         public async Task<int> PutAlterarEmailAsync(Utilizador u)
         {
             string urlComplementar = "/AtualizarEmail";
             var result = await _request.PutSemTokenAsync(ApiUrlBase + urlComplementar, u);
-            return result;
+            return result.IdUtilizador;
         }
 
         public async Task<int> PutAtualizarLocalizacaoAsync(Utilizador u)
         {
             string urlComplementar = "/AtualizarLocalizacao";
             var result = await _request.PutSemTokenAsync(ApiUrlBase + urlComplementar, u);
-            return result;
+            return result.IdUtilizador;
         }
 
         #endregion

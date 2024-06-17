@@ -15,12 +15,14 @@ namespace Ecoleta.Converters
            ColorTypeConverter converter = new ColorTypeConverter();
 
            string situacaoColeta = (string)value;
-            if (situacaoColeta == "Completa" || situacaoColeta == "Completo" || situacaoColeta == "Completada")
+            if (situacaoColeta == "Completa" || situacaoColeta == "Completo" || situacaoColeta == "Completada" || situacaoColeta == "completo" || situacaoColeta == "completa" || situacaoColeta == "completada")
                 return (Color)converter.ConvertFromInvariantString("YellowGreen");
-            else if (situacaoColeta == "Pendente" || situacaoColeta == "Analisando")
+            else if (situacaoColeta == "Pendente" || situacaoColeta == "Analisando" || situacaoColeta == "pendente" || situacaoColeta == "analisando" )
                 return (Color)converter.ConvertFromInvariantString("OrangeRed");
+            else if (situacaoColeta == "Recusada" || situacaoColeta == "Invalida" || situacaoColeta == "invalida" || situacaoColeta == "recusada")
+                return (Color)converter.ConvertFromInvariantString("Red");
             else
-                return (Color)converter.ConvertFromInvariantString("Yellow");
+            return (Color)converter.ConvertFromInvariantString("Yellow");
         }
 
         public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)

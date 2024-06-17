@@ -7,7 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using EcoletaApp.Views.Utilizador;
-using EcoletaApp.Services.EcopointsService;
 using EcoletaApp.Services.Ecopontos;
 
 namespace EcoletaApp.ViewModels.Utililizador
@@ -15,7 +14,6 @@ namespace EcoletaApp.ViewModels.Utililizador
     public class utlizadorViewModel : BaseViewModel
     {
         private utilizadorService uService;
-        private EcopontoService eService;
         
         public ICommand AutenticarCommand { get; set; }
         public ICommand RegistrarCommand { get; set; }

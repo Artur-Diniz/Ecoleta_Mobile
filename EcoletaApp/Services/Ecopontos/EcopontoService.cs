@@ -75,20 +75,20 @@ namespace EcoletaApp.Services.Ecopontos
         {
             string urlComplementar = string.Format("Put/{0}", e.IdEcoponto);
             var result = await _request.PutSemTokenAsync(apiURLBase +  urlComplementar, e);
-            return result;
+            return result.IdEcoponto;
         }
 
         public async Task<int> PutEcopontoAlterarSenhaAsync(Ecoponto e)
         {
             string urlComplementar = string.Format("AlterarSenha/{0}", e.IdEcoponto);
             var result = await _request.PutSemTokenAsync(apiURLBase + urlComplementar, e);
-            return result;
+            return result.IdEcoponto;
         }
         public async Task<int> PutEcopontoAlterarEmailAsync(Ecoponto e)
         {
             string urlComplementar = string.Format("AlterarEmail/{0}", e.IdEcoponto);
             var result = await _request.PutSemTokenAsync(apiURLBase + urlComplementar, e);
-            return result;
+            return result.IdEcoponto;
         }
 
         #endregion

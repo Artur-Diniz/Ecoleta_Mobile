@@ -41,7 +41,21 @@ namespace EcoletaApp.Services
 
             return result;
         }
-
+        public async Task<TResult> PutSemTokenAsync<TResult>(string uri, TResult data)
+        {
+            HttpClient httpClient = new HttpClient();
+            var content = new StringContent(JsonConvert.SerializeObject(data));
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            HttpResponseMessage response = await httpClient.PutAsync(uri, content);
+            var serialized = await response.Content.ReadAsStringAsync();
+            TResult result = data;
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {result = await Task.Run(() => JsonConvert.DeserializeObject<TResult>(serialized));
+                return result;
+                 }
+            else
+                throw new Exception(serialized);
+        }
 
         public async Task<int> PutAsync<TResult>(string uri, TResult data, string token)
         {
@@ -58,18 +72,7 @@ namespace EcoletaApp.Services
                 throw new Exception(serialized);
         }
 
-        public async Task<int> PutSemTokenAsync<TResult>(string uri, TResult data)
-        {
-            HttpClient httpClient = new HttpClient();
-            var content = new StringContent(JsonConvert.SerializeObject(data));
-            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-            HttpResponseMessage response = await httpClient.PutAsync(uri, content);
-            string serialized = await response.Content.ReadAsStringAsync();
-            if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                return int.Parse(serialized);
-            else
-                throw new Exception(serialized);
-        }
+        
 
         public async Task<TResult> GetAsync<TResult>(string uri, string token)
         {

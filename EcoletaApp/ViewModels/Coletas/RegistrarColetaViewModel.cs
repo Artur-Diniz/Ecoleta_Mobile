@@ -60,32 +60,40 @@ namespace EcoletaApp.ViewModels.Coletas
         {
             try
             { 
-                Coleta coleta = new Coleta();
+                Coleta coleta = new Coleta
                 {
-                    IdColeta = this.IdColeta;
-                    IdEcoponto = this.IdEcoponto;
-                    IdUtilizador = this.IdUtilizador;
-                    CodigoEcoponto = this.IdEcoponto;
-                    CodigoUtilizador = this.IdUtilizador;
-                    DataColeta = DateTime.Now;
-                    TotalEcopoints = this.TotalEcopoints;
-                    Peso = this.Peso;
-                    SituacaoColeta = "S";
+                    IdColeta = this.IdColeta,
+                    IdEcoponto = this.IdEcoponto,
+                    IdUtilizador = this.CodigoUtilizador,
+                    CodigoEcoponto = this.CodigoEcoponto,
+                    CodigoUtilizador = this.IdUtilizador,
+                    DataColeta = DateTime.Now,
+                    TotalEcopoints = this.TotalEcopoints,
+                    Peso = this.Peso,
+                    SituacaoColeta = this.SituacaoColeta
                 };
                 
+                if(coleta != null)
+                {if (coleta.IdColeta == 0)
+                        await cService.PostColetaIndIdAsync(coleta);
+                    else
+                        await cService.putColeta(coleta);
+                    await Shell.Current.GoToAsync("..");
 
-                if (coleta.IdColeta == 0)          
-                    await cService.PostColetaIndIdAsync(coleta);  
+                    await Application.Current.MainPage.DisplayAlert("Mensagem", "Dados Salvos Com Sucesso!", "OK");
+                }
                 else
-                    await cService.putColeta(coleta);
+                    await Application.Current.MainPage.DisplayAlert("Ops", "não é possivél enviar todos os campos nulos", "Ok");
 
-                await Application.Current.MainPage.DisplayAlert("Mensagem", "Dados Salvos Com Sucesso!", "OK");
+               
 
                 await Shell.Current.GoToAsync("..");
             }
             catch (Exception ex)
             {
-                await Application.Current.MainPage.DisplayAlert("Ops", ex.Message + "Detalhes :" + ex.InnerException, "Ok");
+                await Application.Current.MainPage.DisplayAlert("Ops", ex.Message + "Detalhes :" + ex.InnerException, "Ok"); 
+                await Shell.Current.GoToAsync("..");
+
             }
         }
 

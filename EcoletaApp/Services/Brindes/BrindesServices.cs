@@ -45,7 +45,7 @@ namespace EcoletaApp.Services.Brindes
             string urlComplementar = string.Format("Put/{0}", b.IdBrinde);
             var result = await _request.PutSemTokenAsync(apiUrlBase + urlComplementar, b);
 
-            return result;  
+            return result.IdBrinde;  
         }
 
         public async Task<int> DeleteBrindeAsync(int id)

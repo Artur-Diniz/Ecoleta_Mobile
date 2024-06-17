@@ -31,7 +31,7 @@ namespace EcoletaApp.ViewModels.Brindes
         private int idBrinde;
         private string descricaoBrinde;
         private string nomebrinde;
-        private string cadastro; // Char(1);
+        private char cadastro; // Char(1);
         private DateTime validade;
         private int quantidade;
         private int saldo;
@@ -40,7 +40,7 @@ namespace EcoletaApp.ViewModels.Brindes
         public int IdBrinde { get => idBrinde; set { idBrinde = value; OnPropertyChanged(nameof(idBrinde)); } }
         public string DescricaoBrinde { get => descricaoBrinde; set { descricaoBrinde = value; OnPropertyChanged(nameof(descricaoBrinde)); } }
         public string Nomebrinde { get => nomebrinde; set { nomebrinde = value; OnPropertyChanged(nameof(nomebrinde)); } }
-        public string Cadastro { get => cadastro; set{  cadastro = value; OnPropertyChanged(nameof(cadastro)); } }
+        public char Cadastro { get => cadastro; set{  cadastro = value; OnPropertyChanged(nameof(cadastro)); } }
         public DateTime Validade { get => validade; set { validade = value; OnPropertyChanged(nameof(validade)); } }
         public int Quantidade { get => quantidade; set {quantidade = value; OnPropertyChanged(nameof(quantidade)); } }
         public int Saldo { get => saldo;  set {saldo = value; OnPropertyChanged(nameof(saldo)); } }
