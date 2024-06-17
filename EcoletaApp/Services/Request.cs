@@ -83,7 +83,7 @@ namespace EcoletaApp.Services
             TResult result;
             result = JsonConvert.DeserializeObject<TResult>(serialized);
 
-            if ( serialized.Contains("\"value\""))
+            if ( serialized.Contains("\"value\"") || serialized.Contains("email\""))
             {
                 var wrapper = JsonConvert.DeserializeObject<Wrapper<TResult>>(serialized);
                 result = wrapper.Value;

@@ -93,10 +93,11 @@ namespace EcoletaApp.ViewModels.Utililizador
             try
             {
                 Utilizador u = new Utilizador();
-                u.Username = Username;
+                u.Email = Email;
                 u.PasswordString = Passwordstring;
 
                 Utilizador uAutenticado = await uService.PostAutenticarUtilizadorAsync(u);
+
 
                 if (uAutenticado != null)
                 {

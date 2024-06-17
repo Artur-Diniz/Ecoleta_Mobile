@@ -103,8 +103,8 @@ namespace EcoletaApp.ViewModels.Ecopontos
                     PasswordString = this.PasswordString,
                     Email = this.Email,
                     PasswordHash = this.PasswordHash,
-                     PasswordSalt = this.PasswordSalt,
-                     Numero = this.Numero
+                    PasswordSalt = this.PasswordSalt,
+                    Numero = this.Numero
                      
                    
                 };
@@ -113,7 +113,14 @@ namespace EcoletaApp.ViewModels.Ecopontos
                 if (model.IdEcoponto == 0)
                     await eService.PostEcopontoAsync(model);
                 else
-                    await eService.PutEcopontoAsync(model);
+                {
+                    Ecoponto e = await eService.GetEcopontoAsync(model.IdEcoponto);
+
+                    model.PasswordHash = e.PasswordHash;
+                    model.PasswordSalt = e.PasswordSalt;
+
+                    await eService.PutEcopontoAsync(model);                            
+                }
 
                 await Application.Current.MainPage
                     .DisplayAlert("Mensagem", "Dados salvos com sucesso!", "OK");
