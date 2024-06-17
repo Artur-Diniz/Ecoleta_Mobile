@@ -11,12 +11,12 @@ namespace EcoletaApp.Models
     {
         [Key]
         public int IdBrinde { get; set; }
-        public string NomeBrinde { get; set; } = string.Empty;
         public string DescricaoBrinde { get; set; } = string.Empty;
-        public byte[]? Imagem { get; set; }
-        public String Cadastro { get; set; }
+        public string NomeBrinde { get; set; } = string.Empty;
+        public char Cadastro { get; set; }
         public DateTime Validade { get; set; }
         public int Quantidade { get; set; }
+        public int Saldo { get; set; }
         public int ValorEcopoints { get; set; }
     }
 }
