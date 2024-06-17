@@ -34,7 +34,7 @@ namespace EcoletaApp.Services.Ecopontos
         public async Task<Ecoponto> GetEcopontoAsync(int Id)
         {
             string urlComplementar = string.Format("GetbyId/{0}", Id);
-            var ecoponto = await _request.GetSemTokenAsync<Models.Ecoponto>(apiURLBase + urlComplementar);
+            Ecoponto ecoponto = await _request.GetSemTokenAsync<Models.Ecoponto>(apiURLBase + urlComplementar);
             return ecoponto;
         }
 

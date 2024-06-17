@@ -10,7 +10,7 @@ using EcoletaApp.Services.Ecopontos;
 
 namespace EcoletaApp.ViewModels.Ecopontos
 {
-    [QueryProperty("EcopointSelecionadoId", "eId")]
+    [QueryProperty("EcopontoSelecionadoId", "eId")]
     class CadastroEcopontoViewModel : BaseViewModel
     {
         private EcopontoService eService;
@@ -35,6 +35,7 @@ namespace EcoletaApp.ViewModels.Ecopontos
         private string logradouro;
         private string endereco;
         private string complemento;
+        private int numero;
         private string bairro;
         private string cidade;
         private string uf;
@@ -68,15 +69,18 @@ namespace EcoletaApp.ViewModels.Ecopontos
         public string Email { get => email; set { email = value; OnPropertyChanged(nameof(Email)); } }
         public byte[] PasswordHash { get => passwordHash; set { passwordHash = value; OnPropertyChanged(nameof(PasswordHash)); } }
         public byte[] PasswordSalt { get => passwordSalt; set { passwordSalt = value; OnPropertyChanged(nameof(PasswordSalt)); } }
+        public int Numero { get => numero; set { numero = value; OnPropertyChanged(nameof(numero)); } }
+
 
         private string ecopontoSelecionadoId;
         public string EcopontoSelecionadoId { get => ecopontoSelecionadoId; set { if (value != null) { ecopontoSelecionadoId = Uri.UnescapeDataString(value); CarregarEcoponto(); } } }
+
 
         #endregion
 
 
         public async Task salvarEcoponto()
-        {
+        {   
             try 
             {
 
@@ -99,8 +103,10 @@ namespace EcoletaApp.ViewModels.Ecopontos
                     PasswordString = this.PasswordString,
                     Email = this.Email,
                     PasswordHash = this.PasswordHash,
-                     PasswordSalt = this.PasswordSalt
-                     // isso aqui tem que revisar depois no método put
+                     PasswordSalt = this.PasswordSalt,
+                     Numero = this.Numero
+                     
+                   
                 };
 
 
@@ -148,6 +154,8 @@ namespace EcoletaApp.ViewModels.Ecopontos
                 this.Email = e.Email;
                 this.passwordSalt = e.PasswordSalt;
                 this.PasswordHash = e.PasswordHash;
+                this.Numero = e.Numero;
+
             }
             catch (Exception ex)
             {

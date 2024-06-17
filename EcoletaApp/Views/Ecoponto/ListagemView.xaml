@@ -22,10 +22,15 @@
                             </ViewCell.ContextActions>
                             <StackLayout Padding="10">
 
-                      
 
-                             
-                                    <HorizontalStackLayout>
+                                <HorizontalStackLayout>
+                                    <Label Text="Id:  " FontAttributes="Bold"/>
+                                    <Label Text="{Binding IdEcoponto}"
+                                 VerticalOptions="Start"
+                                 HorizontalOptions="FillAndExpand"/>
+                                </HorizontalStackLayout>
+
+                                <HorizontalStackLayout>
                                     <Label Text="Nome:  " FontAttributes="Bold"/>
                                     <Label Text="{Binding Nome}"
                                      VerticalOptions="Start"

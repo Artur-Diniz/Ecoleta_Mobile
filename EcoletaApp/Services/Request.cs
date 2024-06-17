@@ -66,13 +66,38 @@ namespace EcoletaApp.Services
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             HttpResponseMessage response = await httpClient.PutAsync(uri, content);
             string serialized = await response.Content.ReadAsStringAsync();
+           
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 return int.Parse(serialized);
             else
                 throw new Exception(serialized);
         }
 
-        
+
+        public async Task<TResult> GetSemTokenAsync<TResult>(string uri)
+        {
+            HttpClient httpClient = new HttpClient();
+            HttpResponseMessage response = await httpClient.GetAsync(uri);
+
+            var serialized = await response.Content.ReadAsStringAsync();
+            TResult result;
+            result = JsonConvert.DeserializeObject<TResult>(serialized);
+
+            if ( serialized.Contains("\"value\""))
+            {
+                var wrapper = JsonConvert.DeserializeObject<Wrapper<TResult>>(serialized);
+                result = wrapper.Value;
+            }
+
+            if (response.IsSuccessStatusCode)
+            {
+                return result;
+            }
+            else
+            {
+                throw new Exception(serialized);
+            }
+        }
 
         public async Task<TResult> GetAsync<TResult>(string uri, string token)
         {
@@ -86,19 +111,6 @@ namespace EcoletaApp.Services
             throw new Exception(serialized);
         }
 
-        public async Task<TResult> GetSemTokenAsync<TResult>(string uri)
-        {
-            HttpClient httpClient = new HttpClient();
-            HttpResponseMessage response = await httpClient.GetAsync(uri);
-            string serialized = await response.Content.ReadAsStringAsync();
-            TResult result = await Task.Run(() =>
-            JsonConvert.DeserializeObject<TResult>(serialized));
-           
-            if(response.IsSuccessStatusCode)
-                return result;
-            else
-            throw new Exception(serialized);
-        }
 
         public async Task<int> DeleteAsync(string uri, string token)
         {
@@ -122,6 +134,11 @@ namespace EcoletaApp.Services
                 return int.Parse(serialized);
             else
                 throw new Exception(serialized);
+        }
+
+        public class Wrapper<T>
+        {
+            public T Value { get; set; }
         }
     }
 }
