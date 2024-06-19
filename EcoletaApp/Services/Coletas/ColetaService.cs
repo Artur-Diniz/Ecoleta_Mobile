@@ -60,9 +60,6 @@ namespace EcoletaApp.Services.Coletas
             return coleta;
         }
 
-
-      
-
         public async Task<int> DeleteColetaAsync(int c)
         {
             string urlComplementar = string.Format("Delete/{0}", c);

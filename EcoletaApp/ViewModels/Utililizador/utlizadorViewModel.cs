@@ -18,6 +18,7 @@ namespace EcoletaApp.ViewModels.Utililizador
         public ICommand AutenticarCommand { get; set; }
         public ICommand RegistrarCommand { get; set; }
         public ICommand DirecionarCadastroCommand { get; set; }
+        public ICommand DirecionaraParaEcopontoCommand {  get; set; }
 
         private CancellationToken _cancellationToken;
         private bool _isCheckingLocation;
@@ -34,6 +35,7 @@ namespace EcoletaApp.ViewModels.Utililizador
             AutenticarCommand = new Command(async  () => await AutenticarUtilizador());
             RegistrarCommand = new Command(async () => await ResgistarUtilizador());
             DirecionarCadastroCommand = new Command(async () => await DirencionarParaCadastro());
+            DirecionaraParaEcopontoCommand = new Command(async () => await DirecionaraParaEcoponto());
         }
 
         #region Atributos Utilizador
@@ -144,6 +146,21 @@ namespace EcoletaApp.ViewModels.Utililizador
             try
             {
                 await Application.Current.MainPage.Navigation.PushAsync(new CadastroView());
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage
+                    .DisplayAlert("Informação", ex.Message + "Detalhes:" + ex.InnerException, "OK");
+            }
+        }
+
+        public async Task DirecionaraParaEcoponto()
+        {
+            try
+            {
+                await Shell.Current.GoToAsync("LoginEcoponto");
+             
+          
             }
             catch (Exception ex)
             {

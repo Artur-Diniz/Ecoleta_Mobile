@@ -3,20 +3,52 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EcoletaApp.Views.Utilizador.CadastroView"
              Title="CadastroView">
-    <VerticalStackLayout>
-        <Entry Placeholder="Digite seu nome" Text ="{Binding Nome}"
-         Margin="0,10,0,0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-        </Entry>
-        <Entry Placeholder="Digite a Email" Text="{Binding Email}" IsPassword="True" 
-            Margin="0,10,0,0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
-        </Entry>
-        <Entry Placeholder="Digite nome de Usuário" Text="{Binding Username}" IsPassword="True" 
-     Margin="0,10,0,0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
-        </Entry>
-        <Entry Placeholder="Digite a senha" Text="{Binding Passwordstring}" IsPassword="True" 
-     Margin="0,10,0,0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
-        </Entry>
+    <ScrollView>
+        <Grid Margin="20,30,20,0" RowSpacing="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="150"/>
+                <RowDefinition Height="150"/>
+            </Grid.RowDefinitions>
 
-        <Button Text="Cadastrar" Command="{Binding AutenticarCommand}" Margin="0,10,0,0"/>
-    </VerticalStackLayout>
+
+            <Label Text="Nome:" FontSize="Medium" FontAttributes="Bold" Grid.Row="0" HorizontalOptions="Start" VerticalOptions="End"/>
+
+            <Entry Placeholder="Digite seu nome"  Text ="{Binding Nome}" FontSize="Medium"
+              Margin="0,10,0,0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="1">
+             </Entry>
+
+
+            <Label Text="Email:" FontSize="Medium" FontAttributes="Bold"  Grid.Row="2" HorizontalOptions="Start" VerticalOptions="End"/>
+
+            <Entry Placeholder="Digite a Email" Text="{Binding Email}" IsPassword="True"  FontSize="Medium"
+                    Margin="0,10,0,0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  Grid.Row="3">
+                </Entry>
+
+
+            <Label Text="Usuário:" FontSize="Medium" FontAttributes="Bold"  Grid.Row="4" HorizontalOptions="Start" VerticalOptions="End"/>
+            <Entry Placeholder="Digite nome de Usuário" Text="{Binding Username}" IsPassword="True"  FontSize="Medium"
+             Margin="0,10,0,0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="5" >
+                </Entry>
+
+            <Label Text="Senha:" FontSize="Medium" FontAttributes="Bold"  Grid.Row="6" HorizontalOptions="Start" VerticalOptions="End" />
+            <Entry Placeholder="Digite a senha" Text="{Binding Passwordstring}" IsPassword="True"  FontSize="Medium" VerticalTextAlignment="Center"
+             Margin="0,10,0,0" VerticalOptions="End" HorizontalOptions="FillAndExpand"  Grid.Row="7" >
+            </Entry>
+
+
+            <HorizontalStackLayout Padding="0,30,0,0"  Grid.Row="8" HorizontalOptions="Center" >
+                
+            <Button Text="Cadastrar" Command="{Binding AutenticarCommand}" FontSize="Large" Margin="0,10,0,0" HorizontalOptions="Center"
+                    VerticalOptions="End"  HeightRequest="55" WidthRequest="140"  />
+                </HorizontalStackLayout>    
+        </Grid>
+    </ScrollView>
 </ContentPage>

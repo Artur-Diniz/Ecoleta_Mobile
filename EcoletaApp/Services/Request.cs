@@ -73,7 +73,6 @@ namespace EcoletaApp.Services
                 throw new Exception(serialized);
         }
 
-
         public async Task<TResult> GetSemTokenAsync<TResult>(string uri)
         {
             HttpClient httpClient = new HttpClient();
@@ -83,7 +82,7 @@ namespace EcoletaApp.Services
             TResult result;
             result = JsonConvert.DeserializeObject<TResult>(serialized);
 
-            if ( serialized.Contains("\"value\"") || serialized.Contains("email\""))
+            if (serialized.Contains("\"value\""))
             {
                 var wrapper = JsonConvert.DeserializeObject<Wrapper<TResult>>(serialized);
                 result = wrapper.Value;

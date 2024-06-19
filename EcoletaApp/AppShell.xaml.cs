@@ -9,9 +9,11 @@ namespace EcoletaApp
         {
             InitializeComponent();
 
+
             Routing.RegisterRoute("cadEcopontoView", typeof(Views.Ecoponto.CadastroView));
             Routing.RegisterRoute("cadColetaView", typeof(Views.Coletas.RegistrarColetasView));
             Routing.RegisterRoute("cadBrindeView", typeof(Views.Brinde.RegistrarBrindeView));
+              //  Routing.RegisterRoute("LoginEcoponto", typeof()); 
             Routing.RegisterRoute("HomePage", typeof(MainPage));
       
         }

@@ -56,16 +56,8 @@ namespace EcoletaApp.Services.UtilizadorService
         public async Task<Utilizador> PostAutenticarUtilizadorAsync(Utilizador u)
         {
             string urlComplementar = "Autenticar";
-            Utilizador utilizador = await _request.PostSemTokenAsync(ApiUrlBase + urlComplementar, u);
+            u = await _request.PostSemTokenAsync(ApiUrlBase + urlComplementar, u);
 
-
-            //ObservableCollection<Models.Utilizador> user = await _request.GetSemTokenAsync<ObservableCollection<Models.Utilizador>>(ApiUrlBase + "GetAll");
-            
-            //Utilizador utilizadorAutenticado = user.FirstOrDefault(user => user.Email.Equals(u.Email, StringComparison.OrdinalIgnoreCase));
-
-            if (utilizadorAutenticado != null)
-                return utilizadorAutenticado;
-            else
             return u;
         }
         #endregion
