@@ -42,6 +42,7 @@
     <ShellContent Title="Descrição" Icon="folha3.png" Route="desc" ContentTemplate="{DataTemplate local:DescriptionView}" />
     <ShellContent Title="Ecopontos"  Icon="ecoponto.png" ContentTemplate="{DataTemplate viewEcopontos:ListagemView}" />
     <ShellContent Title="Coleta" Icon="coleta.png"  ContentTemplate="{DataTemplate viewColeta:ExibirColetasView}" />
+    <ShellContent Title="FotoBrinde" Icon="brinde.png"   ContentTemplate="{DataTemplate viewBrinde:ExibirBrindeView: }"  Route="MainPage" />
     <ShellContent Title="Brindes" Icon="brinde.png" ContentTemplate="{DataTemplate viewBrinde:ExibirBrindeView}" />
     <ShellContent Title="Utilizador" Icon="utilizador.png" ContentTemplate="{DataTemplate viewUtilizador:LoginView}" />
     <ShellContent Title="LocEcopontos"  Icon="localizacao.png" ContentTemplate="{DataTemplate viewEcopontos:LocalizacaoEcopontosView}" />

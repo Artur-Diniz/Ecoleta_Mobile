@@ -1,4 +1,5 @@
-﻿using EcoletaApp.Models;
+﻿using Android.Views.Accessibility;
+using EcoletaApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -54,7 +55,21 @@ namespace EcoletaApp.Services.Brindes
             var retult = await _request.DeleteSemTokenAsync(apiUrlBase + urlComplementar);
             
             return retult;
+        }
 
+        public async Task<int> PutPutFotoBrindeAsync(Brinde b)
+        {
+            string urlComplementar = "/AtualizarFoto";
+            Brinde result = await _request.PutSemTokenAsync<Brinde>(apiUrlBase + urlComplementar, b);
+            return result.IdBrinde;
+        }
+
+        public async Task<Brinde> GetUsuarioAsync(int usuarioId)
+        {
+            string urlComplementar = string.Format("/{0}", usuarioId);
+            var usuario = await
+            _request.GetSemTokenAsync<Models.Brinde>(apiUrlBase + urlComplementar);
+            return usuario;
         }
 
 

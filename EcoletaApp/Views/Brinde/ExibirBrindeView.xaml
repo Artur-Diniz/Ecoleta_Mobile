@@ -2,8 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EcoletaApp.Views.Brinde.ExibirBrindeView"
-             Title="ExibirBrindeView">
-
+             Title="ExibirBrindeView"> <!--NavigationPage.HasNavigationBar="False"-->
+    
     <Shell.TitleView>
         <Button Command="{Binding RegistrarCommand}" Text="Registrar Bride" HorizontalOptions="End"></Button>
     </Shell.TitleView>
