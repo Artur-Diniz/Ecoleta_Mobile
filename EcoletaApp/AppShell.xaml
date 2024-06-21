@@ -7,9 +7,17 @@
     xmlns:viewUtilizador="clr-namespace:EcoletaApp.Views.Utilizador"
     xmlns:viewColeta="clr-namespace:EcoletaApp.Views.Coletas"
     xmlns:viewBrinde="clr-namespace:EcoletaApp.Views.Brinde"
+    xmlns:conv="clr-namespace:Ecoleta.Converters"
         xmlns:local="clr-namespace:EcoletaApp"
     Title="EcoletaApp">
 
+    <Shell.Resources>
+        <ResourceDictionary>
+            <conv:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage"/>
+        </ResourceDictionary>
+    </Shell.Resources>
+    
+    
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
             <Grid>

@@ -7,29 +7,33 @@
     <Shell.TitleView set="Ecopontos" Margin="0,0,10,0" >
         <Button Command="{Binding NovoEcoponto}" Text="Novo Ecoponto" HorizontalOptions="End" FontSize="14" LineBreakMode="NoWrap" WidthRequest="125" ></Button>
         </Shell.TitleView>
-        
+
     <ScrollView>
-        <VerticalStackLayout  VerticalOptions="FillAndExpand" Margin="30,40,25,50">
-            <Label Text="Ecopontos dinponíveis" FontSize="Large"/>
-              <ListView x:Name="listView" HasUnevenRows="True" ItemsSource="{Binding Ecopontos}" SelectedItem="{Binding EcopontoSelecionado}" >
+
+        <VerticalStackLayout  VerticalOptions="FillAndExpand" Margin="30,0,10,50" >
+            <Label Text="Ecopontos disponíveis" FontSize="28"/>
+
+            <ListView x:Name="listView" HasUnevenRows="True" ItemsSource="{Binding Ecopontos}" SelectedItem="{Binding EcopontoSelecionado}"   >
                   <ListView.ItemTemplate>
-                      <DataTemplate>
-                          <ViewCell >
+                      <DataTemplate >
+                        <ViewCell  >
                               <ViewCell.ContextActions >
-                                  <MenuItem Text="Remover" IsDestructive="True" 
+                                  <MenuItem Text="Remover" IsDestructive="True"  
                                                 Command="{Binding Path=BindingContext.RemoverEcopontoCommand, Source={x:Reference listView}}"
-                                                CommandParameter="{Binding .}"></MenuItem>
+                                                CommandParameter="{Binding .}" ></MenuItem>
                               </ViewCell.ContextActions>
-                              <Grid  RowSpacing="15"  Padding="0,15">
+                            <ScrollView Orientation="Horizontal">
+                                <Grid  RowSpacing="15"  Padding="0,0,0,15" Margin="0,0,0,25" Background="#E1E1E1">
+                               
                                   <Grid.RowDefinitions>
+                                      <RowDefinition Height="40"/>
                                       <RowDefinition Height="*"/>
                                       <RowDefinition Height="*"/>
                                       <RowDefinition Height="*"/>
                                       <RowDefinition Height="*"/>
                                       <RowDefinition Height="*"/>
-                                      <RowDefinition Height="*"/>
-                                      <RowDefinition Height="*"/>
-                                      <RowDefinition Height="*"/>
+                                      <RowDefinition Height="60"/>
+                                      <RowDefinition Height="60"/>
                                       <RowDefinition Height="*"/>
                                       <RowDefinition Height="*"/>
                                   </Grid.RowDefinitions>
@@ -168,9 +172,10 @@
                                         VerticalOptions="FillAndExpand"
                                        HorizontalOptions="FillAndExpand" Grid.Column="1" FontSize="Medium"/>
                                   </Grid>
-                                  
-                              </Grid>
-                          </ViewCell>
+                            </Grid>
+                            </ScrollView>
+
+                        </ViewCell>
                       </DataTemplate>
                   </ListView.ItemTemplate>
               </ListView>

@@ -1,16 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-	<application android:allowBackup="true" android:icon="@mipmap/logoecoletatexto" android:supportsRtl="true"
-				 >
-
-		<meta-data
-		android:name="com.google.android.geo.API_KEY"
-		android:value="AIzaSyAK1FtMlT1wkyjxRsbSinHiamarSZIewcg"></meta-data>
+	<application android:allowBackup="true" android:icon="@mipmap/logoecoletatexto" android:supportsRtl="true">
+		<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyAK1FtMlT1wkyjxRsbSinHiamarSZIewcg"></meta-data>
 	</application>
+
+	<queries>
+		<intent>
+			<action android:name="android.media.action.IMAGE_CAPTURE" />
+		</intent>
+	</queries>
+	
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<uses-sdk />
 </manifest>

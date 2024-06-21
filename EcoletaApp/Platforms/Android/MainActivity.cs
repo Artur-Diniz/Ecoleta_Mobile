@@ -11,8 +11,7 @@ namespace EcoletaApp
         {
             base.OnCreate(savedInstanceState);
 
-            // Set the status bar color
-            Window.SetStatusBarColor(Android.Graphics.Color.ParseColor("#008C7D"));
+            Window.SetStatusBarColor(Android.Graphics.Color.ParseColor("#009989"));
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Ecoleta.ViewModels.Brindes
     {
         private BrindesServices _service;
         private static string conexaoAzureStorage = "";
-        private static string container = "";
+        private static string container = "sustentech";
 
         public ImageBrindeViewModel()
         { 
@@ -23,10 +23,15 @@ namespace Ecoleta.ViewModels.Brindes
 
             FotografarCommand = new Command(Fotografar);
             SalvarCommand = new Command(SalvarImagem);
+            AbrirGaleriaCommand = new Command(AbrirGaleria);
+
+            CarregarImagemAzuer();
         }
 
         public ICommand FotografarCommand { get; }
         public ICommand SalvarCommand { get; }
+        public ICommand AbrirGaleriaCommand { get; }
+
 
         #region Image 
         private ImageSource fonteImage;
@@ -76,7 +81,6 @@ namespace Ecoleta.ViewModels.Brindes
         {
             try
             {
-
                 Brinde b = new Brinde();
                 b.Imagem = Foto;
                 b.IdBrinde = Preferences.Get("BrindeId", 0);
@@ -101,5 +105,62 @@ namespace Ecoleta.ViewModels.Brindes
                 await Application.Current.MainPage.DisplayAlert("Ops", ex.Message + "Detalhes :" + ex.InnerException, "Ok");
             }
         }
+
+        public async void AbrirGaleria()
+        {
+            try
+            {
+                if (MediaPicker.Default.IsCaptureSupported)
+                {
+                    FileResult photo = await MediaPicker.Default.PickPhotoAsync();
+
+                    if (photo != null)
+                    {
+                        using (Stream sourceStream = await photo.OpenReadAsync())
+                        {
+                            using (MemoryStream ms = new MemoryStream())
+                            {
+                                await sourceStream.CopyToAsync(ms);
+
+                                Foto = ms.ToArray();
+
+                                Foto = ms.ToArray();
+
+                                FonteImage = ImageSource.FromStream(() => new MemoryStream(ms.ToArray()));
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("Ops", ex.Message + "Detalhes :" + ex.InnerException, "Ok");
+            }
+        }
+
+        public async void CarregarImagemAzuer()
+        {
+            try 
+            {
+                int brindeId = Preferences.Get("BrindeId", 0);
+                string filename = $"{brindeId}.jpg";
+
+                var blobClient = new BlobClient(conexaoAzureStorage, container, filename);
+                Byte[] fileBytes;
+
+                using (MemoryStream ms = new MemoryStream())
+                { 
+                    blobClient.OpenRead().CopyTo(ms);
+                    fileBytes = ms.ToArray();   
+                }
+
+                Foto = fileBytes;
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("Ops", ex.Message + "Detalhes :" + ex.InnerException, "Ok");
+            }
+        }
+            
     }
 }
