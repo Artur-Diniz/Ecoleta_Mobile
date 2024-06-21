@@ -158,9 +158,7 @@ namespace EcoletaApp.ViewModels.Utililizador
         {
             try
             {
-                await Shell.Current.GoToAsync("LoginEcoponto");
-             
-          
+                await Shell.Current.GoToAsync("LoginEcoponto");                  
             }
             catch (Exception ex)
             {

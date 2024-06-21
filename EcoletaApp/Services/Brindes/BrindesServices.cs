@@ -1,5 +1,4 @@
-﻿using Android.Views.Accessibility;
-using EcoletaApp.Models;
+﻿using EcoletaApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

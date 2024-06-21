@@ -2,8 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EcoletaApp.Views.Utilizador.LoginView"
-             Title="LoginView">
-    <VerticalStackLayout>
+             Title="Login View" NavigationPage.HasBackButton="False" NavigationPage.HasNavigationBar="False" >    <!--NavigationPage.HasNavigationBar="False"-->
 
         <Grid Margin=" 30, 25" >
             <Grid.RowDefinitions>
@@ -67,9 +66,9 @@
 
 
             </Grid>
-            
-            <Button Text="Entrar Como Ecoponto" FontSize="Medium" LineBreakMode="WordWrap" HeightRequest="90" WidthRequest="140" Command="{Binding DirecionarCadastro}" Grid.Row="2"></Button>
+
+            <Button Text="Entrar Como Ecoponto" FontSize="Medium" LineBreakMode="WordWrap" HeightRequest="90"
+                    WidthRequest="140"   Command="{Binding DirecionaraParaEcopontoCommand}" Grid.Row="2" />
 
         </Grid>
-    </VerticalStackLayout>
 </ContentPage>

@@ -2,110 +2,178 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EcoletaApp.Views.Ecoponto.ListagemView"
-             Title="ListagemView">
+             Title="Listagem">
 
-    <Shell.TitleView set="Ecopontos" >
-        <Button Command="{Binding NovoEcoponto}" Text="Novo Ecoponto" HorizontalOptions="End"></Button>
+    <Shell.TitleView set="Ecopontos" Margin="0,0,10,0" >
+        <Button Command="{Binding NovoEcoponto}" Text="Novo Ecoponto" HorizontalOptions="End" FontSize="14" LineBreakMode="NoWrap" WidthRequest="125" ></Button>
         </Shell.TitleView>
         
     <ScrollView>
-          <VerticalStackLayout Padding="10, 0, 0, 0" VerticalOptions="FillAndExpand">
+        <VerticalStackLayout  VerticalOptions="FillAndExpand" Margin="30,40,25,50">
             <Label Text="Ecopontos dinponíveis" FontSize="Large"/>
-            <ListView x:Name="listView" HasUnevenRows="True" ItemsSource="{Binding Ecopontos}" SelectedItem="{Binding EcopontoSelecionado}" >
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <ViewCell.ContextActions>
-                                <MenuItem Text="Remover" IsDestructive="True" 
-                                              Command="{Binding Path=BindingContext.RemoverEcopontoCommand, Source={x:Reference listView}}"
-                                              CommandParameter="{Binding .}"></MenuItem>
-                            </ViewCell.ContextActions>
-                            <StackLayout Padding="10">
-
-
-                                <HorizontalStackLayout>
-                                    <Label Text="Id:  " FontAttributes="Bold"/>
-                                    <Label Text="{Binding IdEcoponto}"
-                                 VerticalOptions="Start"
-                                 HorizontalOptions="FillAndExpand"/>
-                                </HorizontalStackLayout>
-
-                                <HorizontalStackLayout>
-                                    <Label Text="Nome:  " FontAttributes="Bold"/>
-                                    <Label Text="{Binding Nome}"
-                                     VerticalOptions="Start"
-                                     HorizontalOptions="FillAndExpand"/>
-                                </HorizontalStackLayout>
-                            
-                                        
-                                <HorizontalStackLayout>
-                                    <Label Text="CNPJ:  " FontAttributes="Bold"/>
-                                    <Label  Text="{Binding CNPJ}" 
-                                     VerticalOptions="FillAndExpand"
-                                     HorizontalOptions="FillAndExpand" WidthRequest="65"/>
-                                 </HorizontalStackLayout>
-
-                                <HorizontalStackLayout>
-                                    <Label Text="Logradouro:  "  FontAttributes="Bold"/>
-                                    <Label   Text="{Binding Logradouro}"
-                                      VerticalOptions="End"
-                                     HorizontalOptions="End" WidthRequest="30"/>
-                                 </HorizontalStackLayout>
-
-                                    <HorizontalStackLayout>
-                                    <Label Text="Endereco:  "  FontAttributes="Bold"/>
-                                    <Label  Text="{Binding Endereco}"
-                                     VerticalOptions="FillAndExpand"
-                                     HorizontalOptions="FillAndExpand"/>
-                                </HorizontalStackLayout>
-                                
-                                <HorizontalStackLayout>
-                                    <Label Text="Complemento:  "  FontAttributes="Bold"/>
-                                    <Label  Text="{Binding Complemento}"
-                                      VerticalOptions="FillAndExpand"
-                                      HorizontalOptions="FillAndExpand"/>
-                                </HorizontalStackLayout>
-
-                                <HorizontalStackLayout>
-                                    <Label Text="Bairro:  "  FontAttributes="Bold"/>
-                                    <Label  Text="{Binding Bairro}"
-                                      VerticalOptions="FillAndExpand"
-                                      HorizontalOptions="FillAndExpand"/>
-                                </HorizontalStackLayout>
-
-                                <HorizontalStackLayout>
-                                    <Label Text="Cidade:  "  FontAttributes="Bold"/>
-                                    <Label Text="{Binding Cidade}"
-                                      VerticalOptions="FillAndExpand"
-                                       HorizontalOptions="FillAndExpand"/>
-                                    </HorizontalStackLayout>
-
-                                    <HorizontalStackLayout>
-                                    <Label Text="UF:  "  FontAttributes="Bold"/>
-                                    <Label  Text="{Binding UF}"
-                                       VerticalOptions="FillAndExpand"
-                                           HorizontalOptions="FillAndExpand"/>
-                                </HorizontalStackLayout>
-                                
-                                <HorizontalStackLayout>
-                                    <Label Text="CEP:  "  FontAttributes="Bold"/>
-                                    <Label Text="{Binding CEP}"
-                                       VerticalOptions="FillAndExpand"
-                                       HorizontalOptions="FillAndExpand"/>
-                                    </HorizontalStackLayout>
-
-                                    <HorizontalStackLayout>
-                                    <Label Text="Razão Social:  " FontAttributes="Bold"/>
-                                    <Label  Text="{Binding RazaoSocial}"
-                                     VerticalOptions="FillAndExpand"
-                                    HorizontalOptions="FillAndExpand"/>
-                                    </HorizontalStackLayout>
+              <ListView x:Name="listView" HasUnevenRows="True" ItemsSource="{Binding Ecopontos}" SelectedItem="{Binding EcopontoSelecionado}" >
+                  <ListView.ItemTemplate>
+                      <DataTemplate>
+                          <ViewCell >
+                              <ViewCell.ContextActions >
+                                  <MenuItem Text="Remover" IsDestructive="True" 
+                                                Command="{Binding Path=BindingContext.RemoverEcopontoCommand, Source={x:Reference listView}}"
+                                                CommandParameter="{Binding .}"></MenuItem>
+                              </ViewCell.ContextActions>
+                              <Grid  RowSpacing="15"  Padding="0,15">
+                                  <Grid.RowDefinitions>
+                                      <RowDefinition Height="*"/>
+                                      <RowDefinition Height="*"/>
+                                      <RowDefinition Height="*"/>
+                                      <RowDefinition Height="*"/>
+                                      <RowDefinition Height="*"/>
+                                      <RowDefinition Height="*"/>
+                                      <RowDefinition Height="*"/>
+                                      <RowDefinition Height="*"/>
+                                      <RowDefinition Height="*"/>
+                                      <RowDefinition Height="*"/>
+                                  </Grid.RowDefinitions>
                   
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                                   <Grid Grid.Row="0" ColumnSpacing="15" Background="MediumSeaGreen">
+                                      <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                          <ColumnDefinition Width="*"/>
+                                      </Grid.ColumnDefinitions>
+
+                                    <Label Text="Id:  " FontAttributes="Bold" Grid.Column="0" TextColor="AliceBlue" HorizontalOptions="End" FontSize="28"/>
+                                    <Label Text="{Binding IdEcoponto}"  TextColor="AliceBlue"
+                                   VerticalOptions="Start" FontSize="28" FontAttributes="Bold"
+                                   HorizontalOptions="Start" Grid.Column="1"/>
+                                  </Grid>
+
+                                <Grid Grid.Row="1" ColumnSpacing="25" >
+                                      
+                                      <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="120"/>
+                                          <ColumnDefinition Width="230"/>
+                                      </Grid.ColumnDefinitions>
+
+
+                                    <Label Text="Nome:  " FontAttributes="Bold" HorizontalOptions="End" FontSize="Medium"/>
+                                      <Label Text="{Binding Nome}"
+                                       VerticalOptions="Start" FontSize="Medium"
+                                       HorizontalOptions="Start" Grid.Column="1"/>
+                                  </Grid>
+
+
+                                <Grid Grid.Row="2" ColumnSpacing="25">
+                                      <Grid.ColumnDefinitions>
+                                          <ColumnDefinition Width="120"/>
+                                          <ColumnDefinition Width="*"/>
+                                      </Grid.ColumnDefinitions>
+                                    <Label Text="CNPJ:  " FontAttributes="Bold" HorizontalOptions="End" FontSize="Medium"/>
+                                      <Label  Text="{Binding CNPJ}" 
+                                       VerticalOptions="FillAndExpand" FontSize="Medium"
+                                       HorizontalOptions="Start" WidthRequest="65" Grid.Column="1"/>
+                                   </Grid>
+                                <Grid Grid.Row="3" ColumnSpacing="25">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="120" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="Logradouro:  " FontAttributes="Bold" HorizontalOptions="End" Grid.Column="0" FontSize="Medium"/>
+                                    <Label Text="{Binding Logradouro}" VerticalOptions="Start" FontSize="Medium" HorizontalOptions="FillAndExpand" LineBreakMode="NoWrap" Grid.Column="1"/>
+                                </Grid>
+                                  
+                                <Grid Grid.Row="4" ColumnSpacing="25">
+                                      <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="120"/>
+                                          <ColumnDefinition Width="*"/>
+                                      </Grid.ColumnDefinitions>
+                                    <Label Text="Endereco:  "  FontAttributes="Bold" HorizontalOptions="End" FontSize="Medium"/>
+                                      <Label  Text="{Binding Endereco}"
+                                       VerticalOptions="FillAndExpand" FontSize="Medium"
+                                       HorizontalOptions="FillAndExpand" Grid.Column="1"/>
+                                  </Grid>
+
+                                <Grid Grid.Row="5" ColumnSpacing="25">
+                                      <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="120"/>
+                                          <ColumnDefinition Width="*"/>
+                                      </Grid.ColumnDefinitions>
+                                    <Label Text="Complemento:  "  FontAttributes="Bold" HorizontalOptions="End" FontSize="Medium"/>
+                                      <Label  Text="{Binding Complemento}"
+                                        VerticalOptions="FillAndExpand" FontSize="Medium"
+                                        HorizontalOptions="FillAndExpand" Grid.Column="1"/>
+                                  </Grid>
+
+                                <Grid Grid.Row="6" ColumnSpacing="25">
+              
+                                      <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="120"/>
+                                          <ColumnDefinition Width="*"/>
+                                      </Grid.ColumnDefinitions>
+                                      <Grid.RowDefinitions>
+                                          <RowDefinition Height="*"/>
+                                          <RowDefinition Height="*"/>
+                                      </Grid.RowDefinitions>
+
+                                    <Label Text="Bairro:  " FontSize="Medium"  FontAttributes="Bold"  Grid.Column="0" Grid.Row="0" HorizontalOptions="End" />
+                                      <Label  Text="{Binding Bairro}"
+                                        VerticalOptions="FillAndExpand" FontSize="Medium"
+                                        HorizontalOptions="End"  Grid.Column="0" Grid.Row="1"/>
+
+                                    <Label Text="Cidade:  "  FontSize="Medium" FontAttributes="Bold"  Grid.Column="1" Grid.Row="0" HorizontalOptions="Start"/>
+                                      <Label Text="{Binding Cidade}"
+                                        VerticalOptions="FillAndExpand" FontSize="Medium"
+                                         HorizontalOptions="Start"  Grid.Column="1" Grid.Row="1"/>
+                                   </Grid>
+
+                                <Grid Grid.Row="7" ColumnSpacing="45" >
+              
+                                      <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="120"/>
+                                          <ColumnDefinition Width="*"/>
+                                      </Grid.ColumnDefinitions>
+                                      <Grid.RowDefinitions>
+                                          <RowDefinition Height="*"/>
+                                          <RowDefinition Height="*"/>
+                                      </Grid.RowDefinitions>
+
+
+                                    <Label Text="UF:  " FontSize="Medium" FontAttributes="Bold" Grid.Column="0" Grid.Row="0" HorizontalOptions="End"/>
+                                      <Label  Text="{Binding UF}" VerticalOptions="FillAndExpand" Padding="0,0,15,0"
+                                             HorizontalOptions="End" Grid.Column="0" Grid.Row="1" FontSize="Medium" />
+
+                                    <Label Text="CEP:  " FontSize="Medium" FontAttributes="Bold" Grid.Column="1" Grid.Row="0" HorizontalOptions="Start"/>
+                                    <Label Text="{Binding CEP}" VerticalOptions="FillAndExpand"  Padding="5,0,0,0"
+                                         HorizontalOptions="Start" Grid.Column="1" Grid.Row="1" FontSize="Medium"/>
+                                  </Grid>
+
+                                <Grid Grid.Row="8" ColumnSpacing="25">
+                                      <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="120"/>
+                                          <ColumnDefinition Width="*"/>
+                                      </Grid.ColumnDefinitions>
+
+                                    <Label Text="Razão Social:  "  FontSize="Medium" FontAttributes="Bold" HorizontalOptions="End"/>
+                                      <Label  Text="{Binding RazaoSocial}" VerticalOptions="FillAndExpand"
+                                              HorizontalOptions="FillAndExpand" Grid.Column="1" FontSize="Medium" />
+                                  </Grid>
+
+
+                                <Grid Grid.Row="9" ColumnSpacing="25">
+                                      <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="120"/>
+                                          <ColumnDefinition Width="*"/>
+                                      </Grid.ColumnDefinitions>
+
+                                    <Label Text="Proprietário:  " FontAttributes="Bold" HorizontalOptions="End" FontSize="Medium"/>
+                                      <Label  Text="{Binding Username}"
+                                        VerticalOptions="FillAndExpand"
+                                       HorizontalOptions="FillAndExpand" Grid.Column="1" FontSize="Medium"/>
+                                  </Grid>
+                                  
+                              </Grid>
+                          </ViewCell>
+                      </DataTemplate>
+                  </ListView.ItemTemplate>
+              </ListView>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
