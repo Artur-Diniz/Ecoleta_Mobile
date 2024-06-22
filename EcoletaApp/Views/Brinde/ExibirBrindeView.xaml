@@ -11,7 +11,7 @@
     <VerticalStackLayout>
         <ScrollView>
             <VerticalStackLayout Margin="10, 20, 0, 0" VerticalOptions="FillAndExpand">
-                <ListView x:Name="listView" HasUnevenRows="True" ItemsSource="{Binding Brindes}" >
+                <ListView x:Name="listView" HasUnevenRows="True" ItemsSource="{Binding Brindes}" SelectedItem="{Binding BrindeSelecionado}" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
                            

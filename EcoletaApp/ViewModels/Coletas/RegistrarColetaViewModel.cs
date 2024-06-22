@@ -22,6 +22,8 @@ namespace EcoletaApp.ViewModels.Coletas
         {
             cService = new ColetaService();
 
+            
+
             RegistrarCommand = new Command(async () => { await RegistrarColetaAsync(); });
             CancelarCommand = new Command(async () => { await CancelarCadastro(); });
         }

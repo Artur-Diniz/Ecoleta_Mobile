@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace EcoletaApp.ViewModels.Brindes
 {
-    [QueryProperty("PersonagemSelecionadoId","bId")]
+    [QueryProperty("BrindeSelecionadoId","bId")]
     public class RegistrarBrindeViewModel : BaseViewModel
     {
         private BrindesServices bService;
@@ -30,19 +30,19 @@ namespace EcoletaApp.ViewModels.Brindes
 
         private int idBrinde;
         private string descricaoBrinde;
-        private string nomebrinde;
+        private string nomeBrinde;
         private char cadastro; // Char(1);
         private DateTime validade;
         private int quantidade;
         private int valorEcopoints;
 
-        public int IdBrinde { get => idBrinde; set { idBrinde = value; OnPropertyChanged(nameof(idBrinde)); } }
-        public string DescricaoBrinde { get => descricaoBrinde; set { descricaoBrinde = value; OnPropertyChanged(nameof(descricaoBrinde)); } }
-        public string Nomebrinde { get => nomebrinde; set { nomebrinde = value; OnPropertyChanged(nameof(nomebrinde)); } }
-        public char Cadastro { get => cadastro; set{  cadastro = value; OnPropertyChanged(nameof(cadastro)); } }
-        public DateTime Validade { get => validade; set { validade = value; OnPropertyChanged(nameof(validade)); } }
-        public int Quantidade { get => quantidade; set {quantidade = value; OnPropertyChanged(nameof(quantidade)); } }
-        public int ValorEcopoints { get => valorEcopoints; set { valorEcopoints = value; OnPropertyChanged(nameof(valorEcopoints)); } }
+        public int IdBrinde { get => idBrinde; set { idBrinde = value; OnPropertyChanged(nameof(IdBrinde)); } }
+        public string DescricaoBrinde { get => descricaoBrinde; set { descricaoBrinde = value; OnPropertyChanged(nameof(DescricaoBrinde)); } }
+        public string NomeBrinde { get => nomeBrinde; set { nomeBrinde = value; OnPropertyChanged(nameof(NomeBrinde)); } }
+        public char Cadastro { get => cadastro; set{  cadastro = value; OnPropertyChanged(nameof(Cadastro)); } }
+        public DateTime Validade { get => validade; set { validade = value; OnPropertyChanged(nameof(Validade)); } }
+        public int Quantidade { get => quantidade; set {quantidade = value; OnPropertyChanged(nameof(Quantidade)); } }
+        public int ValorEcopoints { get => valorEcopoints; set { valorEcopoints = value; OnPropertyChanged(nameof(ValorEcopoints)); } }
 
 
 
@@ -60,7 +60,7 @@ namespace EcoletaApp.ViewModels.Brindes
                 {
                     IdBrinde = this.IdBrinde;
                     DescricaoBrinde = this.DescricaoBrinde;
-                    Nomebrinde = this.Nomebrinde;
+                    NomeBrinde = this.NomeBrinde;
                     Cadastro = this.Cadastro;
                     Validade = this.Validade;
                     Quantidade = this.Quantidade;
@@ -89,15 +89,15 @@ namespace EcoletaApp.ViewModels.Brindes
         {
             try
             {
-                Brinde b = await bService.GetBrindeIdAsync(int.Parse(brindeSelecionadoId));
+                Brinde b = await bService.GetBrindeIdAsync(Preferences.Get("BrindeId",0));
                 
-          
-                this.Nomebrinde = b.NomeBrinde;
-                this.descricaoBrinde = b.DescricaoBrinde;
+                this.IdBrinde = b.IdBrinde;
+                this.NomeBrinde = b.NomeBrinde;
+                this.DescricaoBrinde = b.DescricaoBrinde;
                 this.Cadastro = b.Cadastro;
-                this.Validade = this.Validade;
+                this.Validade = b.Validade;
                 this.Quantidade = b.Quantidade;
-                this.valorEcopoints = b.ValorEcopoints;
+                this.ValorEcopoints = b.ValorEcopoints;
 
                 
 

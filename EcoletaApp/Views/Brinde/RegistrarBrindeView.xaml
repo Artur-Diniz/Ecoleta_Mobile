@@ -27,29 +27,27 @@
                     </Grid.RowDefinitions>
            
 
-                <Label Text="IdEcoponto:" FontSize="Medium"  Grid.Column="0" Grid.Row="0"  VerticalTextAlignment="Center"/>
+                <Label Text="IdBrinde:" FontSize="Medium"  Grid.Column="0" Grid.Row="0"  VerticalTextAlignment="Center"/>
                         <Entry Text="{Binding IdBrinde}"  IsEnabled="False" Keyboard="Numeric" FontSize="18" Grid.Column="1" Grid.Row="0" />
 
                         <Label Text="Nome:" FontSize="Medium" Grid.Column="0" Grid.Row="1" VerticalTextAlignment="Center"/>
-                        <Entry Text="{Binding NomeBrinde}" FontSize="18" Grid.Column="1" Grid.Row="1" />
+                <Entry Text="{Binding NomeBrinde}" FontSize="18" Grid.Column="1" Grid.Row="1" />
 
                         <Label Text="Descrição do Brinde:" FontSize="Medium" Grid.Column="0" Grid.Row="2" VerticalTextAlignment="Center"/>
-                        <Entry Text="{Binding DescricaoBrinde}" FontSize="18" Grid.Column="1" Grid.Row="2"/>
+                <Entry Text="{Binding DescricaoBrinde}" FontSize="18" Grid.Column="1" Grid.Row="2"/>
 
                         <Label Text="Cadastro:" FontSize="Medium" Grid.Column="0" Grid.Row="3" VerticalTextAlignment="Center"/>
-                        <Entry Text="{Binding Cadastro}" FontSize="18" Grid.Column="1" Grid.Row="3"/>
+                <Entry Text="{Binding Cadastro}" FontSize="18" Grid.Column="1" Grid.Row="3"/>
 
                         <Label Text="Validade:" FontSize="Medium" Grid.Column="0" Grid.Row="4" VerticalTextAlignment="Center"/>
-                        <Entry Text="{Binding Validade}" FontSize="18" Keyboard="Numeric" Grid.Column="1" Grid.Row="4"/>
+                <Entry Text="{Binding Validade}" FontSize="18" Keyboard="Numeric" Grid.Column="1" Grid.Row="4"/>
 
                         <Label Text="Quantidade do Brinde:" FontSize="Medium" Grid.Column="0" Grid.Row="5" VerticalTextAlignment="Center"/>
-                        <Entry Text="{Binding Quantidade}" FontSize="18" Keyboard="Numeric" Grid.Column="1" Grid.Row="5"/>
+                <Entry Text="{Binding Quantidade}" FontSize="18" Keyboard="Numeric" Grid.Column="1" Grid.Row="5"/>
+                   
 
-                        <Label Text="Saldo:" FontSize="Medium" Grid.Column="0" Grid.Row="6" VerticalTextAlignment="Center"/>
-                        <Entry Text="{Binding Saldo}" FontSize="18" Keyboard="Numeric" Grid.Column="1" Grid.Row="6"/>
-
-                        <Label Text="Valor de Ecopoints:" FontSize="Medium" Grid.Column="0" Grid.Row="7" VerticalTextAlignment="Start"/>
-                <Entry Text="{Binding ValorEcopoints}" FontSize="18" Keyboard="Numeric" Grid.Column="1" Grid.Row="7" VerticalTextAlignment="End" /> 
+                <Label Text="Valor de Ecopoints:" FontSize="Medium" Grid.Column="0" Grid.Row="6" VerticalTextAlignment="Start"/>
+                <Entry Text="{Binding ValorEcopoints}" FontSize="18" Keyboard="Numeric" Grid.Column="1" Grid.Row="6" VerticalTextAlignment="End" /> 
 
                 <HorizontalStackLayout Spacing="20"  HorizontalOptions="Center" Margin="0, 25,15,30"  Grid.Row="8">
 

@@ -36,7 +36,7 @@ namespace EcoletaApp.Services.Brindes
         public async Task<Brinde> GetBrindeIdAsync(int id)
         {
             string urlComplementar = string.Format("GetId/{0}", id);
-            var brinde = await _request.GetSemTokenAsync<Models.Brinde>(apiUrlBase + urlComplementar);           
+            Brinde brinde = await _request.GetSemTokenAsync<Models.Brinde>(apiUrlBase + urlComplementar);           
             return brinde;
         }
 

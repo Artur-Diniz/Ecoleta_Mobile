@@ -217,7 +217,5 @@ namespace EcoletaApp.ViewModels.Coletas
             }
         }
 
-
-
     }
 }
