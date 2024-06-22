@@ -15,7 +15,7 @@ namespace Ecoleta.Converters
            ColorTypeConverter converter = new ColorTypeConverter();
 
            string situacaoColeta = (string)value;
-            if (situacaoColeta == "Completa" || situacaoColeta == "Completo" || situacaoColeta == "Completada" || situacaoColeta == "completo" || situacaoColeta == "completa" || situacaoColeta == "completada")
+            if (situacaoColeta == "Completa" || situacaoColeta == "Completo" || situacaoColeta == "Completada" || situacaoColeta == "completo" || situacaoColeta == "completa" || situacaoColeta == "completada" || situacaoColeta == "concluida" || situacaoColeta == "Concluida")
                 return (Color)converter.ConvertFromInvariantString("YellowGreen");
             else if (situacaoColeta == "Pendente" || situacaoColeta == "Analisando" || situacaoColeta == "pendente" || situacaoColeta == "analisando" )
                 return (Color)converter.ConvertFromInvariantString("OrangeRed");

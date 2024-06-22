@@ -55,7 +55,7 @@ namespace EcoletaApp.Services.Coletas
         public async Task<Coleta> GetColetaAsync(int Id)
         {
             string urlComplementar = string.Format("GetId/{0}", Id);
-            var coleta = await _request.GetSemTokenAsync<Models.Coleta>(apiURLBase + urlComplementar);
+            Coleta coleta = await _request.GetSemTokenAsync<Models.Coleta>(apiURLBase + urlComplementar);
 
             return coleta;
         }

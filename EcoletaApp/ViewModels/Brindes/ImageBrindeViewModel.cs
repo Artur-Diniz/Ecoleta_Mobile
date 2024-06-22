@@ -14,6 +14,7 @@ namespace Ecoleta.ViewModels.Brindes
     public class ImageBrindeViewModel : BaseViewModel
     {
         private BrindesServices _service;
+        private static string conexaoAzureStorage = "";
         private static string container = "sustentech";
 
         public ImageBrindeViewModel()
