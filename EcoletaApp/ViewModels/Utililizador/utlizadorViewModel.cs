@@ -53,7 +53,7 @@ namespace EcoletaApp.ViewModels.Utililizador
         public string Email { get => email; set => email = value; }
         public bool SituacaoEmail { get => situacaoEmail; set => situacaoEmail = value; }
         public int TotalEcopoints { get => totalEcopoints; set => totalEcopoints = value; }
-        public string Username { get { return username; } set { username = value; OnPropertyChanged(nameof(username)); } }
+        public string Username { get { return username; } set { username = value; OnPropertyChanged(nameof(Username)); } }
         public string Passwordstring { get { return passwordstring; } set{ passwordstring = value; OnPropertyChanged(nameof(passwordstring)); } }
 
         #endregion
@@ -73,6 +73,8 @@ namespace EcoletaApp.ViewModels.Utililizador
 
 
                 Utilizador uRegisterado = await uService.PostRegistrarUtilizadorAsync(u);
+                Utilizador uAutenticado = await uService.GetForIdFromUsername(u.Username);
+
 
                 if (uRegisterado.IdUtilizador != 0)
                 {
@@ -95,13 +97,12 @@ namespace EcoletaApp.ViewModels.Utililizador
             try
             {
                 Utilizador u = new Utilizador();
-                u.Email = Email;
+                u.Username = this.Username;
                 u.PasswordString = Passwordstring;
 
-                Utilizador uAutenticado = await uService.PostAutenticarUtilizadorAsync(u);
 
-
-                if (uAutenticado != null)
+                bool test = await uService.PostAutenticarUtilizadorAsync(u);
+                if (test == true)
                 {
                     _isCheckingLocation = true;
                     _cancellationToken = new CancellationToken();
@@ -109,24 +110,14 @@ namespace EcoletaApp.ViewModels.Utililizador
 
                     Location location = await Geolocation.Default.GetLocationAsync(request);
 
-                    Utilizador uLoc = new Utilizador();
-                    uLoc.Username = uAutenticado.Username;
-                    uLoc.Longitude = location.Longitude;
-                    uLoc.Latitude = location.Latitude;
-
-                    utilizadorService utilizadorService = new utilizadorService();
-                    await uService.PutAtualizarLocalizacaoAsync(uLoc);
-
-
-
-
+                    Utilizador uAutenticado = await uService.GetForIdFromUsername(u.Username);
                     string mensagem = $"Bem-vindo(a) {uAutenticado.Username}.";
 
                     Preferences.Set("IdUtilizador", uAutenticado.IdUtilizador);
                     Preferences.Set("UtilizadorUsername", uAutenticado.Username);
                     Preferences.Set("UtilizadorEmail", uAutenticado.Email);
 
-                    await Application.Current.MainPage.DisplayAlert("Informação", mensagem, "OK");
+                    await Application.Current.MainPage.DisplayAlert("Informação", "foi", "OK");
 
                     Application.Current.MainPage = new MainPage();
                 }

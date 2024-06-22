@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\artur\\Desktop\\Etec\\Ecoleta_Mobile\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1581634E-4810-42FD-8B4C-1270534E6E47}|EcoletaApp\\EcoletaApp.csproj|c:\\users\\artur\\desktop\\etec\\ecoleta_mobile\\ecoletaapp\\viewmodels\\brindes\\registrarbrindeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1581634E-4810-42FD-8B4C-1270534E6E47}|EcoletaApp\\EcoletaApp.csproj|solutionrelative:ecoletaapp\\viewmodels\\brindes\\registrarbrindeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1581634E-4810-42FD-8B4C-1270534E6E47}|EcoletaApp\\EcoletaApp.csproj|c:\\users\\artur\\desktop\\etec\\ecoleta_mobile\\ecoletaapp\\viewmodels\\utililizador\\utlizadorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1581634E-4810-42FD-8B4C-1270534E6E47}|EcoletaApp\\EcoletaApp.csproj|solutionrelative:ecoletaapp\\viewmodels\\utililizador\\utlizadorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1581634E-4810-42FD-8B4C-1270534E6E47}|EcoletaApp\\EcoletaApp.csproj|c:\\users\\artur\\desktop\\etec\\ecoleta_mobile\\ecoletaapp\\viewmodels\\coletas\\registrarcoletaviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1581634E-4810-42FD-8B4C-1270534E6E47}|EcoletaApp\\EcoletaApp.csproj|solutionrelative:ecoletaapp\\viewmodels\\coletas\\registrarcoletaviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1581634E-4810-42FD-8B4C-1270534E6E47}|EcoletaApp\\EcoletaApp.csproj|c:\\users\\artur\\desktop\\etec\\ecoleta_mobile\\ecoletaapp\\services\\utilizador\\utilizadorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1581634E-4810-42FD-8B4C-1270534E6E47}|EcoletaApp\\EcoletaApp.csproj|solutionrelative:ecoletaapp\\services\\utilizador\\utilizadorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1581634E-4810-42FD-8B4C-1270534E6E47}|EcoletaApp\\EcoletaApp.csproj|c:\\users\\artur\\desktop\\etec\\ecoleta_mobile\\ecoletaapp\\services\\brindes\\brindesservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1581634E-4810-42FD-8B4C-1270534E6E47}|EcoletaApp\\EcoletaApp.csproj|solutionrelative:ecoletaapp\\services\\brindes\\brindesservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1581634E-4810-42FD-8B4C-1270534E6E47}|EcoletaApp\\EcoletaApp.csproj|c:\\users\\artur\\desktop\\etec\\ecoleta_mobile\\ecoletaapp\\views\\utilizador\\cadastroview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{1581634E-4810-42FD-8B4C-1270534E6E47}|EcoletaApp\\EcoletaApp.csproj|solutionrelative:ecoletaapp\\views\\utilizador\\cadastroview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1581634E-4810-42FD-8B4C-1270534E6E47}|EcoletaApp\\EcoletaApp.csproj|c:\\users\\artur\\desktop\\etec\\ecoleta_mobile\\ecoletaapp\\viewmodels\\brindes\\exibirbrindesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1581634E-4810-42FD-8B4C-1270534E6E47}|EcoletaApp\\EcoletaApp.csproj|solutionrelative:ecoletaapp\\viewmodels\\brindes\\exibirbrindesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1581634E-4810-42FD-8B4C-1270534E6E47}|EcoletaApp\\EcoletaApp.csproj|c:\\users\\artur\\desktop\\etec\\ecoleta_mobile\\ecoletaapp\\services\\request.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1581634E-4810-42FD-8B4C-1270534E6E47}|EcoletaApp\\EcoletaApp.csproj|solutionrelative:ecoletaapp\\services\\request.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1581634E-4810-42FD-8B4C-1270534E6E47}|EcoletaApp\\EcoletaApp.csproj|c:\\users\\artur\\desktop\\etec\\ecoleta_mobile\\ecoletaapp\\appshell.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1581634E-4810-42FD-8B4C-1270534E6E47}|EcoletaApp\\EcoletaApp.csproj|solutionrelative:ecoletaapp\\appshell.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1581634E-4810-42FD-8B4C-1270534E6E47}|EcoletaApp\\EcoletaApp.csproj|c:\\users\\artur\\desktop\\etec\\ecoleta_mobile\\ecoletaapp\\views\\utilizador\\loginview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{1581634E-4810-42FD-8B4C-1270534E6E47}|EcoletaApp\\EcoletaApp.csproj|solutionrelative:ecoletaapp\\views\\utilizador\\loginview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1581634E-4810-42FD-8B4C-1270534E6E47}|EcoletaApp\\EcoletaApp.csproj|c:\\users\\artur\\desktop\\etec\\ecoleta_mobile\\ecoletaapp\\models\\utilizador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1581634E-4810-42FD-8B4C-1270534E6E47}|EcoletaApp\\EcoletaApp.csproj|solutionrelative:ecoletaapp\\models\\utilizador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,68 +34,85 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RegistrarColetaViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\artur\\Desktop\\Etec\\Ecoleta_Mobile\\EcoletaApp\\ViewModels\\Coletas\\RegistrarColetaViewModel.cs",
-              "RelativeDocumentMoniker": "EcoletaApp\\ViewModels\\Coletas\\RegistrarColetaViewModel.cs",
-              "ToolTip": "C:\\Users\\artur\\Desktop\\Etec\\Ecoleta_Mobile\\EcoletaApp\\ViewModels\\Coletas\\RegistrarColetaViewModel.cs",
-              "RelativeToolTip": "EcoletaApp\\ViewModels\\Coletas\\RegistrarColetaViewModel.cs",
-              "ViewState": "AQIAACwAAAAAAAAAAAAIwBgAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-22T05:45:10.153Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RegistrarBrindeViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\artur\\Desktop\\Etec\\Ecoleta_Mobile\\EcoletaApp\\ViewModels\\Brindes\\RegistrarBrindeViewModel.cs",
-              "RelativeDocumentMoniker": "EcoletaApp\\ViewModels\\Brindes\\RegistrarBrindeViewModel.cs",
-              "ToolTip": "C:\\Users\\artur\\Desktop\\Etec\\Ecoleta_Mobile\\EcoletaApp\\ViewModels\\Brindes\\RegistrarBrindeViewModel.cs",
-              "RelativeToolTip": "EcoletaApp\\ViewModels\\Brindes\\RegistrarBrindeViewModel.cs",
-              "ViewState": "AQIAADgAAAAAAAAAAAAEwCIAAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-22T05:27:03.448Z",
+              "DocumentIndex": 2,
+              "Title": "CadastroView.xaml",
+              "DocumentMoniker": "C:\\Users\\artur\\Desktop\\Etec\\Ecoleta_Mobile\\EcoletaApp\\Views\\Utilizador\\CadastroView.xaml",
+              "RelativeDocumentMoniker": "EcoletaApp\\Views\\Utilizador\\CadastroView.xaml",
+              "ToolTip": "C:\\Users\\artur\\Desktop\\Etec\\Ecoleta_Mobile\\EcoletaApp\\Views\\Utilizador\\CadastroView.xaml",
+              "RelativeToolTip": "EcoletaApp\\Views\\Utilizador\\CadastroView.xaml",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-22T07:58:16.782Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BrindesServices.cs",
-              "DocumentMoniker": "C:\\Users\\artur\\Desktop\\Etec\\Ecoleta_Mobile\\EcoletaApp\\Services\\Brindes\\BrindesServices.cs",
-              "RelativeDocumentMoniker": "EcoletaApp\\Services\\Brindes\\BrindesServices.cs",
-              "ToolTip": "C:\\Users\\artur\\Desktop\\Etec\\Ecoleta_Mobile\\EcoletaApp\\Services\\Brindes\\BrindesServices.cs",
-              "RelativeToolTip": "EcoletaApp\\Services\\Brindes\\BrindesServices.cs",
-              "ViewState": "AQIAABkAAAAAAAAAAAAYwCgAAAAIAAAA",
+              "DocumentIndex": 3,
+              "Title": "Request.cs",
+              "DocumentMoniker": "C:\\Users\\artur\\Desktop\\Etec\\Ecoleta_Mobile\\EcoletaApp\\Services\\Request.cs",
+              "RelativeDocumentMoniker": "EcoletaApp\\Services\\Request.cs",
+              "ToolTip": "C:\\Users\\artur\\Desktop\\Etec\\Ecoleta_Mobile\\EcoletaApp\\Services\\Request.cs",
+              "RelativeToolTip": "EcoletaApp\\Services\\Request.cs",
+              "ViewState": "AQIAAGUAAAAAAAAAAAAlwHcAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-22T05:30:14.315Z"
+              "WhenOpened": "2024-06-22T06:59:15.021Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "utlizadorViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\artur\\Desktop\\Etec\\Ecoleta_Mobile\\EcoletaApp\\ViewModels\\Utililizador\\utlizadorViewModel.cs",
+              "RelativeDocumentMoniker": "EcoletaApp\\ViewModels\\Utililizador\\utlizadorViewModel.cs",
+              "ToolTip": "C:\\Users\\artur\\Desktop\\Etec\\Ecoleta_Mobile\\EcoletaApp\\ViewModels\\Utililizador\\utlizadorViewModel.cs",
+              "RelativeToolTip": "EcoletaApp\\ViewModels\\Utililizador\\utlizadorViewModel.cs",
+              "ViewState": "AQIAAGIAAAAAAAAAAAAlwEIAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-22T06:26:38.894Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "utilizadorService.cs",
+              "DocumentMoniker": "C:\\Users\\artur\\Desktop\\Etec\\Ecoleta_Mobile\\EcoletaApp\\Services\\Utilizador\\utilizadorService.cs",
+              "RelativeDocumentMoniker": "EcoletaApp\\Services\\Utilizador\\utilizadorService.cs",
+              "ToolTip": "C:\\Users\\artur\\Desktop\\Etec\\Ecoleta_Mobile\\EcoletaApp\\Services\\Utilizador\\utilizadorService.cs",
+              "RelativeToolTip": "EcoletaApp\\Services\\Utilizador\\utilizadorService.cs",
+              "ViewState": "AQIAACIAAAAAAAAAAAAowC8AAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-22T06:26:57.053Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Utilizador.cs",
+              "DocumentMoniker": "C:\\Users\\artur\\Desktop\\Etec\\Ecoleta_Mobile\\EcoletaApp\\Models\\Utilizador.cs",
+              "RelativeDocumentMoniker": "EcoletaApp\\Models\\Utilizador.cs",
+              "ToolTip": "C:\\Users\\artur\\Desktop\\Etec\\Ecoleta_Mobile\\EcoletaApp\\Models\\Utilizador.cs",
+              "RelativeToolTip": "EcoletaApp\\Models\\Utilizador.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAowAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-22T06:53:18.622Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "AppShell.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\artur\\Desktop\\Etec\\Ecoleta_Mobile\\EcoletaApp\\AppShell.xaml.cs",
-              "RelativeDocumentMoniker": "EcoletaApp\\AppShell.xaml.cs",
-              "ToolTip": "C:\\Users\\artur\\Desktop\\Etec\\Ecoleta_Mobile\\EcoletaApp\\AppShell.xaml.cs",
-              "RelativeToolTip": "EcoletaApp\\AppShell.xaml.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAABYAAAAvAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-22T05:17:06.609Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ExibirBrindesViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\artur\\Desktop\\Etec\\Ecoleta_Mobile\\EcoletaApp\\ViewModels\\Brindes\\ExibirBrindesViewModel.cs",
-              "RelativeDocumentMoniker": "EcoletaApp\\ViewModels\\Brindes\\ExibirBrindesViewModel.cs",
-              "ToolTip": "C:\\Users\\artur\\Desktop\\Etec\\Ecoleta_Mobile\\EcoletaApp\\ViewModels\\Brindes\\ExibirBrindesViewModel.cs",
-              "RelativeToolTip": "EcoletaApp\\ViewModels\\Brindes\\ExibirBrindesViewModel.cs",
-              "ViewState": "AQIAAG4AAAAAAAAAAAAjwHUAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-22T05:10:20.091Z"
+              "Title": "LoginView.xaml",
+              "DocumentMoniker": "C:\\Users\\artur\\Desktop\\Etec\\Ecoleta_Mobile\\EcoletaApp\\Views\\Utilizador\\LoginView.xaml",
+              "RelativeDocumentMoniker": "EcoletaApp\\Views\\Utilizador\\LoginView.xaml",
+              "ToolTip": "C:\\Users\\artur\\Desktop\\Etec\\Ecoleta_Mobile\\EcoletaApp\\Views\\Utilizador\\LoginView.xaml",
+              "RelativeToolTip": "EcoletaApp\\Views\\Utilizador\\LoginView.xaml",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAAB0AAABPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-22T06:46:43.06Z",
+              "EditorCaption": ""
             }
           ]
         }

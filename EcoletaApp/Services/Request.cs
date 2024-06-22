@@ -36,6 +36,9 @@ namespace EcoletaApp.Services
             string serialized = await response.Content.ReadAsStringAsync();
             TResult result = data;
 
+
+
+
             if (response.StatusCode == System.Net.HttpStatusCode.OK || response.StatusCode == System.Net.HttpStatusCode.Created)
                 result = await Task.Run(() => JsonConvert.DeserializeObject<TResult>(serialized));
 
@@ -56,6 +59,24 @@ namespace EcoletaApp.Services
             else
                 throw new Exception(serialized);
         }
+
+        public async Task<bool> PostAutenticarUtilizadorAsync(string uri, object data)
+        {
+            HttpClient httpClient = new HttpClient();
+            var content = new StringContent(JsonConvert.SerializeObject(data));
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            HttpResponseMessage response = await httpClient.PostAsync(uri, content);
+
+            if (response.StatusCode == System.Net.HttpStatusCode.OK || response.StatusCode == System.Net.HttpStatusCode.Created)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
 
         public async Task<int> PutAsync<TResult>(string uri, TResult data, string token)
         {

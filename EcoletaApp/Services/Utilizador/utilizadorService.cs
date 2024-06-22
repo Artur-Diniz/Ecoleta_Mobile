@@ -47,19 +47,22 @@ namespace EcoletaApp.Services.UtilizadorService
         }
         public async Task<Utilizador> PostRegistrarUtilizadorAsync(Utilizador u)
         {
-            string urlComplementar = "Registrar";
+            //  'http://localhost:5268/api/Utilizador/Registrar?username=caio&passwordString=123456'
+            string urlComplementar = string.Format("Registrar?username={0}&passwordString={1}",u.Username, u.PasswordString );
             u.IdUtilizador = await _request.PostReturnIntAsync(ApiUrlBase + urlComplementar, u);
 
             return u;
         }
 
-        public async Task<Utilizador> PostAutenticarUtilizadorAsync(Utilizador u)
+        public async Task<bool> PostAutenticarUtilizadorAsync(Utilizador u)
         {
-            string urlComplementar = "Autenticar";
-            u = await _request.PostSemTokenAsync(ApiUrlBase + urlComplementar, u);
+            // http://SustenTechDS.somee.com/Ecoleta/api/Utilizador/Autenticar?username=artur123&passwordString=123456
+            string urlComplementar = string.Format("Autenticar?username={0}&passwordString={1}", u.Username, u.PasswordString);
+            bool isSuccessful = await PostAutenticarUtilizadorAsync(ApiUrlBase + urlComplementar, u);
 
-            return u;
+            return isSuccessful;
         }
+    
         #endregion
 
         #region Métodos Put
@@ -102,6 +105,13 @@ namespace EcoletaApp.Services.UtilizadorService
             return id;
         }
 
+        public async Task<Utilizador> GetForIdFromUsername(string user)
+        {
+            ObservableCollection<Utilizador> listaUsuarios = await GetUtilizadoresAsync();
+            Utilizador utilizador = listaUsuarios.FirstOrDefault(u => u.Username == user);
+            Utilizador user1 = await GetUtilizadorAsync(utilizador.IdUtilizador);
+            return user1;
+        }
 
     }
 }
