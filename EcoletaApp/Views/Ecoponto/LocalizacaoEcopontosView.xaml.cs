@@ -6,14 +6,15 @@ public partial class LocalizacaoEcopontosView : ContentPage
 {
     LocalizacaoViewModels viewModels;
     public LocalizacaoEcopontosView()
-	{
-		InitializeComponent();
-
+    {
+        InitializeComponent();
 
         viewModels = new LocalizacaoViewModels();
-       viewModels.InicializarMapa();
-
         BindingContext = viewModels;
+
+        viewModels.MeuMapa = mapa;
+
+        viewModels.InicializarMapa();
         viewModels.ExibirUsuariosnoMapa();
     }
 }

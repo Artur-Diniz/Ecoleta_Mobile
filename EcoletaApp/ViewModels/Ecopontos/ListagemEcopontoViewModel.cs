@@ -41,6 +41,7 @@ namespace EcoletaApp.ViewModels.Ecopontos
                 if(value != null)
                 {
                     ecopontoSelecionado = value;
+                     GravarLocAsync(ecopontoSelecionado);
 
                     _ = ExibirOpcoes(ecopontoSelecionado);
                 }
@@ -136,15 +137,18 @@ namespace EcoletaApp.ViewModels.Ecopontos
                  await ObterEcopontos();
                 
             }
-            else if (result.Equals("Encontrar Ecoponto no Mapa"))
+            else if (result.Equals("Observar no Mapa"))
             {
-                //aqui Vai ter uma opção para ao selecionar o ecoponto e fazer ele ir até o maps
-             //   await RemoverEcoponto(ecoponto);
-             //   await Application.Current.MainPage.DisplayAlert("Informação",
-               //  "Ecoponto removido com sucesso!", "Ok");
-              //  await ObterEcopontos();
+                Shell.Current.GoToAsync("LocEcoponto");
             }
         }
 
+        public async void GravarLocAsync(Ecoponto e)
+        {
+            Preferences.Set("LatitudeEcoponto", e.Latitude);
+            Preferences.Set("LongitudeEcoponto", e.Longitude);
+            Preferences.Set("NomeEcoponto", e.Nome);
+            Preferences.Set("EnderecoEcoponto", e.Endereco);
+        }
     }  
 }

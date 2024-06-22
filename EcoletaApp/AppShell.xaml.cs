@@ -21,6 +21,7 @@ namespace EcoletaApp
             Routing.RegisterRoute("LoginUtilizador", typeof(Views.Utilizador.LoginView));
             Routing.RegisterRoute("HomePage", typeof(MainPage));
             Routing.RegisterRoute("ImagemBrinde", typeof(Ecoleta.Views.Brinde.ImagemBrindeView));
+            Routing.RegisterRoute("LocEcoponto", typeof(Views.Ecoponto.LocalizacaoEcopontosView));
       
         }
     }

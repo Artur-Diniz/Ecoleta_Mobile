@@ -31,61 +31,68 @@ namespace EcoletaApp.ViewModels.Ecopontos
 
         public Map MeuMapa { get => meuMapa; set { if (value != null) { meuMapa = value; OnPropertyChanged(nameof(meuMapa)); }  } }
 
-        
+
 
         public async void InicializarMapa()
         {
             try
-            { 
-                Location location = new Location( -32.5200241d, -46.596498d);
-                Pin pinEtec = new Pin()
+            {
+                double lat = Preferences.Get("LatitudeEcoponto", 0.0);
+                double lon = Preferences.Get("LongitudeEcoponto", 0.0);
+
+                if (lat != 0.0 && lon != 0.0)
                 {
-                    Type = PinType.Place,
-                    Label = "Etec Horácio",
-                    Address = "Rua alcântara, 113, Vila Guilherme",
-                    Location = location
-                };
+                    Location location = new Location(lat, lon);
+                    Pin pin = new Pin()
+                    {
+                        Type = PinType.Place,
+                        Label = Preferences.Get("NomeEcoponto", ""),
+                        Address = Preferences.Get("EnderecoEcoponto", ""),
+                        Location = location
+                    };
 
-                Map map = new Map();
-                MapSpan mapSpan = MapSpan.FromCenterAndRadius(location, Distance.FromKilometers(5));
-                map.Pins.Add(pinEtec);
-                map.MoveToRegion(mapSpan);
-
-                MeuMapa = map;
+                    if (MeuMapa != null)
+                    {
+                        MeuMapa.Pins.Add(pin);
+                        MeuMapa.MoveToRegion(MapSpan.FromCenterAndRadius(location, Distance.FromKilometers(0.8)));
+                    }
+                }
             }
             catch (Exception ex)
             {
                 await Application.Current.MainPage
                     .DisplayAlert("Erro", ex.Message, "OK");
-            }           
+            }
         }
 
         public async void ExibirUsuariosnoMapa()
         {
             try
-            { 
+            {
                 ObservableCollection<Utilizador> ocUtilizador = await uService.GetUtilizadoresAsync();
                 List<Utilizador> listUtilizador = new List<Utilizador>(ocUtilizador);
-                Map map = new Map();
 
                 foreach (Utilizador u in listUtilizador)
                 {
                     if (u.Latitude != null && u.Longitude != null)
-                    { 
+                    {
                         double latitude = (double)u.Latitude;
                         double longitude = (double)u.Longitude;
                         Location location = new Location(latitude, longitude);
 
-                        Pin pinEtec = new Pin()
+                        Pin pin = new Pin()
                         {
                             Type = PinType.Place,
                             Label = u.Username,
                             Address = $"E-mail: {u.Email}",
                             Location = location
                         };
-                        map.Pins.Add(pinEtec);
+
+                        if (MeuMapa != null)
+                        {
+                            MeuMapa.Pins.Add(pin);
+                        }
                     }
-                    MeuMapa = map;
                 }
             }
             catch (Exception ex)
