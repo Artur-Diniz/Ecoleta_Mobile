@@ -68,10 +68,10 @@
 
 	<ItemGroup>
 		<PackageReference Include="Azure.Storage.Blobs" Version="12.20.0" />
-		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.40" />
-		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.40" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.60" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.60" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
-		<PackageReference Include="Microsoft.Maui.Controls.Maps" Version="8.0.40" />
+		<PackageReference Include="Microsoft.Maui.Controls.Maps" Version="8.0.60" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	</ItemGroup>
 
@@ -131,5 +131,7 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </None>
 	</ItemGroup>
+
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionEcoletaAppHideInfoBar="True" /></VisualStudio></ProjectExtensions>
 
 </Project>

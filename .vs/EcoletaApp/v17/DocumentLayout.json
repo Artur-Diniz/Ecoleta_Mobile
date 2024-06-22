@@ -1,12 +1,37 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\artur\\Desktop\\Etec\\Ecoleta_Mobile\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\artur\\Desktop\\Etec\\Ecoleta_Mobile - Copia\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1581634E-4810-42FD-8B4C-1270534E6E47}|EcoletaApp\\EcoletaApp.csproj|c:\\users\\artur\\desktop\\etec\\ecoleta_mobile - copia\\ecoletaapp\\viewmodels\\brindes\\imagebrindeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1581634E-4810-42FD-8B4C-1270534E6E47}|EcoletaApp\\EcoletaApp.csproj|solutionrelative:ecoletaapp\\viewmodels\\brindes\\imagebrindeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ImageBrindeViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\artur\\Desktop\\Etec\\Ecoleta_Mobile - Copia\\EcoletaApp\\ViewModels\\Brindes\\ImageBrindeViewModel.cs",
+              "RelativeDocumentMoniker": "EcoletaApp\\ViewModels\\Brindes\\ImageBrindeViewModel.cs",
+              "ToolTip": "C:\\Users\\artur\\Desktop\\Etec\\Ecoleta_Mobile - Copia\\EcoletaApp\\ViewModels\\Brindes\\ImageBrindeViewModel.cs",
+              "RelativeToolTip": "EcoletaApp\\ViewModels\\Brindes\\ImageBrindeViewModel.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-22T02:11:23.095Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

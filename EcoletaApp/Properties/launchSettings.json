@@ -3,6 +3,12 @@
     "Windows Machine": {
       "commandName": "MsixPackage",
       "nativeDebugging": false
+    },
+    "Profile 1": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Users\\artur\\Desktop\\Etec\\Ecoleta_Mobile\\EcoletaApp.sln",
+      "nativeDebugging": true,
+      "authenticationMode": "Windows"
     }
   }
 }

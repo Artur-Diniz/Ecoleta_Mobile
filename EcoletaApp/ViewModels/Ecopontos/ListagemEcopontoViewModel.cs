@@ -42,7 +42,7 @@ namespace EcoletaApp.ViewModels.Ecopontos
                 {
                     ecopontoSelecionado = value;
 
-                    Shell.Current.GoToAsync($"cadEcopontoView?eId={ecopontoSelecionado.IdEcoponto}");
+                    _ = ExibirOpcoes(ecopontoSelecionado);
                 }
             }
         }
@@ -96,36 +96,55 @@ namespace EcoletaApp.ViewModels.Ecopontos
             }
         }
 
+        public async Task ExibirOpcoes(Ecoponto e)
+        {
+            try
+            {
+                ecopontoSelecionado = null;
+                string result = string.Empty;
+
+                result = await Application.Current.MainPage
+                    .DisplayActionSheet("Opções para Ecoponto:  " + e.Nome,
+                    "Observar no Mapa",
+                    "Cancelar",
+                    "Remover Ecoponto",
+                    "Editar Ecoponto");
+
+                if (result != null)
+                    ProcessarOpcaoAsync(e, result);
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage
+                    .DisplayAlert("Ops", ex.Message + "Detalhes" + ex.InnerException, "OK");
+            }
+        }
+
+
+
         public async void ProcessarOpcaoAsync(Ecoponto ecoponto, string result)
         {
 
             if (result.Equals("Editar Ecoponto"))
             {
                 await Shell.Current
-                    .GoToAsync($"cadEcopontoView?eId={ecopontoSelecionado.IdEcoponto}");
+                    .GoToAsync($"cadEcopontoView?eId={ecoponto.IdEcoponto}");
             }
             else if (result.Equals("Remover Ecoponto"))
             {
-                if (await Application.Current.MainPage.DisplayAlert("Confirmação",
-                $"Deseja realmente remover o Ecoponto {ecoponto.Nome.ToUpper()}?",
-               "Yes", "No"))
-                {
-                    await RemoverEcoponto(ecoponto);
-                    await Application.Current.MainPage.DisplayAlert("Informação",
-                     "Ecoponto removido com sucesso!", "Ok");
-                    await ObterEcopontos();
-                }
-            }
-            //aqui Vai ter uma opção para ao selecionar o ecoponto e fazer ele ir até o maps
-            //else if (result.Equals("Encontrar Ecoponto no Mapa"))
-            //{
-
-            //    await RemoverEcoponto(ecoponto);
-            //    await Application.Current.MainPage.DisplayAlert("Informação",
-            //     "Ecoponto removido com sucesso!", "Ok");
-            //    await ObterEcopontos();
-            //}
+                 await RemoverEcoponto(ecoponto); 
+                 await ObterEcopontos();
                 
+            }
+            else if (result.Equals("Encontrar Ecoponto no Mapa"))
+            {
+                //aqui Vai ter uma opção para ao selecionar o ecoponto e fazer ele ir até o maps
+             //   await RemoverEcoponto(ecoponto);
+             //   await Application.Current.MainPage.DisplayAlert("Informação",
+               //  "Ecoponto removido com sucesso!", "Ok");
+              //  await ObterEcopontos();
+            }
         }
+
     }  
 }

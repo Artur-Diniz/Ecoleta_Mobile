@@ -13,7 +13,7 @@
         <VerticalStackLayout  VerticalOptions="FillAndExpand" Margin="30,0,10,50" >
             <Label Text="Ecopontos disponíveis" FontSize="28"/>
 
-            <ListView x:Name="listView" HasUnevenRows="True" ItemsSource="{Binding Ecopontos}" SelectedItem="{Binding EcopontoSelecionado}"   >
+            <ListView x:Name="listView" HasUnevenRows="True" ItemsSource="{Binding Ecopontos}" SelectedItem="{Binding EcopontoSelecionado}"  >
                   <ListView.ItemTemplate>
                       <DataTemplate >
                         <ViewCell  >
@@ -22,7 +22,6 @@
                                                 Command="{Binding Path=BindingContext.RemoverEcopontoCommand, Source={x:Reference listView}}"
                                                 CommandParameter="{Binding .}" ></MenuItem>
                               </ViewCell.ContextActions>
-                            <ScrollView Orientation="Horizontal">
                                 <Grid  RowSpacing="15"  Padding="0,0,0,15" Margin="0,0,0,25" Background="#E1E1E1">
                                
                                   <Grid.RowDefinitions>
@@ -173,7 +172,7 @@
                                        HorizontalOptions="FillAndExpand" Grid.Column="1" FontSize="Medium"/>
                                   </Grid>
                             </Grid>
-                            </ScrollView>
+                 
 
                         </ViewCell>
                       </DataTemplate>

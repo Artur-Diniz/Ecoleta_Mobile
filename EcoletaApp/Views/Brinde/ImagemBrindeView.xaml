@@ -4,14 +4,12 @@
              x:Class="Ecoleta.Views.Brinde.ImagemBrindeView"
              xmlns:conv="clr-namespace:Ecoleta.Converters"
              Title="ImagemBrindeView">
-    
-    
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <conv:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
         </ResourceDictionary>
     </ContentPage.Resources>
-    
 
     <ScrollView>
         <Grid>
@@ -35,7 +33,8 @@
                 </Grid>
             </HorizontalStackLayout>
    
-                 <Image WidthRequest="400" HeightRequest="400" Margin="20" Source="{Binding Foto, Converter={StaticResource ByteArrayToImage}}" />
+           <Image WidthRequest="400" HeightRequest="400" Margin="20" 
+                  Source="{Binding Foto, Converter={StaticResource ByteArrayToImage}}" />
 
     </Grid>
         
