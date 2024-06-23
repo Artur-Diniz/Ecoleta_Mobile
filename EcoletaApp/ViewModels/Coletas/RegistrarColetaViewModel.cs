@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using EcoletaApp.Models;
 using System.Windows.Input;
+using Ecoleta.Models.Enuns;
+using Ecoleta.Models;
 
 namespace EcoletaApp.ViewModels.Coletas
 {
@@ -26,6 +28,8 @@ namespace EcoletaApp.ViewModels.Coletas
 
             RegistrarCommand = new Command(async () => { await RegistrarColetaAsync(); });
             CancelarCommand = new Command(async () => { await CancelarCadastro(); });
+
+            _ = ObterClasses();
         }
 
 
@@ -34,52 +38,61 @@ namespace EcoletaApp.ViewModels.Coletas
         private int idColeta;
         private int idEcoponto;
         private int idUtilizador;
-        private int codigoUtilizador;
-        private int codigoEcoponto;
         private DateTime dataColeta;
         private float totalEcopoints;
         private Double peso;
         private string situacaoColeta;
+        private MateriaisEnuns classe;
 
         public int IdColeta { get => idColeta; set { idColeta = value; OnPropertyChanged(nameof(IdColeta)); } }
         public int IdEcoponto { get => idEcoponto; set { idEcoponto = value; OnPropertyChanged(nameof(IdEcoponto)); } }
         public int IdUtilizador { get => idUtilizador; set { idUtilizador = value; OnPropertyChanged(nameof(IdUtilizador)); } }
-        public int CodigoUtilizador { get => codigoUtilizador; set { codigoUtilizador = value; OnPropertyChanged(nameof(CodigoUtilizador)); } }
-        public int CodigoEcoponto { get => codigoEcoponto; set { codigoEcoponto = value; OnPropertyChanged(nameof(CodigoEcoponto)); } }
         public DateTime DataColeta { get => dataColeta; set { dataColeta = value; OnPropertyChanged(nameof(DataColeta)); } }
         public float TotalEcopoints { get => totalEcopoints; set { totalEcopoints = value; OnPropertyChanged(nameof(TotalEcopoints)); } }
         public double Peso { get => peso; set { peso = value; OnPropertyChanged(nameof(Peso)); } }
         public string SituacaoColeta { get => situacaoColeta; set{ situacaoColeta = value; OnPropertyChanged(nameof(SituacaoColeta)); } }
+        public MateriaisEnuns Classe { get => classe; set { classe = value; OnPropertyChanged(nameof(Classe)); } }
+
+
+        private ObservableCollection<Materiais> tipoClasse;
+        public ObservableCollection<Materiais> TipoClasse { get => tipoClasse; set { tipoClasse = value; OnPropertyChanged(nameof(TipoClasse)); } }
+
+        private Materiais tipoClasseSelecionando;
+        public Materiais TipoClasseSelecionando { get => tipoClasseSelecionando; set { tipoClasseSelecionando = value; OnPropertyChanged(nameof(TipoClasseSelecionando));  } }
 
 
         private string coletaSelecionadaId;
 
         public string ColetaSelencionadaId { set { if (value != null) { coletaSelecionadaId = Uri.UnescapeDataString(value); CarregarColetaAsync(); } } }
 
+
+
+
         #endregion
 
         public async Task RegistrarColetaAsync()
         {
             try
-            { 
+            {
                 Coleta coleta = new Coleta
                 {
                     IdColeta = this.IdColeta,
                     IdEcoponto = this.IdEcoponto,
-                    IdUtilizador = this.CodigoUtilizador,
-                    CodigoEcoponto = this.CodigoEcoponto,
-                    CodigoUtilizador = this.IdUtilizador,
+                    IdUtilizador = this.IdUtilizador,
                     DataColeta = DateTime.Now,
-                    TotalEcopoints = this.TotalEcopoints,
                     Peso = this.Peso,
-                    SituacaoColeta = this.SituacaoColeta
+                    SituacaoColeta = this.SituacaoColeta,
+
                 };
-                
-                if(coleta != null)
-                {if (coleta.IdColeta == 0)
+                coleta.Classe = (MateriaisEnuns)TipoClasseSelecionando.IdMaterial;
+
+                if (coleta != null)
+                {
+                    if (coleta.IdColeta == 0)
                         await cService.PostColetaIndIdAsync(coleta);
                     else
                         await cService.putColeta(coleta);
+
                     await Shell.Current.GoToAsync("..");
 
                     await Application.Current.MainPage.DisplayAlert("Mensagem", "Dados Salvos Com Sucesso!", "OK");
@@ -107,14 +120,13 @@ namespace EcoletaApp.ViewModels.Coletas
 
                 this.IdColeta = c.IdColeta;
                 this.IdEcoponto = c.IdEcoponto;
-                this.IdUtilizador = c.IdUtilizador;
-                this.CodigoEcoponto = c.CodigoEcoponto;
-                this.CodigoUtilizador = c.CodigoUtilizador;
+                this.IdUtilizador = c.IdUtilizador; 
                 this.DataColeta = c.DataColeta;
-                this.TotalEcopoints = c.TotalEcopoints;
                 this.Peso = c.Peso;
                 this.SituacaoColeta = c.SituacaoColeta;
+                this.Classe = c.Classe;
 
+                TipoClasseSelecionando = this.TipoClasse.FirstOrDefault(tc => tc.IdMaterial == (int)c.Classe);
 
             }
             catch (Exception ex)
@@ -126,6 +138,29 @@ namespace EcoletaApp.ViewModels.Coletas
         public async Task CancelarCadastro()
         {
             await Shell.Current.GoToAsync("..");
+        }
+
+        public async Task ObterClasses()
+        {
+            try
+            {
+                TipoClasse = new ObservableCollection<Materiais>();
+                TipoClasse.Add(new Materiais() { IdMaterial = 1, DescricaoMaterial = "Papel", MateriaisEnuns = MateriaisEnuns.Papel });
+                TipoClasse.Add(new Materiais() { IdMaterial = 2, DescricaoMaterial = "Plastico", MateriaisEnuns = MateriaisEnuns.Plastico });
+                TipoClasse.Add(new Materiais() { IdMaterial = 3, DescricaoMaterial = "Vidro", MateriaisEnuns = MateriaisEnuns.Vidro });
+                TipoClasse.Add(new Materiais() { IdMaterial = 4, DescricaoMaterial = "Metal", MateriaisEnuns = MateriaisEnuns.Metal });
+                TipoClasse.Add(new Materiais() { IdMaterial = 5, DescricaoMaterial = "Organico", MateriaisEnuns = MateriaisEnuns.Organico });
+                TipoClasse.Add(new Materiais() { IdMaterial = 6, DescricaoMaterial = "Eletronico", MateriaisEnuns = MateriaisEnuns.Eletronico });
+                TipoClasse.Add(new Materiais() { IdMaterial = 7, DescricaoMaterial = "Pilha", MateriaisEnuns = MateriaisEnuns.Pilha });
+                TipoClasse.Add(new Materiais() { IdMaterial = 8, DescricaoMaterial = "Bateria", MateriaisEnuns = MateriaisEnuns.Bateria });
+                TipoClasse.Add(new Materiais() { IdMaterial = 9, DescricaoMaterial = "Oleo", MateriaisEnuns = MateriaisEnuns.Oleo });
+                TipoClasse.Add(new Materiais() { IdMaterial = 10, DescricaoMaterial = "Medicamento", MateriaisEnuns = MateriaisEnuns.Medicamento });
+                TipoClasse.Add(new Materiais() { IdMaterial = 11, DescricaoMaterial = "Outros", MateriaisEnuns = MateriaisEnuns.Outro });
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("Ops", ex.Message + "Detalhes :" + ex.InnerException, "Ok");
+            }
         }
     }
 }

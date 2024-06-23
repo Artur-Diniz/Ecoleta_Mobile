@@ -110,9 +110,10 @@ namespace EcoletaApp.ViewModels.Coletas
                 {
                     await cService.DeleteColetaAsync(c.IdColeta);
 
+                    await ObterColetas();
+
                     await Application.Current.MainPage.DisplayAlert("Mensagem", "Coleta Removida Com sucesso!", "OK");
 
-                    _ = ObterColetas();
                 }
             }
             catch (Exception ex)
@@ -154,10 +155,7 @@ namespace EcoletaApp.ViewModels.Coletas
                 c.IdColeta = c.IdColeta;
                 c.IdEcoponto = c.IdEcoponto;
                 c.IdUtilizador = c.IdUtilizador;
-                c.CodigoEcoponto = c.CodigoEcoponto;
-                c.CodigoUtilizador = c.CodigoUtilizador;
                 c.DataColeta = c.DataColeta;
-                c.TotalEcopoints = c.TotalEcopoints;
                 c.Peso = c.Peso;
                 c.SituacaoColeta = c.SituacaoColeta;
 
@@ -165,12 +163,12 @@ namespace EcoletaApp.ViewModels.Coletas
 
                    await Application.Current.MainPage.DisplayAlert("Mensagem", "Status Alterado com sucesso!", "OK");
 
-                 _ = ObterColetas();
+            await ObterColetas();
 
 
         }
 
-       
+
 
         public async Task ExibirOpcoes(Coleta c)
         {
@@ -204,6 +202,8 @@ namespace EcoletaApp.ViewModels.Coletas
             {
                 await Shell.Current
                     .GoToAsync($"cadColetaView?cId={coleta.IdColeta}");
+                await ObterColetas();
+
             }
             else if (result.Equals("Remover Coleta"))
             {
@@ -214,6 +214,7 @@ namespace EcoletaApp.ViewModels.Coletas
             else if (result.Equals("Alterar Status da Coleta"))
             {
                 await StatusColeta(coletaSelecionada);
+                await ObterColetas();
             }
         }
 

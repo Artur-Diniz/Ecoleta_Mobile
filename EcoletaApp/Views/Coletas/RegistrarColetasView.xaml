@@ -14,9 +14,7 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="90"/>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
@@ -26,7 +24,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Label Text="IdColeta :" FontSize="Large" Grid.Column="0" Grid.Row="0" VerticalOptions="Center"/>
-                 <Entry Text="{Binding IdColeta}" FontSize="Large" Grid.Column="1" Grid.Row="0" IsEnabled="False" VerticalOptions="End" />
+                    <Entry Text="{Binding IdColeta}" FontSize="Large" Grid.Column="1" Grid.Row="0" IsEnabled="False" VerticalOptions="End" />
 
 
                         <Label Text="IdEcoponto :" FontSize="Large" Grid.Column="0" Grid.Row="1" VerticalOptions="End"/>
@@ -38,21 +36,17 @@
                         <Label Text="Peso :" FontSize="Large" Grid.Column="0" Grid.Row="3" VerticalOptions="End"/>
                         <Entry Text="{Binding Peso}" FontSize="Large" Grid.Column="1" Grid.Row="3"  Keyboard="Numeric"/>
 
-                        <Label Text="TotalEcopoints :" FontSize="Large" Grid.Column="0" Grid.Row="4" VerticalOptions="End"/>
-                        <Entry Text="{Binding TotalEcopoints}" FontSize="Large" Grid.Column="1" Grid.Row="4" Keyboard="Numeric"/>
-                        
+                        <Label Text="Classe" FontSize="Large" Grid.Column="0" Grid.Row="4" VerticalOptions="End" />
+                         <Picker Title="---Selecione---" ItemsSource="{Binding TipoClasse}"  FontSize="Large" Grid.Column="1" Grid.Row="4"
+                                ItemDisplayBinding="{Binding DescricaoMaterial}" SelectedItem="{Binding TipoClasseSelecionando}" VerticalOptions="End" />
 
-                        <Label Text="Data da Coleta :" FontSize="Large" Grid.Column="0" Grid.Row="5" VerticalOptions="End"/>                   
+                <Label Text="Data da Coleta :" FontSize="Large" Grid.Column="0" Grid.Row="5" VerticalOptions="End"/>                   
                         <Entry Text="{Binding DataColeta}" FontSize="Large" Keyboard="Default" Grid.Column="1" Grid.Row="5" />
 
                         <Label Text="Situação da Coleta :" FontSize="Large" Grid.Column="0" Grid.Row="6" VerticalOptions="End"/>
                         <Entry Text="{Binding SituacaoColeta}" FontSize="Large" Grid.Column="1" Grid.Row="6" Keyboard="Text"/>
 
-                        <Label Text="Codigo do Utilizador :" FontSize="Large" Grid.Column="0" Grid.Row="7" VerticalOptions="End"/>
-                        <Entry Text="{Binding CodigoUtilizador}" FontSize="Large" Grid.Column="1" Grid.Row="7" Keyboard="Numeric"/>
-
-                        <Label Text="Codigo do Ecoponto :" FontSize="Large" Grid.Column="0" Grid.Row="8" VerticalOptions="End"/>
-                        <Entry Text="{Binding CodigoEcoponto}" FontSize="Large" Grid.Column="1" Grid.Row="8" Keyboard="Numeric"/>
+                
             </Grid>
             <HorizontalStackLayout HorizontalOptions="Center" Padding="10" Spacing="15"  Margin="15,50,15,0">
                 <Button Text="Cancelar" Command="{Binding CancelarCommand}" FontSize="Large" Grid.Column="0" HeightRequest="70" WidthRequest="120" VerticalOptions="EndAndExpand" HorizontalOptions="End"></Button>

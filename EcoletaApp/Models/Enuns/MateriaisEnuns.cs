@@ -18,10 +18,6 @@ namespace Ecoleta.Models.Enuns
         Bateria = 8,
         Oleo = 9,
         Medicamento = 10,
-        Gesso =11,
-        Material_Construcao = 12,
-        Madeira = 13,
-        Isopor = 14,
-        Outro = 15
+        Outro = 11
     }
 }

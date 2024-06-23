@@ -35,12 +35,12 @@
                                               CommandParameter="{Binding .}"></MenuItem>
                                  </ViewCell.ContextActions>
 
-                            <Grid  ColumnSpacing="10" Margin="0,5" Padding="30,10,30,0">
+                            <Grid  ColumnSpacing="10" Margin="0,5" Padding="30,10,30,0" RowSpacing=" 10 ">
                               
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="40" />
                                     <RowDefinition Height="*"/>
-                                    <RowDefinition Height="90"/>
+                                    <RowDefinition Height="*"/>
 
                                 </Grid.RowDefinitions>
 
@@ -55,66 +55,74 @@
                                 </Grid>
 
 
-                                <Grid Grid.Row="1" RowSpacing="15" ColumnSpacing="5"   >
+                                <Grid Grid.Row="1" RowSpacing="15"  ColumnSpacing="10"   >
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="0"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>                                       
                                     </Grid.RowDefinitions>
 
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="60"/>
+                                        <ColumnDefinition Width="40"/>
                                         <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="60"/>
+                                        <ColumnDefinition Width="40"/>
 
                                     </Grid.ColumnDefinitions>
 
 
                                     <Label Text=" Id do Ecoponto:" FontAttributes="Bold"   FontSize="Medium" HorizontalTextAlignment="Center" Grid.Column="0" Grid.Row="1" VerticalOptions="End"/>
-                                    <Label Text="{Binding IdEcoponto}" FontSize="Medium"   Grid.Column="1" Grid.Row="1" VerticalOptions="End" HorizontalOptions="Center"/>
+                                    <Label Text="{Binding IdEcoponto}" FontSize="Medium"   Grid.Column="1" Grid.Row="1" VerticalOptions="End" HorizontalOptions="Start"/>
 
                                     <Label Text=" Id do Utilizador:" FontAttributes="Bold"   FontSize="Medium"  HorizontalTextAlignment="Center"  Grid.Column="2" Grid.Row="1" VerticalOptions="End"/>
                                     <Label Text="{Binding IdUtilizador}" FontSize="Medium"    Grid.Column="3" Grid.Row="1" VerticalOptions="End"  HorizontalOptions="Center"/>
 
-                                    <Label Text="Peso:" FontSize="Medium" FontAttributes="Bold"  Grid.Column="0"  HorizontalTextAlignment="Center" Grid.Row="2" VerticalOptions="End"/>
-                                    
-                                    <Grid Grid.Column="1" Grid.Row="2" HorizontalOptions="Start" >
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="2.5"/>
-                                            <ColumnDefinition Width="*"/>
-                                        </Grid.ColumnDefinitions>
-                                        <Label Text="{Binding Peso}"   FontSize="Medium" HorizontalTextAlignment="End" VerticalOptions="End" Grid.Column="0"/>
-                                        <Label Text="kg"  FontSize="Medium"  VerticalOptions="End"   HorizontalTextAlignment="Start" Grid.Column="2"/>
-
-                                    </Grid>
-                                    <Label Text=" Total de Ecopoints:" FontAttributes="Bold"   FontSize="Medium"  HorizontalTextAlignment="Center" Grid.Column="2" Grid.Row="2" VerticalOptions="End"/>
-                                    <Label Text="{Binding TotalEcopoints}" FontSize="Medium"   Grid.Column="3" Grid.Row="2" VerticalOptions="End" HorizontalOptions="Center"/>
-
+                                  
                                 </Grid>
                                 <Grid  Grid.Row="2"  RowSpacing="15" Padding="0,0,0,15"  >
                                    
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="30" />
-                                        <RowDefinition Height="40" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="50" />
                                     </Grid.RowDefinitions>
 
-                                    <Grid Grid.Row="0">
+                                    <Grid Grid.Row="0" RowSpacing=" 10">
                                         <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="150"/>
                                             <ColumnDefinition Width="240"/>
-                                            <ColumnDefinition Width="120"/>
                                         </Grid.ColumnDefinitions>
-                                        <Label Text="Codigo do Utilizador:" FontAttributes="Bold"   FontSize="Medium"  Grid.Column="0"  VerticalOptions="End"/>
-                                    <Label  Text="{Binding CodigoUtilizador}"  FontSize="Medium"   Grid.Column="1"   VerticalOptions="End"  HorizontalTextAlignment="Start" />
-                                    </Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="50"/>
+                                        </Grid.RowDefinitions>
 
-                                    <Grid Grid.Row="1" ColumnSpacing="10" BackgroundColor="{Binding SituacaoColeta, Converter={StaticResource ColorConvert}}">
+                                        <Label Text="Peso:" FontSize="Medium" FontAttributes="Bold"  Grid.Column="0"  HorizontalTextAlignment="Start" Grid.Row="0" VerticalOptions="End" />
+                                        <Grid Grid.Column="1" Grid.Row="0" HorizontalOptions="Start"  ColumnSpacing="0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="50"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Text="{Binding Peso}"   FontSize="Medium" HorizontalTextAlignment="Start" VerticalOptions="End" Grid.Column="0"/>
+                                            <Label Text="kg"  FontSize="Medium"  VerticalOptions="End"   HorizontalTextAlignment="Start" Grid.Column="1"/>
+
+                                        </Grid>
+
+                                        <Label Text="Tipo Material : " FontAttributes="Bold"   FontSize="Medium"  HorizontalTextAlignment="Start" Grid.Column="0" Grid.Row="1" VerticalOptions="End"/>
+                                        <Label Text="{Binding Classe}" FontSize="Medium"   Grid.Column="1" Grid.Row="1" VerticalOptions="End" HorizontalOptions="StartAndExpand"/>
+
+
+
+                                        <Label Text="Data da Coleta:" FontAttributes="Bold"   FontSize="Medium"  Grid.Column="0"  VerticalOptions="End" Grid.Row="2"/>
+                                        <Label  Text="{Binding DataColeta}"  FontSize="Medium"   Grid.Column="1"   VerticalOptions="End"  HorizontalTextAlignment="Start" Grid.Row="2"/>
+                                    </Grid>
+                                    
+                                    
+
+                                    <Grid Grid.Row="1" ColumnSpacing="10" BackgroundColor="{Binding SituacaoColeta, Converter={StaticResource ColorConvert}}"  >
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="210"/>
                                             <ColumnDefinition Width="130"/>
-                                        </Grid.ColumnDefinitions>
+                                        </Grid.ColumnDefinitions>                                   
 
                                         <Label Text="Situacao da Coleta:"  TextColor="AliceBlue" FontSize="Large"  Grid.Column="0"   VerticalOptions="CenterAndExpand" HorizontalOptions="Center" />
                                     <Label Text="{Binding SituacaoColeta}"   FontSize="Large" TextColor="AliceBlue"  Grid.Column="1"  VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Start" />
