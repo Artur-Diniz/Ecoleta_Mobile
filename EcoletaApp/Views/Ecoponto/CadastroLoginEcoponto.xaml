@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ecoleta.Views.Ecoponto.CadastroLoginEcoponto"
+             Title="CadastroLoginEcoponto">
+    <ScrollView>
+
+        <Grid RowSpacing="20" Margin="15, 25">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+
+            <Label Text="Usuário:" FontSize="Medium" FontAttributes="Bold"  Grid.Row="0" HorizontalOptions="Start" VerticalOptions="End"/>
+            <Entry Placeholder="Digite nome de Usuário" Text="{Binding Username}"  FontSize="Medium"
+                 Margin="0,10,0,0" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Grid.Row="1" >
+            </Entry>
+
+            <Label Text="Senha:" FontSize="Medium" FontAttributes="Bold"  Grid.Row="2" HorizontalOptions="Start" VerticalOptions="End" />
+            <Entry Placeholder="Digite a senha" Text="{Binding PasswordString}" IsPassword="True"  FontSize="Medium" VerticalTextAlignment="Start"
+                Margin="0,10,0,0" VerticalOptions="End" HorizontalOptions="FillAndExpand"  Grid.Row="3" >
+            </Entry>
+
+
+            <HorizontalStackLayout Padding="0,30,0,0"  Grid.Row="4" HorizontalOptions="Center" VerticalOptions="Start" >
+
+                <Button Text="Cadastrar" Command="{Binding RegistrarCommand}" FontSize="Large" Margin="0,10,0,0" HorizontalOptions="Center"
+        VerticalOptions="End"  HeightRequest="55" WidthRequest="140"  />
+            </HorizontalStackLayout>
+            
+            
+        </Grid>
+    </ScrollView>
+</ContentPage>

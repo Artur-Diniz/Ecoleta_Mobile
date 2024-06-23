@@ -67,7 +67,7 @@ namespace EcoletaApp.ViewModels.Ecopontos
         {
             try
             {
-                await Shell.Current.GoToAsync("cadEcopontoView");
+                await Shell.Current.GoToAsync("cadLoginEcopontoView");
             }
             catch (Exception ex)
             {

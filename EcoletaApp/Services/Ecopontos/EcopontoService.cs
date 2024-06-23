@@ -38,6 +38,14 @@ namespace EcoletaApp.Services.Ecopontos
             return ecoponto;
         }
 
+        public async Task<Ecoponto> GetForIdFromUsername(string user)
+        {
+            ObservableCollection<Ecoponto> listEcoponto = await GetAllEcopontosAsync();
+            Ecoponto ecoponto = listEcoponto.FirstOrDefault(u => u.Username == user);
+            Ecoponto ecoponto1 = await GetEcopontoAsync(ecoponto.IdEcoponto);
+            return ecoponto1;
+        }
+
         #endregion
 
 
@@ -58,12 +66,25 @@ namespace EcoletaApp.Services.Ecopontos
             return result.IdEcoponto;
         }
 
-        public async Task<int> PostAutenticarEcopontoAsync(Ecoponto e)
+        public async Task<bool> PostRegistrarUtilizadorAsync(Ecoponto e)
         {
-            string urlComplementar = "AutenticarEcoponto";
-            Ecoponto result = await _request.PostSemTokenAsync<Models.Ecoponto>(apiURLBase + urlComplementar, e);
+            //  http://localhost:5268/api/EcoPonto/CadastrarEcoponto?username=artur&passwordString=123456
+            
+            string urlComplementar = string.Format("CadastrarEcoponto?username={0}&passwordString={1}", e.Username, e.PasswordString);
+            bool nulo = new bool();
+            bool test = await _request.PostAutenticarUtilizadorAsync(apiURLBase + urlComplementar, nulo);
 
-            return result.IdEcoponto;
+            return test;
+        }
+
+        public async Task<bool> PostAutenticarEcopontoAsync(Ecoponto e)
+        {
+            //http://localhost:5268/api/EcoPonto/AutenticarEcoponto?username=artur&passwordString=123456
+
+            string urlComplementar = string.Format("AutenticarEcoponto?username={0}&passwordString={1}", e.Username, e.PasswordString);
+            bool isSuccessful = await PostAutenticarUtilizadorAsync(apiURLBase + urlComplementar, e);
+
+            return isSuccessful;
         }
 
         #endregion
@@ -73,9 +94,18 @@ namespace EcoletaApp.Services.Ecopontos
 
         public async Task<int> PutEcopontoAsync(Ecoponto e)
         {
-            string urlComplementar = string.Format("Put/{0}", e.IdEcoponto);
+            string urlComplementar = string.Format("Put/{0}", e.Username);
             var result = await _request.PutSemTokenAsync(apiURLBase +  urlComplementar, e);
-            return result.IdEcoponto;
+
+           Ecoponto eco = await GetForIdFromUsername(e.Username);
+
+            if (eco != null)
+                return eco.IdEcoponto;
+            else 
+            {
+                int mensagem = 0;
+                return mensagem;  
+            }
         }
 
         public async Task<int> PutEcopontoAlterarSenhaAsync(Ecoponto e)

@@ -15,6 +15,7 @@ namespace EcoletaApp
             BindingContext = viewModel;
 
             Routing.RegisterRoute("cadEcopontoView", typeof(Views.Ecoponto.CadastroView));
+            Routing.RegisterRoute("cadLoginEcopontoView", typeof(Ecoleta.Views.Ecoponto.CadastroLoginEcoponto));
             Routing.RegisterRoute("cadColetaView", typeof(Views.Coletas.RegistrarColetasView));
             Routing.RegisterRoute("cadBrindeView", typeof(Views.Brinde.RegistrarBrindeView));
             Routing.RegisterRoute("LoginEcoponto", typeof(Ecoleta.Views.Ecoponto.LoginEcopontoView)); 

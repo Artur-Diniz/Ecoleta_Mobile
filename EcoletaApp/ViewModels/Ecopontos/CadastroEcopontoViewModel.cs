@@ -17,12 +17,16 @@ namespace EcoletaApp.ViewModels.Ecopontos
         public ICommand SalvarCommand { get; }
         public ICommand CancelarCommand { get; }
 
+        public ICommand RegistrarCommand { get; }
+
         public CadastroEcopontoViewModel()
         {
             eService = new EcopontoService();
 
             SalvarCommand = new Command(async () => { await salvarEcoponto(); });
             CancelarCommand = new Command(async => CancelarCadstro());
+            RegistrarCommand = new Command(async () => { await RegistarLoginEcoponto(); });
+
         }
 
 
@@ -78,6 +82,37 @@ namespace EcoletaApp.ViewModels.Ecopontos
 
         #endregion
 
+        public async Task RegistarLoginEcoponto()
+        {
+            try
+            {
+                Ecoponto model = new Ecoponto
+                {
+                    Username = this.Username,
+                    PasswordString = this.PasswordString
+                };
+
+                bool eRegisterado = await eService.PostRegistrarUtilizadorAsync(model);
+                Ecoponto eAutenticado = await eService.GetForIdFromUsername(model.Username);
+
+
+                await Shell.Current.GoToAsync("..");
+
+                await Shell.Current
+                    .GoToAsync($"cadEcopontoView?eId={eAutenticado.IdEcoponto}");
+
+
+            }
+            catch (Exception ex)
+            {
+                await Shell.Current.GoToAsync("..");
+
+                await Application.Current.MainPage
+                    .DisplayAlert("OPS", ex.Message + "Detalhes" + ex.InnerException, "Ok");
+
+            }
+        }
+
 
         public async Task salvarEcoponto()
         {   
@@ -111,25 +146,51 @@ namespace EcoletaApp.ViewModels.Ecopontos
 
 
                 if (model.IdEcoponto == 0)
-                    await eService.PostEcopontoAsync(model);
+                {
+
+                    bool eRegisterado = await eService.PostRegistrarUtilizadorAsync(model);
+                    Ecoponto eAutenticado = await eService.GetForIdFromUsername(model.Username);
+                    Ecoponto e = await eService.GetEcopontoAsync(eAutenticado.IdEcoponto);
+
+                    model.IdEcoponto = e.IdEcoponto;
+                    model.Username = e.Username;
+                    model.PasswordHash = e.PasswordHash;
+                    model.PasswordSalt = e.PasswordSalt;
+
+                    int id = await eService.PutEcopontoAsync(model);
+
+                    await Application.Current.MainPage
+                    .DisplayAlert("Mensagem", "Dados salvos com sucesso!", "OK");
+
+                }
                 else
                 {
                     Ecoponto e = await eService.GetEcopontoAsync(model.IdEcoponto);
 
-                    model.PasswordHash = e.PasswordHash;
-                    model.PasswordSalt = e.PasswordSalt;
 
-                    await eService.PutEcopontoAsync(model);                            
+                   int id = await eService.PutEcopontoAsync(model);
+                    if (id == 0)
+                    {
+
+                        await Application.Current.MainPage
+                            .DisplayAlert("Mensagem", "Senha incorreta", "OK");
+
+                    }
+                    else
+                    {
+                        await Application.Current.MainPage
+                            .DisplayAlert("Mensagem", "Dados salvos com sucesso!", "OK");
+                    }
+
                 }
 
-                await Application.Current.MainPage
-                    .DisplayAlert("Mensagem", "Dados salvos com sucesso!", "OK");
-
                 await Shell.Current.GoToAsync("..");
+
+
             }
             catch (Exception ex) 
             {
-                await Shell.Current.GoToAsync("..");            
+                await Shell.Current.GoToAsync("..");
 
                 await Application.Current.MainPage
                     .DisplayAlert("OPS", ex.Message + "Detalhes" + ex.InnerException, "Ok");                

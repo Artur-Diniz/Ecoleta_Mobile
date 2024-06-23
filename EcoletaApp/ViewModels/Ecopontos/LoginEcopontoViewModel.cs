@@ -73,10 +73,10 @@ namespace Ecoleta.ViewModels.Ecopontos
                 e.PasswordSalt = null;
 
 
-                int eAutenticadoId = await eService.PostAutenticarEcopontoAsync(e);
-                Ecoponto eAutenticado = await eService.GetEcopontoAsync(eAutenticadoId);
+                bool test = await eService.PostAutenticarEcopontoAsync(e);
+                Ecoponto eAutenticado = await eService.GetForIdFromUsername(e.Username);
 
-                if (eAutenticado.PasswordSalt != null || eAutenticado.PasswordHash != null)
+                if (test == true)
                 {
                     string mensagem = $"bem-Vindo(a) {eAutenticado.Username}.";
 

@@ -44,6 +44,7 @@ namespace EcoletaApp.Services
 
             return result;
         }
+
         public async Task<TResult> PutSemTokenAsync<TResult>(string uri, TResult data)
         {
             HttpClient httpClient = new HttpClient();
@@ -52,13 +53,16 @@ namespace EcoletaApp.Services
             HttpResponseMessage response = await httpClient.PutAsync(uri, content);
             var serialized = await response.Content.ReadAsStringAsync();
             TResult result = data;
-            if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                {result = await Task.Run(() => JsonConvert.DeserializeObject<TResult>(serialized));
+            if (response.StatusCode == System.Net.HttpStatusCode.OK || response.StatusCode == System.Net.HttpStatusCode.Accepted)
+            {
+                result = await Task.Run(() => JsonConvert.DeserializeObject<TResult>(serialized));
                 return result;
-                 }
+            }
             else
                 throw new Exception(serialized);
         }
+
+
 
         public async Task<bool> PostAutenticarUtilizadorAsync(string uri, object data)
         {

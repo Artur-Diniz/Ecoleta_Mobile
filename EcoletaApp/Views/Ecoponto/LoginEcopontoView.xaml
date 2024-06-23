@@ -66,7 +66,7 @@
 
         </Grid>
 
-        <Button Text="Entrar Como Ecoponto" FontSize="Medium" LineBreakMode="WordWrap" HeightRequest="90"
+        <Button Text="Entrar Como Utilizador" FontSize="Medium" LineBreakMode="WordWrap" HeightRequest="90"
                 WidthRequest="140"   Command="{Binding DirecionaraParaUtilizadorCommand}" Grid.Row="2" />
 
     </Grid>
