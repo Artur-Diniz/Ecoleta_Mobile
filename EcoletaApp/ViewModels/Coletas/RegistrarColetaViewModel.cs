@@ -93,14 +93,15 @@ namespace EcoletaApp.ViewModels.Coletas
                     else
                         await cService.putColeta(coleta);
 
+                    if (coleta.SituacaoColeta == "Concluida")
+                    { await cService.ConfirmarColetaAsync(coleta); }
+
                     await Shell.Current.GoToAsync("..");
 
                     await Application.Current.MainPage.DisplayAlert("Mensagem", "Dados Salvos Com Sucesso!", "OK");
                 }
                 else
                     await Application.Current.MainPage.DisplayAlert("Ops", "não é possivél enviar todos os campos nulos", "Ok");
-
-               
 
                 await Shell.Current.GoToAsync("..");
             }

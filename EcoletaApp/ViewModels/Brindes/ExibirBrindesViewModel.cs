@@ -7,15 +7,18 @@ using System.Threading.Tasks;
 using EcoletaApp.Models;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using EcoletaApp.Services.UtilizadorService;
 
 namespace EcoletaApp.ViewModels.Brindes
 {
     public class ExibirBrindesViewModel : BaseViewModel
     {
         private BrindesServices bService;
+        private utilizadorService uService;
         public ExibirBrindesViewModel()
         {
             bService = new BrindesServices();
+            uService = new utilizadorService();
             Brindes = new ObservableCollection<Brinde>();
 
             _ = ObterBrindes();
@@ -72,7 +75,7 @@ namespace EcoletaApp.ViewModels.Brindes
                 {
                     await bService.DeleteBrindeAsync(b.IdBrinde);
 
-                    await Application.Current.MainPage.DisplayAlert("Mensagem", "Coleta Removida Com sucesso!", "OK");
+                    await Application.Current.MainPage.DisplayAlert("Mensagem", "Brinde Removida Com sucesso!", "OK");
 
                     _ = ObterBrindes();
                 }
@@ -94,7 +97,8 @@ namespace EcoletaApp.ViewModels.Brindes
                 result = await Application.Current.MainPage
                     .DisplayActionSheet("Opções para Coleta:  ",
                     "Cancelar",
-                    "Editar Brinde",
+                    "Resgatar Brinde",
+                     "Editar Brinde",
                     "Remover Brinde",
                     "Alterar Foto do Brinde"
                     );
@@ -127,7 +131,41 @@ namespace EcoletaApp.ViewModels.Brindes
             {
                 await Shell.Current.GoToAsync("ImagemBrinde");
             }
+            else if (result.Equals("Resgatar Brinde"))
+            {
+                await ResgatarBrinde(brinde);
+                await ObterBrindes();
+
+            }
         }
+        public async Task ResgatarBrinde(Brinde b)
+        {
+            try
+            {
+                int Uid = Preferences.Get("UtilizadorId",0);
+                if (Uid != 0)
+                {
+                    string cupom = await uService.PostbrindeAsync(b.IdBrinde, 1);
+
+                    string mensagem = string.Format("Brinde Resgatado com sucesso seum cupom é: {0}", cupom);
+                    await Application.Current.MainPage.DisplayAlert("Mensagem", mensagem, "OK");
+                }
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert("Mensagem", "Você não está Logado como Utilizador ", "OK");
+                    Shell.Current.GoToAsync("LoginUtilizador");
+                }
+
+                _ = ObterBrindes();
+                
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("Ops", ex.Message + "Detalhes :" + ex.InnerException, "Ok");
+            }
+        }
+
+
 
     }
 }

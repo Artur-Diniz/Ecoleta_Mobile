@@ -21,7 +21,7 @@
                                               Command="{Binding Path=BindingContext.RemoverBrindeCommand, Source={x:Reference listView}}"
                                               CommandParameter="{Binding .}"></MenuItem>
                                 </ViewCell.ContextActions>
-                                <Grid Margin="20,50" Background="#E1E1E1" >
+                                <Grid Margin="20,50" Background="#E1E1E1" RowSpacing="10">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="50"/>
                                         <RowDefinition Height="240"/>
@@ -33,6 +33,8 @@
 
                                         <Label Text="{Binding NomeBrinde}" FontSize="Large"  Grid.Column="0" TextColor="AliceBlue"  HorizontalOptions="Center"  VerticalOptions="Center"  />
                                     </Grid>
+                                    <Image Source="caneca.png"  WidthRequest="240"  HeightRequest="240" Grid.Row="1" />
+
 
                                     <Grid Grid.Row="2" RowSpacing="20" ColumnSpacing="10" Margin="0,10,0,0" Padding="10">   
 
@@ -84,11 +86,9 @@
 
 
                                         </Grid>
-
                                        
 
                                     </Grid>
-
 
                                 </Grid>
                             </ViewCell>

@@ -25,6 +25,15 @@ namespace EcoletaApp.Services.Coletas
          
         }
 
+        public async Task<bool> ConfirmarColetaAsync(Coleta c)
+        {
+            string urlComplementar = String.Format("ConfirmarColeta/{0}/{1}/{2}/{3}", c.IdEcoponto,c.IdUtilizador,c.Classe, c.Peso);
+            int[] meuArray = null;
+
+            return await _request.PostArrayAsync(apiURLBase + urlComplementar, meuArray);
+
+        }
+
         public async Task<int> PostColetaIndIdAsync(Coleta c)
         {
             string urlComplementar = "Post";
@@ -32,6 +41,8 @@ namespace EcoletaApp.Services.Coletas
 
             return result.IdColeta;
         }
+
+
         public async Task<int> putColeta(Coleta c)
         {
             string urlComplementar = string.Format("Put/{0}", c.IdColeta);

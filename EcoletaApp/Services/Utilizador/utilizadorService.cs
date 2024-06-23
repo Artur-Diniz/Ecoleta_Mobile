@@ -62,7 +62,18 @@ namespace EcoletaApp.Services.UtilizadorService
 
             return isSuccessful;
         }
-    
+
+        public async Task<string> PostbrindeAsync(int uId, int bId)
+        {
+            // http://localhost:5268/api/Utilizador/ResgatarBrinde/1/1
+            string urlComplementar = string.Format("ResgatarBrinde/{0}/{1}", uId, bId);
+            int[] meuArray = null;
+
+            string isSuccessful = await PostReturnstringAsync<int[]>(ApiUrlBase + urlComplementar, meuArray);
+
+            return isSuccessful;
+        }
+
         #endregion
 
         #region Métodos Put

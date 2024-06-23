@@ -149,8 +149,9 @@ namespace EcoletaApp.ViewModels.Coletas
 
         public async Task AlerarStatusColeta(string result)
         {
-           
+                 string situacaoAntes;
                Coleta c = await cService.GetColetaAsync(Preferences.Get("ColetaId",0));
+                 situacaoAntes = c.SituacaoColeta;
                 c.SituacaoColeta = result;
                 c.IdColeta = c.IdColeta;
                 c.IdEcoponto = c.IdEcoponto;
@@ -159,6 +160,10 @@ namespace EcoletaApp.ViewModels.Coletas
                 c.Peso = c.Peso;
                 c.SituacaoColeta = c.SituacaoColeta;
 
+                if (result == "Concluida" && situacaoAntes != "Concluida")
+                { await cService.ConfirmarColetaAsync(c); }
+
+                if (situacaoAntes != "Concluida")
                 await cService.putColeta(c);
 
                    await Application.Current.MainPage.DisplayAlert("Mensagem", "Status Alterado com sucesso!", "OK");
@@ -214,7 +219,7 @@ namespace EcoletaApp.ViewModels.Coletas
             else if (result.Equals("Alterar Status da Coleta"))
             {
                 await StatusColeta(coletaSelecionada);
-                await ObterColetas();
+                _= ObterColetas();
             }
         }
 

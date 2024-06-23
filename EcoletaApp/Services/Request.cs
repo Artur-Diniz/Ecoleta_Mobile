@@ -27,6 +27,30 @@ namespace EcoletaApp.Services
                 throw new Exception(serialized);
         }
 
+        public async Task<String> PostReturnstringAsync<TResult>(string uri, Array data)
+        {
+
+            HttpClient httpClient = new HttpClient();
+            var content = new StringContent(JsonConvert.SerializeObject(data));
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            int[] arrayComZero = new int[] { 0 };
+            var arrayContent = new StringContent(JsonConvert.SerializeObject(arrayComZero));
+            arrayContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            HttpResponseMessage response = await httpClient.PostAsync(uri, arrayContent);
+            string serialized = await response.Content.ReadAsStringAsync();
+
+            if (response.StatusCode == System.Net.HttpStatusCode.OK || response.StatusCode == System.Net.HttpStatusCode.Created)
+            {
+                // Extraindo o código do cupom da resposta
+                string cupomPrefix = "Código do cupom: ";
+                return serialized.Substring(cupomPrefix.Length).Trim();
+            }
+
+            return $"Failed: {response.StatusCode}";
+        }
+
         public async Task<TResult> PostSemTokenAsync<TResult>(string uri, TResult data)
         {
             HttpClient httpClient = new HttpClient();
@@ -43,6 +67,26 @@ namespace EcoletaApp.Services
                 result = await Task.Run(() => JsonConvert.DeserializeObject<TResult>(serialized));
 
             return result;
+        }
+
+        public async Task<bool> PostArrayAsync(string uri, Array data)
+        {
+            HttpClient httpClient = new HttpClient();
+            var content = new StringContent(JsonConvert.SerializeObject(data));
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            int[] arrayComZero = new int[] { 0 };
+            var arrayContent = new StringContent(JsonConvert.SerializeObject(arrayComZero));
+            arrayContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            HttpResponseMessage response = await httpClient.PostAsync(uri, arrayContent);
+
+            string serialized = await response.Content.ReadAsStringAsync();
+
+            if (response.StatusCode == System.Net.HttpStatusCode.OK || response.StatusCode == System.Net.HttpStatusCode.Created)
+                return true;
+
+            return false;
         }
 
         public async Task<TResult> PutSemTokenAsync<TResult>(string uri, TResult data)
