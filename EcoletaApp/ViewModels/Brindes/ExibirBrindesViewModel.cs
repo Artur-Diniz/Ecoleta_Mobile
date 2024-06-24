@@ -142,13 +142,15 @@ namespace EcoletaApp.ViewModels.Brindes
         {
             try
             {
-                int Uid = Preferences.Get("UtilizadorId",0);
+                int Uid = Preferences.Get("IdUtilizador", 0);
                 if (Uid != 0)
                 {
-                    string cupom = await uService.PostbrindeAsync(b.IdBrinde, 1);
+                    string cupom = await uService.PostbrindeAsync(Uid, b.IdBrinde);
 
-                    string mensagem = string.Format("Brinde Resgatado com sucesso seum cupom é: {0}", cupom);
+                    string mensagem = string.Format("Brinde Resgatado com sucesso seum cupom é: {0}", cupom );
                     await Application.Current.MainPage.DisplayAlert("Mensagem", mensagem, "OK");
+
+                    
                 }
                 else
                 {

@@ -7,7 +7,7 @@
     xmlns:viewUtilizador="clr-namespace:EcoletaApp.Views.Utilizador"
     xmlns:viewColeta="clr-namespace:EcoletaApp.Views.Coletas"
     xmlns:viewBrinde="clr-namespace:EcoletaApp.Views.Brinde"
-    xmlns:viewUtilizadores="clr-namespace:Ecoleta.Views.Utilizador"
+    xmlns:viewUtilizadores="clr-namespace:Ecoleta.Views"
         xmlns:local="clr-namespace:EcoletaApp"
     Title="EcoletaApp">
 
@@ -46,9 +46,7 @@
     <ShellContent Title="Descrição" Icon="folha3.png" Route="desc" ContentTemplate="{DataTemplate local:DescriptionView}" />
     <ShellContent Title="Ecopontos"  Icon="ecoponto.png" ContentTemplate="{DataTemplate viewEcopontos:ListagemView}" />
     <ShellContent Title="Coleta" Icon="coleta.png"  ContentTemplate="{DataTemplate viewColeta:ExibirColetasView}" />
-    <!--<ShellContent Title="FotoBrinde" Icon="brinde.png"   ContentTemplate="{DataTemplate viewBrinde:ExibirBrindeView: }"/>-->
     <ShellContent Title="Brindes" Icon="brinde.png" ContentTemplate="{DataTemplate viewBrinde:ExibirBrindeView}" />
-    <ShellContent Title="Login " Icon="utilizador.png" ContentTemplate="{DataTemplate viewUtilizador:LoginView}" />
-    <ShellContent Title="LocEcopontos"  Icon="localizacao.png" ContentTemplate="{DataTemplate viewEcopontos:LocalizacaoEcopontosView}" />
+    <ShellContent Title="Perfil " Icon="utilizador.png" ContentTemplate="{DataTemplate viewUtilizadores:profileView}" />
 
 </Shell>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ecoleta.Views.profileView"
+             Title="profileView">
+    <ScrollView>
+        <Grid>
+            <VerticalStackLayout Margin="10, 20, 0, 0" VerticalOptions="FillAndExpand">
+                <ListView x:Name="listView" HasUnevenRows="True" ItemsSource="{Binding Utilizadores}" SelectedItem="{Binding UtilizadorSelecionado}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Margin="20,50" BackgroundColor="#E1E1E1" RowSpacing="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="0"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid Grid.Row="0" BackgroundColor="ForestGreen">
+                                        <Label Text="{Binding Username}" FontSize="Large" TextColor="AliceBlue" HorizontalOptions="Center" VerticalOptions="Center" />
+                                    </Grid>
+                                    <Grid Grid.Row="2" RowSpacing="20" ColumnSpacing="10" Margin="0,10,0,0" Padding="10">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0" Grid.Column="0" RowSpacing="10">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="140"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Text="Nome : " FontAttributes="Bold" FontSize="Large" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" />
+                                            <Label Text="{Binding Nome}" FontAttributes="Bold" FontSize="Large" Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" />
+                                            <Label Text="Nome de Usuario :" FontAttributes="Bold" FontSize="Medium" Grid.Row="1" Grid.Column="0" HorizontalOptions="Start"/>
+                                            <Label Text="{Binding Username}" FontSize="Medium" Grid.Row="1" Grid.Column="1"/>
+                                            <Label Text="Email :" FontAttributes="Bold" FontSize="Medium" Grid.Row="2" Grid.Column="0" VerticalOptions="Start" HorizontalOptions="Start"/>
+                                            <Label Text="{Binding Email}" FontSize="Medium" Grid.Row="2" Grid.Column="1"/>
+                                            <Label Text="Ecopoints adquiridos :" FontAttributes="Bold" FontSize="Medium" Grid.Row="3" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Start"/>
+                                            <Label Text="{Binding TotalEcoPoints}" FontSize="Medium" Grid.Row="3" Grid.Column="1"  VerticalOptions="End" HorizontalOptions="Start"/>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

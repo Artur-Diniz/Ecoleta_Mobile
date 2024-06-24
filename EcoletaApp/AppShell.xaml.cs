@@ -22,7 +22,7 @@ namespace EcoletaApp
             Routing.RegisterRoute("LoginUtilizador", typeof(Views.Utilizador.LoginView));
             Routing.RegisterRoute("HomePage", typeof(MainPage));
             Routing.RegisterRoute("ImagemBrinde", typeof(Ecoleta.Views.Brinde.ImagemBrindeView));
-            Routing.RegisterRoute("ProfileUtilizador", typeof(Ecoleta.Views.Utilizador.profileView));
+            Routing.RegisterRoute("ProfileUtilizador", typeof(Ecoleta.Views.profileView));
             Routing.RegisterRoute("LocEcoponto", typeof(EcoletaApp.Views.Ecoponto.LocalizacaoEcopontosView));
             Routing.RegisterRoute("Brindes", typeof(EcoletaApp.Views.Brinde.ExibirBrindeView));
 

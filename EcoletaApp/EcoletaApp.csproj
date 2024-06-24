@@ -127,10 +127,7 @@
 	  <MauiXaml Update="Views\Utilizador\LoginView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Utilizador\profileView.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\Utilizador\utilizadorProfileView.xaml">
+	  <MauiXaml Update="Views\profileView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
