@@ -15,6 +15,6 @@ public partial class LocalizacaoEcopontosView : ContentPage
         viewModels.MeuMapa = mapa;
 
         viewModels.InicializarMapa();
-        viewModels.ExibirUsuariosnoMapa();
+      //  viewModels.ExibirUsuariosnoMapa();
     }
 }

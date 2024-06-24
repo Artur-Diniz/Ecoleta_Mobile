@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 
 namespace Ecoleta.Services.Resgates
 {
-    public class ResgateService
+    public class ResgateService : Request
     {
         
         private readonly Request _request;
-        private const string apiURLBase = "http://SustenTechDS.somee.com/Ecoleta/api/Brinde/";
+        private const string apiURLBase = "http://SustenTechDS.somee.com/Ecoleta/api/Resgates/";
+        private const string UrlBrinde = "http://SustenTechDS.somee.com/Ecoleta/api/brinde/";
+
 
         public ResgateService()
         {
@@ -32,9 +34,10 @@ namespace Ecoleta.Services.Resgates
             return await _request.PutSemTokenAsync(apiURLBase + urlComplementar, resgate);
         }
 
-        public async Task<ObservableCollection<Resgate>> GetAllAsync()
+        public async Task<ObservableCollection<Resgate>> GetAllAsync(int id)
         {
-            string urlComplmentar = "GetAll";
+            //http://localhost:5268/api/Resgate/GetAll?IdUtilizador=1
+            string urlComplmentar = string.Format("GetAll?IdUtilizado={0}", id);
             return await _request.GetSemTokenAsync<ObservableCollection<Resgate>>(apiURLBase + urlComplmentar);
         }
 

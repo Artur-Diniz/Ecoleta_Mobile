@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Ecoleta.Views.Ecoponto.LoginEcopontoView"
-             Title="LoginEcopontoView" NavigationPage.HasBackButton="False" NavigationPage.HasNavigationBar="False" >    <!--NavigationPage.HasNavigationBar="False"-->
+             Title="Login"  >    <!--NavigationPage.HasNavigationBar="False"-->
     <Grid Margin=" 30, 25" >
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -19,10 +19,10 @@
             </Grid.RowDefinitions>
 
 
-            <Grid Grid.Row="0">
+            <Grid Grid.Row="0" RowSpacing="5">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
 
                 <Label Text="Email" FontSize="Large" FontAttributes="Bold" Grid.Row="0" HorizontalOptions="Start"/>
@@ -32,13 +32,13 @@
                 </Entry>
             </Grid>
 
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="1" RowSpacing="5">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
 
-                <Label Text="Senha" FontSize="Large" FontAttributes="Bold" Grid.Row="0"  HorizontalOptions="Start"/>
+                <Label Text="Senha" FontSize="Large" FontAttributes="Bold" Grid.Row="0"  HorizontalOptions="Start" VerticalOptions="Center"/>
 
                 <Entry Placeholder="Digite a senha" Text="{Binding Passwordstring}" IsPassword="True" 
             Margin="0,10,0,0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" 

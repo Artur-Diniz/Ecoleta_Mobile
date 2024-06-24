@@ -2,11 +2,84 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Ecoleta.Views.Utilizador.utilizadorProfileView"
-             Title="utilizadorProfileView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Tela de Perfil">
+    <ScrollView>
+
+        <Grid>
+            <VerticalStackLayout Margin="10, 20, 0, 0" VerticalOptions="FillAndExpand">
+                <ListView x:Name="listView" HasUnevenRows="True" ItemsSource="{Binding Utilizador}" SelectedItem="{Binding UtilizadorSelecionado}" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+
+                            <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <MenuItem Text="Remover" IsDestructive="True" 
+                                            Command="{Binding Path=BindingContext.RemoverBrindeCommand, Source={x:Reference listView}}"
+                                            CommandParameter="{Binding .}"></MenuItem>
+                                </ViewCell.ContextActions>
+                                <Grid Margin="20,50" Background="#E1E1E1" RowSpacing="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="240"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Grid Grid.Row="0" BackgroundColor="ForestGreen">
+
+
+                                        <Label Text="{Binding IdUtilizador}" FontSize="Large"  Grid.Column="0" TextColor="AliceBlue"  HorizontalOptions="Center"  VerticalOptions="Center"  />
+                                    </Grid>
+                                    <Image Source="caneca.png"  WidthRequest="240"  HeightRequest="240" Grid.Row="1" />
+
+
+                                    <Grid Grid.Row="2" RowSpacing="20" ColumnSpacing="10" Margin="0,10,0,0" Padding="10">
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Grid Grid.Row="0" Grid.Column="0" RowSpacing="10">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>                           
+                                            </Grid.RowDefinitions>
+
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="140"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Text="Nome : "  FontAttributes="Bold" FontSize="Large" Grid.Row="0" Grid.Column="0"  HorizontalOptions="Start" />
+                                            <Label Text="{Binding Nome }"  FontAttributes="Bold" FontSize="Large" Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" />
+
+
+                                            <Label Text="nome de Usuario :"   FontAttributes="Bold" FontSize="Medium" Grid.Row="1" Grid.Column="0" HorizontalOptions="Start"/>
+                                            <Label Text="{Binding Username}" FontSize="Medium"  Grid.Row="1" Grid.Column="1"/>
+
+                                            <Label Text="Descricao :"  FontAttributes="Bold" FontSize="Medium" Grid.Row="2" Grid.Column="0" VerticalOptions="Start" HorizontalOptions="Start"/>
+                                            <Label Text="{Binding Email}" FontSize="Medium"  Grid.Row="2" Grid.Column="1"/>
+
+
+                                            <Label Text="Ecopoints adquiridos :"  FontAttributes="Bold" FontSize="Medium" Grid.Row="3" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Start"/>
+                                            <Label Text="{Binding TotalEcopoints}" FontSize="Medium" Grid.Row="3" Grid.Column="1"/>
+
+                                        </Grid>
+
+                                    </Grid>
+
+                                </Grid>
+                            </ViewCell>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </VerticalStackLayout>
+    </Grid>
+    </ScrollView>
+
 </ContentPage>

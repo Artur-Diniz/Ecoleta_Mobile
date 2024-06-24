@@ -43,7 +43,10 @@
                                         HeightRequest="{OnPlatform Android=64, iOS=64}" 
                                        WidthRequest="{OnPlatform Android=64, iOS=64}"
                                        HorizontalOptions="Center"
-                                       Grid.Column="1">
+                                       Grid.Column="1" >
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding BrindesResgatadosCommand}"/>
+                                </Frame.GestureRecognizers>
                                     <VerticalStackLayout Spacing="10" VerticalOptions="Center" Padding="10">
                                         <Image Source="ecoponto.png"  WidthRequest="48"  HeightRequest="48"/>
                                         <Label Text="Ecopontos" FontSize="Small" HorizontalTextAlignment="Center"

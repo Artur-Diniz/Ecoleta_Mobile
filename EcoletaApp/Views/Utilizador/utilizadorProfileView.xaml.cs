@@ -11,4 +11,6 @@ public partial class utilizadorProfileView : ContentPage
 		BindingContext = viewModel;
 		Title = "Utilizador - Ecoleta";
 	}
+
+
 }

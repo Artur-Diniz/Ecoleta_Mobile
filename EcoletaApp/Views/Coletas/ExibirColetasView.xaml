@@ -4,7 +4,7 @@
              x:Class="EcoletaApp.Views.Coletas.ExibirColetasView"
              Shell.PresentationMode="Animated"
              xmlns:conv="clr-namespace:Ecoleta.Converters"
-             Title="ExibirColetasView">
+             Title="Coletas">
 
     <ContentPage.Resources>
         <ResourceDictionary>

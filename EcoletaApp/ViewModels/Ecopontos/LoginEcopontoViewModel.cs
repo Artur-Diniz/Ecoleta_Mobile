@@ -5,6 +5,7 @@ using EcoletaApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -20,14 +21,16 @@ namespace Ecoleta.ViewModels.Ecopontos
         public ICommand DirecionaraParaUtilizadorCommand { get; set; }
 
 
+
         public LoginEcopontoViewModel()
         {
             eService = new EcopontoService();
             InicializarCommannds();
         }
 
-        public void InicializarCommannds()
+        public async void InicializarCommannds()
         {
+
             AutenticarCommand = new Command(async () => await AutenticarEcopontoUtilizador());
             RegistarCommand = new Command(async () => await RedirecionarCadastroEcoponto());
             DirecionaraParaUtilizadorCommand = new Command(async () => await DirecionaraParaLoginUtilizador());
@@ -80,6 +83,7 @@ namespace Ecoleta.ViewModels.Ecopontos
                 {
                     string mensagem = $"bem-Vindo(a) {eAutenticado.Username}.";
 
+
                     Preferences.Set("utilizadorEcopontoId", eAutenticado.IdEcoponto);
                     Preferences.Set("utilizadorUsernameEcoponto", eAutenticado.Username);
                     Preferences.Set("utilizadorEmailEcoponto", eAutenticado.Email);
@@ -110,6 +114,9 @@ namespace Ecoleta.ViewModels.Ecopontos
                     .DisplayAlert("Informação", ex.Message + "Detalhes:" + ex.InnerException, "OK");
             }
         }
+
+      
+
     }
 }
 

@@ -8,96 +8,101 @@
         <Button Command="{Binding RegistrarCommand}" Text="Registrar Bride" HorizontalOptions="End"></Button>
     </Shell.TitleView>
 
-    <VerticalStackLayout>
-        <ScrollView>
-            <VerticalStackLayout Margin="10, 20, 0, 0" VerticalOptions="FillAndExpand">
-                <ListView x:Name="listView" HasUnevenRows="True" ItemsSource="{Binding Brindes}" SelectedItem="{Binding BrindeSelecionado}" >
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                           
-                                <ViewCell>
-                                <ViewCell.ContextActions>
-                                    <MenuItem Text="Remover" IsDestructive="True" 
+    <ScrollView>
+
+         <VerticalStackLayout Margin="10, 20, 0, 0" VerticalOptions="FillAndExpand">
+
+
+            <ListView x:Name="listView" HasUnevenRows="True" ItemsSource="{Binding Brindes}" SelectedItem="{Binding BrindeSelecionado}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Remover" IsDestructive="True" 
                                               Command="{Binding Path=BindingContext.RemoverBrindeCommand, Source={x:Reference listView}}"
                                               CommandParameter="{Binding .}"></MenuItem>
-                                </ViewCell.ContextActions>
-                                <Grid Margin="20,50" Background="#E1E1E1" RowSpacing="10">
+                            </ViewCell.ContextActions>
+
+                            <Grid Margin="20,50" Background="#E1E1E1" RowSpacing="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                    <RowDefinition Height="240"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="0" BackgroundColor="ForestGreen">
+
+
+                                    <Label Text="{Binding NomeBrinde}" FontSize="Large"  Grid.Column="0" TextColor="AliceBlue"  HorizontalOptions="Center"  VerticalOptions="Center"  />
+                                </Grid>
+                                <Image Source="caneca.png"  WidthRequest="240"  HeightRequest="240" Grid.Row="1" />
+
+
+                                <Grid Grid.Row="2" RowSpacing="20" ColumnSpacing="10" Margin="0,10,0,0" Padding="10">
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="50"/>
-                                        <RowDefinition Height="240"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    
-                                    <Grid Grid.Row="0" BackgroundColor="ForestGreen">
 
-
-                                        <Label Text="{Binding NomeBrinde}" FontSize="Large"  Grid.Column="0" TextColor="AliceBlue"  HorizontalOptions="Center"  VerticalOptions="Center"  />
-                                    </Grid>
-                                    <Image Source="caneca.png"  WidthRequest="240"  HeightRequest="240" Grid.Row="1" />
-
-
-                                    <Grid Grid.Row="2" RowSpacing="20" ColumnSpacing="10" Margin="0,10,0,0" Padding="10">   
-
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*"/>
-                                        </Grid.ColumnDefinitions>
+                                    <Grid Grid.Row="0" Grid.Column="0" RowSpacing="10">
                                         <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
                                             <RowDefinition Height="*"/>
                                         </Grid.RowDefinitions>
 
-                                        <Grid Grid.Row="0" Grid.Column="0" RowSpacing="10">
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="*"/>
-                                                <RowDefinition Height="*"/>
-                                                <RowDefinition Height="*"/>
-                                                <RowDefinition Height="*"/>
-                                                <RowDefinition Height="*"/>
-                                                <RowDefinition Height="*"/>
-                                                <RowDefinition Height="*"/>
-                                            </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="140"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
 
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="140"/>
-                                                <ColumnDefinition Width="*"/>
-                                            </Grid.ColumnDefinitions>
-
-                                            <Label Text="IdBrinde : "  FontAttributes="Bold" FontSize="Large" Grid.Row="0" Grid.Column="0"  HorizontalOptions="Start" />
-                                            <Label Text="{Binding IdBrinde}"  FontAttributes="Bold" FontSize="Large" Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" />
+                                        <Label Text="IdBrinde : "  FontAttributes="Bold" FontSize="Large" Grid.Row="0" Grid.Column="0"  HorizontalOptions="Start" />
+                                        <Label Text="{Binding IdBrinde}"  FontAttributes="Bold" FontSize="Large" Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" />
 
 
-                                            <Label Text="Nome :"   FontAttributes="Bold" FontSize="Medium" Grid.Row="1" Grid.Column="0" HorizontalOptions="Start"/>
-                                            <Label Text="{Binding NomeBrinde}" FontSize="Medium"  Grid.Row="1" Grid.Column="1"/>
+                                        <Label Text="Nome :"   FontAttributes="Bold" FontSize="Medium" Grid.Row="1" Grid.Column="0" HorizontalOptions="Start"/>
+                                        <Label Text="{Binding NomeBrinde}" FontSize="Medium"  Grid.Row="1" Grid.Column="1"/>
 
-                                            <Label Text="Descricao :"  FontAttributes="Bold" FontSize="Medium" Grid.Row="2" Grid.Column="0" VerticalOptions="Start" HorizontalOptions="Start"/>
-                                            <Label Text="{Binding DescricaoBrinde}" FontSize="Medium"  Grid.Row="2" Grid.Column="1"/>
-
-
-                                            <Label Text="Validade :"  FontAttributes="Bold" FontSize="Medium" Grid.Row="3" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Start"/>
-                                            <Label Text="{Binding Validade}" FontSize="Medium" Grid.Row="3" Grid.Column="1"/>
-
-                                            <Label Text="Quantidade :"  FontAttributes="Bold" FontSize="Medium" Grid.Row="4" Grid.Column="0" HorizontalOptions="Start"/>
-                                            <Label Text="{Binding Quantidade}" FontSize="Medium" Grid.Row="4" Grid.Column="1"/>
-
-                                            <Label Text="Valor de Ecopoints :" FontSize="Medium" FontAttributes="Bold" Grid.Row="5" Grid.Column="0" HorizontalOptions="Start"/>
-                                            <Label Text="{Binding ValorEcopoints}" FontSize="Medium" Grid.Row="5" Grid.Column="1" VerticalOptions="End"/>
-
-                                            <Label Text="Cadastro :"  FontAttributes="Bold" FontSize="Medium" Grid.Row="6" Grid.Column="0" HorizontalOptions="Start"/>
-                                            <Label Text="{Binding Cadastro}" FontSize="Medium" Grid.Row="6" Grid.Column="1"/>
+                                        <Label Text="Descricao :"  FontAttributes="Bold" FontSize="Medium" Grid.Row="2" Grid.Column="0" VerticalOptions="Start" HorizontalOptions="Start"/>
+                                        <Label Text="{Binding DescricaoBrinde}" FontSize="Medium"  Grid.Row="2" Grid.Column="1"/>
 
 
-                                        </Grid>
-                                       
+                                        <Label Text="Validade :"  FontAttributes="Bold" FontSize="Medium" Grid.Row="3" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Start"/>
+                                        <Label Text="{Binding Validade}" FontSize="Medium" Grid.Row="3" Grid.Column="1"/>
+
+                                        <Label Text="Quantidade :"  FontAttributes="Bold" FontSize="Medium" Grid.Row="4" Grid.Column="0" HorizontalOptions="Start"/>
+                                        <Label Text="{Binding Quantidade}" FontSize="Medium" Grid.Row="4" Grid.Column="1"/>
+
+                                        <Label Text="Valor de Ecopoints :" FontSize="Medium" FontAttributes="Bold" Grid.Row="5" Grid.Column="0" HorizontalOptions="Start"/>
+                                        <Label Text="{Binding ValorEcopoints}" FontSize="Medium" Grid.Row="5" Grid.Column="1" VerticalOptions="End"/>
+
+                                        <Label Text="Cadastro :"  FontAttributes="Bold" FontSize="Medium" Grid.Row="6" Grid.Column="0" HorizontalOptions="Start"/>
+                                        <Label Text="{Binding Cadastro}" FontSize="Medium" Grid.Row="6" Grid.Column="1"/>
+
 
                                     </Grid>
 
+
                                 </Grid>
-                            </ViewCell>
-                     
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </VerticalStackLayout>
-        </ScrollView>
-    </VerticalStackLayout>
+
+                            </Grid>
+
+                        </ViewCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
 
 </ContentPage>

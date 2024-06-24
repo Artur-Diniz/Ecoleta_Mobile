@@ -20,12 +20,14 @@ namespace EcoletaApp.ViewModels.Utililizador
         public ICommand DirecionarCadastroCommand { get; set; }
         public ICommand DirecionaraParaEcopontoCommand {  get; set; }
 
+
         private CancellationToken _cancellationToken;
         private bool _isCheckingLocation;
 
         public utlizadorViewModel()
         {
             uService = new utilizadorService();
+            DirecionaraParaEcopontoCommand = new Command(async () => await DirecionaraParaEcoponto());
 
             InicializarCommands();
         }
@@ -35,8 +37,9 @@ namespace EcoletaApp.ViewModels.Utililizador
             AutenticarCommand = new Command(async  () => await AutenticarUtilizador());
             RegistrarCommand = new Command(async () => await ResgistarUtilizador());
             DirecionarCadastroCommand = new Command(async () => await DirencionarParaCadastro());
-            DirecionaraParaEcopontoCommand = new Command(async () => await DirecionaraParaEcoponto());
+
         }
+
 
         #region Atributos Utilizador
         private int idUtilizador = 0;
@@ -113,13 +116,16 @@ namespace EcoletaApp.ViewModels.Utililizador
                     Utilizador uAutenticado = await uService.GetForIdFromUsername(u.Username);
                     string mensagem = $"Bem-vindo(a) {uAutenticado.Username}.";
 
+                    Preferences.Clear("IdUtilizador");
                     Preferences.Set("IdUtilizador", uAutenticado.IdUtilizador);
                     Preferences.Set("UtilizadorUsername", uAutenticado.Username);
                     Preferences.Set("UtilizadorEmail", uAutenticado.Email);
 
-                    await Application.Current.MainPage.DisplayAlert("Informação", "foi", "OK");
 
-                    Application.Current.MainPage = new MainPage();
+
+                    await Application.Current.MainPage.DisplayAlert("Informação", mensagem, "OK");
+
+                    Application.Current.MainPage = new AppShell();
                 }
                 else
                     throw new Exception("nome de usuário ou Senha Incorreta");
@@ -149,7 +155,8 @@ namespace EcoletaApp.ViewModels.Utililizador
         {
             try
             {
-                await Shell.Current.GoToAsync("LoginEcoponto");                  
+                await Application.Current.MainPage.Navigation.PushAsync(new Ecoleta.Views.Ecoponto.LoginEcopontoView()) ;
+
             }
             catch (Exception ex)
             {
@@ -158,8 +165,7 @@ namespace EcoletaApp.ViewModels.Utililizador
             }
         }
 
-     
-
+      
 
     }
 }
