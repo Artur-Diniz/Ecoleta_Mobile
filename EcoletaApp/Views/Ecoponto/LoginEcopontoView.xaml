@@ -19,7 +19,7 @@
             </Grid.RowDefinitions>
 
 
-            <Grid Grid.Row="0" RowSpacing="5">
+            <Grid Grid.Row="0" RowSpacing="10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="60"/>
                     <RowDefinition Height="50"/>
@@ -32,7 +32,7 @@
                 </Entry>
             </Grid>
 
-            <Grid Grid.Row="1" RowSpacing="5">
+            <Grid Grid.Row="1" RowSpacing="10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="60"/>
                     <RowDefinition Height="50"/>

@@ -45,13 +45,13 @@ namespace EcoletaApp.Services.UtilizadorService
 
             return u;
         }
-        public async Task<Utilizador> PostRegistrarUtilizadorAsync(Utilizador u)
+        public async Task<bool> PostRegistrarUtilizadorAsync(Utilizador u)
         {
             //  'http://localhost:5268/api/Utilizador/Registrar?username=caio&passwordString=123456'
             string urlComplementar = string.Format("Registrar?username={0}&passwordString={1}",u.Username, u.PasswordString );
-            u.IdUtilizador = await _request.PostReturnIntAsync(ApiUrlBase + urlComplementar, u);
+            await _request.PostSemTokenAsync(ApiUrlBase + urlComplementar, u);
 
-            return u;
+            return true;
         }
 
         public async Task<bool> PostAutenticarUtilizadorAsync(Utilizador u)

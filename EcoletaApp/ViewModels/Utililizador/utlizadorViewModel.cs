@@ -65,23 +65,25 @@ namespace EcoletaApp.ViewModels.Utililizador
         {
             try
             {
-                Utilizador u = new Utilizador();
-                u.Username = Username;
-                u.PasswordString = Passwordstring;
-                u.Email = Email;
-                u.SituacaoEmail = true;
-                u.Nome = Nome;
-                u.TotalEcoPoints = 0;
-                u.DataAcesso = DateTime.Now;
+                Utilizador u = new Utilizador()
+                {
+                    Username = this.Username,
+                    PasswordString = this.Passwordstring,
+                    Email = this.Email,
+                    SituacaoEmail = true,
+                    Nome = this.Nome,
+                    TotalEcoPoints = 0,
+                    DataAcesso = DateTime.Now
+                };
 
 
-                Utilizador uRegisterado = await uService.PostRegistrarUtilizadorAsync(u);
+                bool test = await uService.PostRegistrarUtilizadorAsync(u);
                 Utilizador uAutenticado = await uService.GetForIdFromUsername(u.Username);
 
 
-                if (uRegisterado.IdUtilizador != 0)
+                if (test == true)
                 {
-                    string mensagem = $"Utilizador {uRegisterado.Username} foi registardo com sucesso.";
+                    string mensagem = $"Utilizador {u.Username} foi registardo com sucesso.";
                     await Application.Current.MainPage.DisplayAlert("Infromação", mensagem, "OK");
 
                     await Application.Current.MainPage.Navigation.PopAsync();
